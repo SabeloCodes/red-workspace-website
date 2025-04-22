@@ -3,7 +3,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 30px;
+    padding: 24px 0; /* Remove side padding for precise control */
     color: #fff;
     position: absolute;
     top: 0;
@@ -19,13 +19,14 @@
 .logo {
     display: flex;
     align-items: center;
-    font-size: 1.5em;
+    font-size: 2.16em;
     font-weight: bold;
+    margin-left: 30px; /* Add left margin to align with carousel edge */
 }
 
 .logo img {
-    height: 30px;
-    margin-right: 10px;
+    height: 60px;
+    margin-right: 12px;
 }
 
 /* Navigation Menu */
@@ -38,13 +39,14 @@ nav ul {
 }
 
 nav ul li {
-    margin-left: 20px;
+    margin-left: 18px;
 }
 
 nav ul li a {
     text-decoration: none;
     color: #fff;
-    font-size: 1em;
+    font-size: 1.2em;
+    font-weight: bold;
 }
 
 nav ul li a:hover {
@@ -55,15 +57,15 @@ nav ul li a:hover {
 .social-icons {
     display: flex;
     align-items: center;
-    gap: 15px;
-    margin-left: 20px;
-    flex-shrink: 0; /* Prevent shrinking */
-    overflow: visible; /* Ensure icons aren't clipped */
+    gap: 12px;
+    margin-right: 30px; /* Add right margin to align with carousel edge */
+    flex-shrink: 0;
+    overflow: visible;
 }
 
 .social-icons a {
     color: #fff;
-    font-size: 1.2em;
+    font-size: 1.44em;
     text-decoration: none;
 }
 
@@ -74,54 +76,58 @@ nav ul li a:hover {
 /* Add transition and hover effects */
 .social-icons a {
     color: #fff;
-    font-size: 1.2em;
-    margin-left: 15px;
+    font-size: 1.44em;
     text-decoration: none;
     transition: transform 0.3s ease, color 0.3s ease;
     display: inline-block;
+    margin-left: 0; /* Reset individual left margin */
 }
 
 .social-icons a:hover {
     color: #ff4d4f; /* Example: red on hover */
-    transform: translateY(-5px); /* Slight upward movement */
+    transform: translateY(-5px);
 }
 
 /* Stack icons vertically on small screens */
 @media (max-width: 768px) {
-    .social-icons {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        margin-left: 10px;
-        gap: 10px;
-    }
-
-    .social-icons a {
-        margin-left: 0; /* Reset inline margin */
-    }
-}
-
-/* Responsive Layout Fixes */
-@media (max-width: 768px) {
     .nav-container {
         flex-direction: column;
         align-items: flex-start;
-        padding: 15px;
+        padding: 18px;
     }
 
     nav ul {
-        margin-top: 10px;
+        margin-top: 12px;
         flex-direction: column;
     }
 
     nav ul li {
         margin-left: 0;
-        margin-bottom: 10px;
+        margin-bottom: 12px;
+    }
+
+    .social-icons {
+        margin-top: 12px;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        margin-right: 0; /* Reset right margin */
+    }
+}
+
+/* Further adjustments for very small screens */
+@media (max-width: 600px) {
+    .nav-container {
+        flex-direction: column;
+        align-items: center; /* Center items on very small screens */
+    }
+
+    nav ul {
+        align-items: center; /* Center navigation items */
     }
 
     .social-icons {
         margin-top: 10px;
-        justify-content: flex-start;
-        flex-wrap: wrap;
+        justify-content: center; /* Center social icons */
+        margin-right: 0; /* Reset right margin */
     }
 }
