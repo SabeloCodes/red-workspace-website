@@ -1,61 +1,127 @@
 /* Styles for the navigation bar */
 .nav-container {
     display: flex;
-    justify-content: space-between; /* Distribute items along the line */
-    align-items: center; /* Vertically align items in the center */
-    padding: 20px 30px; /* Add some padding around the navigation */
-    color: #fff; /* Default text color for navigation items */
-    position: absolute; /* To overlay on the carousel */
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    color: #fff;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 10; /* Ensure it's above the carousel */
+    max-width: 1400px;
+    margin: 0 auto;
+    z-index: 10;
+    flex-wrap: wrap; /* Enables wrapping for smaller screens */
 }
 
+/* Logo Section */
 .logo {
     display: flex;
     align-items: center;
-    font-size: 1.5em; /* Adjust logo text size */
+    font-size: 1.5em;
     font-weight: bold;
 }
 
 .logo img {
-    height: 30px; /* Adjust logo image height */
+    height: 30px;
     margin-right: 10px;
 }
 
+/* Navigation Menu */
 nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
+    flex-wrap: wrap;
 }
 
 nav ul li {
-    margin-left: 20px; /* Space between navigation items */
+    margin-left: 20px;
 }
 
 nav ul li a {
     text-decoration: none;
     color: #fff;
-    font-size: 1em; /* Adjust navigation link size */
+    font-size: 1em;
 }
 
 nav ul li a:hover {
-    /* Add hover effect if needed */
     opacity: 0.8;
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-left: 20px;
+    flex-shrink: 0; /* Prevent shrinking */
+    overflow: visible; /* Ensure icons aren't clipped */
 }
 
 .social-icons a {
     color: #fff;
-    font-size: 1.2em; /* Adjust social icon size */
-    margin-left: 15px;
+    font-size: 1.2em;
     text-decoration: none;
 }
 
 .social-icons a:hover {
-    /* Add hover effect if needed */
     opacity: 0.8;
 }
 
-/* You might need to add more specific styles to match your design perfectly */
+/* Add transition and hover effects */
+.social-icons a {
+    color: #fff;
+    font-size: 1.2em;
+    margin-left: 15px;
+    text-decoration: none;
+    transition: transform 0.3s ease, color 0.3s ease;
+    display: inline-block;
+}
+
+.social-icons a:hover {
+    color: #ff4d4f; /* Example: red on hover */
+    transform: translateY(-5px); /* Slight upward movement */
+}
+
+/* Stack icons vertically on small screens */
+@media (max-width: 768px) {
+    .social-icons {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        margin-left: 10px;
+        gap: 10px;
+    }
+
+    .social-icons a {
+        margin-left: 0; /* Reset inline margin */
+    }
+}
+
+/* Responsive Layout Fixes */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+    }
+
+    nav ul {
+        margin-top: 10px;
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+
+    .social-icons {
+        margin-top: 10px;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+}
