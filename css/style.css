@@ -1,0 +1,254 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif; /* You can choose a different font */
+    color: #fff; /* Default text color on the carousel */
+    overflow-x: hidden; /* Prevent horizontal scrollbar */
+}
+
+#carousel-container {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Adjust as needed for your layout */
+    overflow: hidden;
+}
+
+.carousel-slide {
+    width: 100%;
+    height: 100%;
+    background-color: #333; /* Fallback color */
+    background-size: cover;
+    background-position: center;
+  }
+
+  .carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 1s ease-in-out;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 20px 0;
+    text-align: center;
+  }
+
+  .button-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .section-title {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+  }
+  
+  .dark-bg .section-title {
+    color: #fff;
+  }
+
+.logo-overlay img {
+    width: 150px; /* Adjust size as needed */
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.logo-overlay h1 {
+    font-size: 2.5em; /* Adjust size as needed */
+    margin-bottom: 10px;
+}
+
+.logo-overlay p {
+    font-size: 1.2em; /* Adjust size as needed */
+    max-width: 600px; /* Limit text width */
+    margin: 0 auto 20px;
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.button {
+    display: inline-block;
+    padding: 15px 30px;
+    text-decoration: none;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* --- Who We Are Section Styles --- */
+#who-we-are {
+    display: flex;
+    flex-direction: column; /* Stack text above image on smaller screens */
+    padding: 80px 30px;
+    background-color: #f7f7f7; /* Light grey background */
+    align-items: center; /* Center content horizontally */
+}
+
+#who-we-are .container {
+    text-align: center;
+    margin-bottom: 40px; /* Space between text and image */
+    max-width: 800px; /* Limit text width */
+}
+
+#who-we-are .section-title {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#who-we-are .section-description {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+#who-we-are .button-container {
+    /* Center the button */
+}
+
+#who-we-are .meet-the-team {
+    display: inline-block;
+    padding: 15px 30px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #333;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+#who-we-are .meet-the-team:hover {
+    background-color: #555;
+}
+
+#who-we-are .image-container {
+    width: 100%;
+    max-width: 1200px; /* Adjust as needed */
+}
+
+#who-we-are .image-container img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* Media query for larger screens to have text and image side-by-side */
+@media (min-width: 900px) {
+    #who-we-are {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #who-we-are .container {
+        text-align: left;
+        margin-bottom: 0;
+        padding-right: 40px; /* Space between text and image */
+    }
+
+    #who-we-are .image-container {
+        width: 50%; /* Adjust as needed */
+    }
+}
+
+/* --- What We Do Section Styles --- */
+#what-we-do {
+    padding: 80px 30px;
+    background-color: #333; /* Dark background */
+    color: #fff;
+    text-align: center;
+}
+
+#what-we-do .section-title {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+}
+
+#what-we-do .services-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px; /* Space between service items */
+    max-width: 1200px; /* Limit width of the list */
+}
+
+#what-we-do .service-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px; /* Adjust as needed */
+}
+
+#what-we-do .service-item img {
+    max-width: 80px; /* Adjust icon size */
+    height: auto;
+    margin-bottom: 15px;
+}
+
+#what-we-do .service-item h3 {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#what-we-do .button-container {
+    /* Center the button */
+}
+
+#what-we-do .view-all-services {
+    display: inline-block;
+    padding: 15px 30px;
+    text-decoration: none;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+#what-we-do .view-all-services:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Utility class for dark backgrounds */
+.dark-bg {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Utility class for section containers */
+.section {
+    padding: 80px 30px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.section-title {
+    text-align: center;
+    color: #333; /* Default title color */
+    margin-bottom: 30px;
+}
+

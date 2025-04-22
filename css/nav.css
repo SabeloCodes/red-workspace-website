@@ -1,0 +1,61 @@
+/* Styles for the navigation bar */
+.nav-container {
+    display: flex;
+    justify-content: space-between; /* Distribute items along the line */
+    align-items: center; /* Vertically align items in the center */
+    padding: 20px 30px; /* Add some padding around the navigation */
+    color: #fff; /* Default text color for navigation items */
+    position: absolute; /* To overlay on the carousel */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10; /* Ensure it's above the carousel */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5em; /* Adjust logo text size */
+    font-weight: bold;
+}
+
+.logo img {
+    height: 30px; /* Adjust logo image height */
+    margin-right: 10px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px; /* Space between navigation items */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1em; /* Adjust navigation link size */
+}
+
+nav ul li a:hover {
+    /* Add hover effect if needed */
+    opacity: 0.8;
+}
+
+.social-icons a {
+    color: #fff;
+    font-size: 1.2em; /* Adjust social icon size */
+    margin-left: 15px;
+    text-decoration: none;
+}
+
+.social-icons a:hover {
+    /* Add hover effect if needed */
+    opacity: 0.8;
+}
+
+/* You might need to add more specific styles to match your design perfectly */

@@ -1,0 +1,12 @@
+/* Styles for the footer */
+.footer-container {
+    background-color: #333; /* Example background color */
+    color: #fff; /* Text color for the footer */
+    padding: 20px;
+    text-align: center;
+    font-size: 0.9em;
+    position: relative; /* For potential absolute positioning of elements within */
+    width: 100%;
+}
+
+/* You might need to add more specific styles to match your design perfectly */
