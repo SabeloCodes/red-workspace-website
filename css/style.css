@@ -26,6 +26,7 @@ body, html {
     height: 100%;
     object-fit: cover;
     transition: opacity 1s ease-in-out;
+    filter: grayscale(100%); /* Makes the image completely grayscale */
   }
 
   .overlay {
