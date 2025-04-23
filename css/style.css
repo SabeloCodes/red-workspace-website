@@ -525,3 +525,91 @@ body, html {
     }
   }
 
+  /* Testimonials Section */
+.testimonials-section {
+    background-color: #444; /* Dark background as per the image */
+    color: #fff;
+    padding: 80px 20px;
+    text-align: center;
+  }
+  
+  .testimonials-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 40px;
+  }
+  
+  .testimonials-carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    max-width: 900px; /* Adjust as needed */
+    margin: 0 auto;
+    padding: 0 60px; /* Add padding to the sides of the carousel container */
+  }
+  
+  .testimonial-slide {
+    display: none;
+    text-align: center;
+    padding: 0 40px;
+  }
+  
+  .testimonial-slide.active {
+    display: block;
+  }
+  
+  .testimonial-text {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+  
+  .testimonial-author {
+    font-style: italic;
+    font-size: 1rem;
+    color: #ddd;
+  }
+  
+  .testimonial-arrow {
+    font-size: 3.6rem; /* Increased by 20% (3rem * 1.2) */
+    color: #fff;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 10px;
+    outline: none;
+  }
+  
+  .prev-testimonial {
+    left: 20px; /* Adjust as needed */
+  }
+  
+  .next-testimonial {
+    right: 20px; /* Adjust as needed */
+  }
+  
+  .testimonial-arrow:hover {
+    color: #ccc;
+  }
+  
+  /* Mobile adjustments for testimonials */
+  @media (max-width: 768px) {
+    .testimonials-carousel {
+      padding: 0 30px; /* Adjust mobile padding */
+    }
+  
+    .testimonial-slide {
+      padding: 0 20px;
+    }
+  
+    .testimonial-arrow {
+      font-size: 2.4rem; /* Increased mobile arrow size */
+      left: 10px; /* Adjust mobile arrow position */
+      right: 10px; /* Adjust mobile arrow position */
+    }
+  }
+

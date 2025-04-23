@@ -97,3 +97,38 @@ document.addEventListener("DOMContentLoaded", () => {
 
     updateSlide(currentIndex);
 });
+
+// --- Testimonials Carousel Logic ---
+document.addEventListener('DOMContentLoaded', function() {
+    const testimonialsCarousel = document.querySelector('.testimonials-carousel');
+    const testimonialSlides = document.querySelectorAll('.testimonial-slide');
+    const prevButton = document.querySelector('.prev-testimonial');
+    const nextButton = document.querySelector('.next-testimonial');
+    let currentIndex = 0;
+
+    function showSlide(index) {
+      testimonialSlides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (i === index) {
+          slide.classList.add('active');
+        }
+      });
+    }
+
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % testimonialSlides.length;
+      showSlide(currentIndex);
+    }
+
+    function prevSlide() {
+      currentIndex = (currentIndex - 1 + testimonialSlides.length) % testimonialSlides.length;
+      showSlide(currentIndex);
+    }
+
+    if (prevButton && nextButton) {
+      prevButton.addEventListener('click', prevSlide);
+      nextButton.addEventListener('click', nextSlide);
+    }
+
+    showSlide(currentIndex); // Show the initial slide
+  });
