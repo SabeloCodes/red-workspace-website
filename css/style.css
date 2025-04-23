@@ -6,6 +6,66 @@ body, html {
     overflow-x: hidden; /* Prevent horizontal scrollbar */
 }
 
+/* Global Focus Styles for Accessibility */
+:focus {
+    outline: 2px solid #c0392b;
+    outline-offset: 4px;
+  }
+
+/* -------------------- Shared Button Styles -------------------- */
+
+.btn {
+    display: inline-block;
+    padding: 15px 30px;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border-radius: 0; /* ✅ Removes curved edges */
+  }
+
+  /* Explore Our Work and Let's Talk Buttons */
+  .explore-work,
+  .lets-talk {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border: 2px solid #fff;
+  }
+  
+  .explore-work:hover,
+  .lets-talk:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    color: #000;
+  }
+
+/* Button Variant: Meet the Team (light bg) */
+.btn-light-outline {
+    background-color: #d5d5d5
+    ;
+    color: #000;
+    border-color: #000;
+  }
+  
+  .btn-light-outline:hover {
+    background-color: #000;
+    color: #d5d5d5;
+  }
+
+  /* Button Variant: View All Services (light text, dark bg section) */
+  .btn-dark-outline {
+    background-color: transparent;
+    color: #fff;
+    border-color: #fff;
+  }
+  
+  .btn-dark-outline:hover {
+    background-color: #fff;
+    color: #000;
+  }
+  
+
 #carousel-container {
     position: relative;
     width: 100%;
@@ -62,18 +122,19 @@ body, html {
 }
 
 .logo-overlay h1 {
-    font-size: 2.5em; /* Adjust size as needed */
+    font-size: 3.9rem; /* Adjust size as needed */
     margin-bottom: 10px;
 }
 
 .logo-overlay p {
-    font-size: 1.2em; /* Adjust size as needed */
+    font-size: 1.69rem; /* Adjust size as needed */
     max-width: 600px; /* Limit text width */
     margin: 0 auto 20px;
 }
 
 .buttons {
     display: flex;
+    border-radius: 0; /* remove rounding */
     gap: 20px;
 }
 
@@ -92,64 +153,49 @@ body, html {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* --- Who We Are Section Styles --- */
+/* -------------------- Who We Are Section Styles -------------------- */
 #who-we-are {
     display: flex;
     flex-direction: column; /* Stack text above image on smaller screens */
     padding: 80px 30px;
-    background-color: #f7f7f7; /* Light grey background */
+    background-color: #d5d5d5; /* Light grey background */
     align-items: center; /* Center content horizontally */
-}
-
-#who-we-are .container {
+  }
+  
+  #who-we-are .container {
     text-align: center;
     margin-bottom: 40px; /* Space between text and image */
     max-width: 800px; /* Limit text width */
-}
-
-#who-we-are .section-title {
+  }
+  
+  #who-we-are .section-title {
     font-size: 2.5em;
     color: #333;
     margin-bottom: 20px;
-}
-
-#who-we-are .section-description {
+  }
+  
+  #who-we-are .section-description {
     color: #555;
     line-height: 1.6;
     margin-bottom: 30px;
-}
-
-#who-we-are .button-container {
-    /* Center the button */
-}
-
-#who-we-are .meet-the-team {
-    display: inline-block;
-    padding: 15px 30px;
-    text-decoration: none;
-    color: #fff;
-    background-color: #333;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-}
-
-#who-we-are .meet-the-team:hover {
-    background-color: #555;
-}
-
-#who-we-are .image-container {
+  }
+  
+  #who-we-are .button-container {
+    text-align: center;
+  }
+  
+  #who-we-are .image-container {
     width: 100%;
     max-width: 1200px; /* Adjust as needed */
-}
-
-#who-we-are .image-container img {
+  }
+  
+  #who-we-are .image-container img {
     display: block;
     width: 100%;
     height: auto;
-}
+  }
 
-/* Media query for larger screens to have text and image side-by-side */
+/* -------------------- Responsive Layout Adjustments -------------------- */
 @media (min-width: 900px) {
     #who-we-are {
         flex-direction: row;
@@ -168,20 +214,20 @@ body, html {
     }
 }
 
-/* --- What We Do Section Styles --- */
+/* -------------------- What We Do Section Styles -------------------- */
 #what-we-do {
     padding: 80px 30px;
     background-color: #333; /* Dark background */
     color: #fff;
     text-align: center;
-}
-
-#what-we-do .section-title {
+  }
+  
+  #what-we-do .section-title {
     font-size: 2.5em;
     margin-bottom: 40px;
-}
-
-#what-we-do .services-list {
+  }
+  
+  #what-we-do .services-list {
     list-style: none;
     padding: 0;
     margin: 0 auto 40px;
@@ -190,45 +236,30 @@ body, html {
     justify-content: center;
     gap: 30px; /* Space between service items */
     max-width: 1200px; /* Limit width of the list */
-}
-
-#what-we-do .service-item {
+  }
+  
+  #what-we-do .service-item {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 200px; /* Adjust as needed */
-}
-
-#what-we-do .service-item img {
+  }
+  
+  #what-we-do .service-item img {
     max-width: 80px; /* Adjust icon size */
     height: auto;
     margin-bottom: 15px;
-}
-
-#what-we-do .service-item h3 {
+  }
+  
+  #what-we-do .service-item h3 {
     font-size: 1.2em;
     font-weight: bold;
     margin-bottom: 10px;
-}
-
-#what-we-do .button-container {
-    /* Center the button */
-}
-
-#what-we-do .view-all-services {
-    display: inline-block;
-    padding: 15px 30px;
-    text-decoration: none;
-    color: #fff;
-    border: 2px solid #fff;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-}
-
-#what-we-do .view-all-services:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-}
+  }
+  
+  #what-we-do .button-container {
+    text-align: center;
+  }
 
 /* Utility class for dark backgrounds */
 .dark-bg {
@@ -253,7 +284,7 @@ body, html {
     margin-bottom: 30px;
 }
 
-/* Our Portfolio Section */
+/* -------------------- Our Portfolio Section Styles -------------------- */
 .portfolio-section {
     display: flex;
     flex-direction: column;
@@ -279,7 +310,7 @@ body, html {
 }
 
 .portfolio-image {
-    flex: 2; /* Take 2x space compared to text */
+    flex: 2;
 }
 
 .portfolio-image img {
@@ -296,7 +327,7 @@ body, html {
 
 .portfolio-slide {
     display: none;
-    width: 100%; /* Ensure it doesn’t overflow */
+    width: 100%;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
@@ -317,7 +348,7 @@ body, html {
     position: relative;
     background-color: #eee;
     padding: 30px;
-    transform: translateX(-40px); /* slightly overlap */
+    transform: translateX(-40px);
     max-width: 400px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     z-index: 1;
@@ -326,6 +357,7 @@ body, html {
 .portfolio-text h3 {
     font-size: 1.8rem;
     font-weight: bold;
+    color: #333;
     margin-bottom: 15px;
 }
 
@@ -336,27 +368,13 @@ body, html {
     margin-bottom: 20px;
 }
 
-.portfolio-button {
-    display: inline-block;
-    padding: 10px 20px;
-    border: 3px solid #333;
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    transition: background 0.3s, color 0.3s;
-}
-
-.portfolio-button:hover {
-    background-color: #333;
-    color: #fff;
-}
-
-.portfolio-arrow {
-    font-size: 2.4em; /* 20% larger */
+/* Shared Arrow Styles */
+.portfolio-arrow,
+.portfolio-prev,
+.portfolio-next {
+    font-size: 2.4em;
     cursor: pointer;
-    margin: 0 40px;
     color: #c0392b;
-    transition: transform 0.3s ease;
     background: none;
     border: none;
     padding: 10px;
@@ -364,6 +382,7 @@ body, html {
     top: 50%;
     transform: translateY(-50%);
     z-index: 3;
+    transition: transform 0.3s ease;
 }
 
 .portfolio-prev {
@@ -374,7 +393,9 @@ body, html {
     right: 20px;
 }
 
-.portfolio-arrow:hover {
+.portfolio-arrow:hover,
+.portfolio-prev:hover,
+.portfolio-next:hover {
     transform: translateY(-50%) scale(1.2);
 }
 
@@ -429,17 +450,14 @@ body, html {
         box-shadow: none;
     }
 
-    .portfolio-arrow {
+    .portfolio-arrow,
+    .portfolio-prev,
+    .portfolio-next {
         font-size: 2em;
         margin: 0 20px;
         position: static;
         transform: none;
         padding: 10px;
-    }
-
-    .portfolio-prev,
-    .portfolio-next {
-        position: static;
     }
 
     .portfolio-dots {
@@ -527,7 +545,7 @@ body, html {
 
   /* Testimonials Section */
 .testimonials-section {
-    background-color: #444; /* Dark background as per the image */
+    background-color: #444;
     color: #fff;
     padding: 80px 20px;
     text-align: center;
@@ -544,9 +562,9 @@ body, html {
     align-items: center;
     justify-content: center;
     position: relative;
-    max-width: 900px; /* Adjust as needed */
+    max-width: 900px;
     margin: 0 auto;
-    padding: 0 60px; /* Add padding to the sides of the carousel container */
+    padding: 0 60px;
   }
   
   .testimonial-slide {
@@ -571,8 +589,11 @@ body, html {
     color: #ddd;
   }
   
-  .testimonial-arrow {
-    font-size: 3.6rem; /* Increased by 20% (3rem * 1.2) */
+  /* Shared Arrow Styles */
+  .testimonial-arrow,
+  .prev-testimonial,
+  .next-testimonial {
+    font-size: 3.6rem;
     color: #fff;
     background: none;
     border: none;
@@ -582,34 +603,40 @@ body, html {
     transform: translateY(-50%);
     padding: 10px;
     outline: none;
+    transition: color 0.3s;
   }
   
   .prev-testimonial {
-    left: 20px; /* Adjust as needed */
+    left: 20px;
   }
   
   .next-testimonial {
-    right: 20px; /* Adjust as needed */
+    right: 20px;
   }
   
-  .testimonial-arrow:hover {
+  .testimonial-arrow:hover,
+  .prev-testimonial:hover,
+  .next-testimonial:hover {
     color: #ccc;
   }
   
   /* Mobile adjustments for testimonials */
   @media (max-width: 768px) {
     .testimonials-carousel {
-      padding: 0 30px; /* Adjust mobile padding */
+      padding: 0 30px;
     }
   
     .testimonial-slide {
       padding: 0 20px;
     }
   
-    .testimonial-arrow {
-      font-size: 2.4rem; /* Increased mobile arrow size */
-      left: 10px; /* Adjust mobile arrow position */
-      right: 10px; /* Adjust mobile arrow position */
+    .testimonial-arrow,
+    .prev-testimonial,
+    .next-testimonial {
+      font-size: 2.4rem;
+      position: static;
+      transform: none;
+      margin: 0 10px;
     }
   }
 
