@@ -1,9 +1,10 @@
-/* Styles for the navigation bar */
+/* NAVIGATION STYLES */
+
 .nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 24px 0; /* Remove side padding for precise control */
+    padding: 24px 0;
     color: #fff;
     position: absolute;
     top: 0;
@@ -12,24 +13,26 @@
     max-width: 1400px;
     margin: 0 auto;
     z-index: 10;
-    flex-wrap: wrap; /* Enables wrapping for smaller screens */
+    flex-wrap: wrap;
 }
 
-/* Logo Section */
+/* LOGO STYLING */
 .logo {
     display: flex;
     align-items: center;
-    font-size: 2.16em;
-    font-weight: bold;
-    margin-left: 30px; /* Add left margin to align with carousel edge */
+    margin-left: 30px;
+    flex-shrink: 0; /* Prevent shrinking */
 }
 
 .logo img {
-    height: 60px;
+    height: 90px;
+    max-height: 90px;
+    width: auto;
+    object-fit: contain;
     margin-right: 12px;
 }
 
-/* Navigation Menu */
+/* NAVIGATION MENU */
 nav ul {
     list-style: none;
     padding: 0;
@@ -47,53 +50,54 @@ nav ul li a {
     color: #fff;
     font-size: 1.2em;
     font-weight: bold;
+    transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
-    opacity: 0.8;
+    color: rgba(210, 47, 43, 0.7); /* #D22F2B with opacity */
 }
 
-/* Social Icons */
+nav ul li a:active {
+    color: #D22F2B; /* Full red on click */
+}
+
+/* SOCIAL ICONS */
 .social-icons {
     display: flex;
     align-items: center;
     gap: 12px;
-    margin-right: 30px; /* Add right margin to align with carousel edge */
+    margin-right: 30px;
     flex-shrink: 0;
     overflow: visible;
 }
 
 .social-icons a {
     color: #fff;
-    font-size: 1.44em;
-    text-decoration: none;
-}
-
-.social-icons a:hover {
-    opacity: 0.8;
-}
-
-/* Add transition and hover effects */
-.social-icons a {
-    color: #fff;
-    font-size: 1.44em;
+    font-size: 1.152em;
     text-decoration: none;
     transition: transform 0.3s ease, color 0.3s ease;
-    display: inline-block;
-    margin-left: 0; /* Reset individual left margin */
+}
+
+.social-icons a img {
+    height: 1.152em;
+    width: auto;
 }
 
 .social-icons a:hover {
-    color: #ff4d4f; /* Example: red on hover */
+    color: #ff4d4f;
     transform: translateY(-5px);
 }
 
-/* Stack icons vertically on small screens */
+/* RESPONSIVE STYLES */
 @media (max-width: 768px) {
     .nav-container {
         flex-direction: column;
         align-items: flex-start;
         padding: 18px;
+    }
+
+    .logo img {
+        height: 72px;
     }
 
     nav ul {
@@ -110,24 +114,24 @@ nav ul li a:hover {
         margin-top: 12px;
         justify-content: flex-start;
         flex-wrap: wrap;
-        margin-right: 0; /* Reset right margin */
+        margin-right: 0;
     }
 }
 
-/* Further adjustments for very small screens */
-@media (max-width: 600px) {
+@media (max-width: 480px) {
     .nav-container {
-        flex-direction: column;
-        align-items: center; /* Center items on very small screens */
+        align-items: center;
+    }
+
+    .logo img {
+        height: 60px;
     }
 
     nav ul {
-        align-items: center; /* Center navigation items */
+        align-items: center;
     }
 
     .social-icons {
-        margin-top: 10px;
-        justify-content: center; /* Center social icons */
-        margin-right: 0; /* Reset right margin */
+        justify-content: center;
     }
 }
