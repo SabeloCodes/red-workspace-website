@@ -64,6 +64,19 @@ body, html {
     background-color: #fff;
     color: #000;
   }
+
+    /* Button Variant: Let's Talk (Dark text, dark border) */
+  .btn-light-section-dark-outline {
+    background-color: transparent;
+    color: #000;
+    border: 2px solid #000;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .btn-light-section-dark-outline:hover {
+    background-color: #000;
+    color: #fff;
+  }
   
 
 #carousel-container {
@@ -323,6 +336,8 @@ body, html {
     align-items: center;
     justify-content: center;
     position: relative;
+    transform: translateX(-10%); /* nudges both image + text box left */
+    gap: 40px; /* adds space between image and text box */
   }
   
   .portfolio-image {
@@ -340,12 +355,14 @@ body, html {
   .portfolio-text {
     flex: 0 0 auto;
     position: absolute;
-    right: 10%;
-    background-color: #d5d5d5; /* changed from white */
+    left: 50%; /* Moves it further to the right */
+    top: 50%;
+    margin-left: 40px; /* Adjust this value as needed */
+    transform: translateY(-50%); /* Center vertically */
+    background-color: #d5d5d5;
     padding: 40px 30px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
     z-index: 2;
-    transform: translateX(-20%);
     max-width: 400px;
     text-align: center;
   }
@@ -472,65 +489,61 @@ body, html {
 .why-red-section {
     background-color: #f1f1f1;
     text-align: center;
-    padding: 80px 20px;
-  }
-  
-  .why-red-title {
-    font-size: 2.5rem;
+    padding: 60px 20px; /* Reduced from 80px */
+}
+
+.why-red-title {
+    font-size: 2.3rem; /* Slightly smaller */
     font-weight: bold;
     color: #c0392b;
-    margin-bottom: 60px;
-  }
-  
-  .why-red-features {
+    margin-bottom: 40px; /* Reduced from 60px */
+}
+
+.why-red-features {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 60px;
-    margin-bottom: 50px;
-  }
-  
-  .feature-box {
-    max-width: 280px;
+    gap: 40px; /* Reduced from 60px */
+    margin-bottom: 30px; /* Reduced from 50px */
+}
+
+.feature-box {
+    max-width: 260px; /* Slightly narrower */
     text-align: center;
-  }
-  
-  .feature-box img {
-    width: 120px; /* Increased from 80px to 120px (50% larger) */
+}
+
+.feature-box img {
+    width: 100px;
     height: auto;
-    margin-bottom: 20px;
-    filter: brightness(0) saturate(100%) invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%); /* Makes most icons black */
+    margin-bottom: 16px;
+    object-fit: contain;
+    filter: none;
   }
   
+.feature-box h3 {
+    font-size: 1.3rem; /* Slightly smaller */
+    font-weight: 800;
+    color: black;
+    margin-bottom: 6px; /* Tighter spacing */
+}
+
+.feature-box p {
+    font-size: 0.95rem; /* Slightly smaller text */
+    color: #333;
+}
+
+.lets-talk-button {
+    padding: 14px 36px; /* Slightly smaller */
+    font-size: 1.1rem; /* Slightly smaller */
+    margin-top: 10px;
+}
+
   /* Alternative if using inline SVGs or SVGs with CSS fill support */
   .feature-box svg {
     width: 120px;
     height: auto;
     fill: #000;
     margin-bottom: 20px;
-  }
-  
-  .feature-box h3 {
-    font-size: 1.4rem;
-    font-weight: 800; /* Bold the headings */
-    color: black;
-    margin-bottom: 10px;
-  }
-  
-  .feature-box p {
-    font-size: 1rem;
-    color: #333;
-  }
-  
-  .lets-talk-button {
-    display: inline-block;
-    padding: 16px 40px;
-    border: 3px solid #333;
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    font-size: 1.2rem;
-    transition: background 0.3s, color 0.3s;
   }
   
   .lets-talk-button:hover {
