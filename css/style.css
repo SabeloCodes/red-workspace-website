@@ -1,3 +1,6 @@
+/* css/style.css */
+
+/* Reset body and html margins and padding, set default font and prevent horizontal scroll */
 body, html {
     margin: 0;
     padding: 0;
@@ -10,206 +13,234 @@ body, html {
 :focus {
     outline: 2px solid #c0392b;
     outline-offset: 4px;
-  }
+}
 
 /* -------------------- Shared Button Styles -------------------- */
-
 .btn {
-    display: inline-block;
-    padding: 15px 30px;
-    font-weight: bold;
+    border: 2px solid #fff;
+    padding: 12px 25px;
     text-decoration: none;
-    text-align: center;
-    border: 2px solid transparent;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    border-radius: 0; /* ✅ Removes curved edges */
-  }
+    font-weight: bold;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.15);
+    transition: 0.3s;
+}
 
-  /* Explore Our Work and Let's Talk Buttons */
-  .explore-work,
-  .lets-talk {
+.btn:hover {
+    background: #fff;
+    color: #000;
+}
+
+/* Explore Our Work and Let's Talk Buttons (specific styles for carousel) */
+.explore-work,
+.lets-talk {
     background-color: rgba(255, 255, 255, 0.2);
     color: #fff;
     border: 2px solid #fff;
-  }
-  
-  .explore-work:hover,
-  .lets-talk:hover {
+}
+
+.explore-work:hover,
+.lets-talk:hover {
     background-color: rgba(255, 255, 255, 0.4);
     color: #000;
-  }
+}
 
-/* Button Variant: Meet the Team (light bg) */
+/* Button Variant: Meet the Team (light background section) */
 .btn-light-outline {
-    background-color: #d5d5d5
-    ;
+    background-color: #d5d5d5;
     color: #000;
     border-color: #000;
-  }
-  
-  .btn-light-outline:hover {
+}
+
+.btn-light-outline:hover {
     background-color: #000;
     color: #d5d5d5;
-  }
+}
 
-  /* Button Variant: View All Services (light text, dark bg section) */
-  .btn-dark-outline {
+/* Button Variant: View All Services (light text, dark background section) */
+.btn-dark-outline {
     background-color: transparent;
     color: #fff;
     border-color: #fff;
-  }
-  
-  .btn-dark-outline:hover {
+}
+
+.btn-dark-outline:hover {
     background-color: #fff;
     color: #000;
-  }
+}
 
-    /* Button Variant: Let's Talk (Dark text, dark border) */
-  .btn-light-section-dark-outline {
+/* Button Variant: Let's Talk (Dark text, dark border - for light sections) */
+.btn-light-section-dark-outline {
     background-color: transparent;
     color: #000;
     border: 2px solid #000;
     transition: background-color 0.3s ease, color 0.3s ease;
-  }
-  
-  .btn-light-section-dark-outline:hover {
+}
+
+.btn-light-section-dark-outline:hover {
     background-color: #000;
     color: #fff;
-  }
-  
+}
+
+/* -------------------- Carousel Styles -------------------- */
 
 #carousel-container {
     position: relative;
     width: 100%;
-    height: 100vh; /* Adjust as needed for your layout */
+    height: 100vh;
     overflow: hidden;
-}
-
-.carousel-slide {
-    width: 100%;
-    height: 100%;
-    background-color: #333; /* Fallback color */
-    background-size: cover;
-    background-position: center;
   }
-
-  .carousel-slide img {
+  
+  /* Both carousel images are layered and animated */
+  #carousel-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
     transition: opacity 1s ease-in-out;
-    filter: grayscale(100%); /* Makes the image completely grayscale */
+    filter: grayscale(100%) brightness(0.8); /* full monochrome + slightly darker */
+    animation: zoomIn 20s ease-in-out infinite alternate; /* continuous slow zoom */
+    z-index: 1; /* background layer behind overlay */
   }
-
+  
+  /* The visible image fades in */
+  #carousel-container img.fade-in {
+    opacity: 1;
+  }
+  
+  /* Zoom Animation Keyframes */
+  @keyframes zoomIn {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.1);
+    }
+  }
+  
+  /* -------------------- Overlay Styles -------------------- */
+  
+  /* Main overlay container */
   .overlay {
     position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 100px 20px 0;
     text-align: center;
-  }
-
-  .button-container {
-    text-align: center;
-    margin-top: 20px;
+    color: #ffffff;
+    z-index: 5; /* ensure it's above images */
+    overflow: hidden;
   }
   
+  /* Dark gradient overlay */
+  .overlay::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.5) 100%);
+    z-index: 1;
+  }
+  
+  /* All content inside overlay must sit above the gradient */
+  .overlay > * {
+    position: relative;
+    z-index: 2;
+  }
+  
+  /* -------------------- Overlay Content Specific Styles -------------------- */
+  
+  /* Title inside overlay */
   .section-title {
     font-size: 2.5em;
     margin-bottom: 30px;
   }
   
+  /* White color if dark background */
   .dark-bg .section-title {
     color: #fff;
   }
-
-.logo-overlay img {
-    width: 150px; /* Adjust size as needed */
+  
+  /* Logo Overlay Text */
+  .logo-overlay h1 {
+    font-size: 3.9rem;
+    margin-bottom: 10px;
+    text-shadow: 0px 3px 10px rgba(0, 0, 0, 0.7);
+  }
+  
+  .logo-overlay p {
+    font-size: 1.69rem;
+    max-width: 600px;
+    margin: 0 auto 20px;
+    text-shadow: 0px 3px 10px rgba(0, 0, 0, 0.7);
+  }
+  
+  /* Logo image if used */
+  .logo-overlay img {
+    width: 150px;
     height: auto;
     margin-bottom: 20px;
-}
-
-.logo-overlay h1 {
-    font-size: 3.9rem; /* Adjust size as needed */
-    margin-bottom: 10px;
-}
-
-.logo-overlay p {
-    font-size: 1.69rem; /* Adjust size as needed */
-    max-width: 600px; /* Limit text width */
-    margin: 0 auto 20px;
-}
-
-.buttons {
+  }
+  
+  /* Buttons inside overlay */
+  .buttons {
     display: flex;
-    border-radius: 0; /* remove rounding */
     gap: 20px;
-}
-
-/*.button {
-    display: inline-block;
-    padding: 15px 30px;
-    text-decoration: none;
-    color: #fff;
-    border: 2px solid #fff;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-}
-
-.button:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-}
-*/
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+  }
 
 /* -------------------- Who We Are Section Styles -------------------- */
 #who-we-are {
     display: flex;
     flex-direction: column; /* Stack text above image on smaller screens */
     padding: 80px 30px;
-    background-color: #d5d5d5; /* Light grey background */
+    background-color: #e6e6e6; /* White background */
     align-items: center; /* Center content horizontally */
-  }
-  
-  #who-we-are .container {
+}
+
+#who-we-are .container {
     text-align: center;
     margin-bottom: 40px; /* Space between text and image */
     max-width: 800px; /* Limit text width */
-  }
-  
-  #who-we-are .section-title {
+}
+
+#who-we-are .section-title {
     font-size: 2.5em;
     color: #333;
     margin-bottom: 20px;
-  }
-  
-  #who-we-are .section-description {
+}
+
+#who-we-are .section-description {
     color: #555;
     line-height: 1.6;
     margin-bottom: 30px;
-  }
-  
-  #who-we-are .button-container {
-    text-align: center;
-  }
-  
-  #who-we-are .image-container {
-    width: 100%;
-    max-width: 1200px; /* Adjust as needed */
-  }
-  
-  #who-we-are .image-container img {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
+}
 
-/* -------------------- Responsive Layout Adjustments -------------------- */
+#who-we-are .button-container {
+    text-align: center;
+}
+
+#who-we-are .image-container img {
+    width: 100%;
+    height: 400px; /* Adjust height as needed */
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+}
+
+/* Responsive layout for Who We Are section */
 @media (min-width: 900px) {
     #who-we-are {
         flex-direction: row;
@@ -234,14 +265,14 @@ body, html {
     background-color: #333; /* Dark background */
     color: #fff;
     text-align: center;
-  }
-  
-  #what-we-do .section-title {
+}
+
+#what-we-do .section-title {
     font-size: 2.5em;
     margin-bottom: 40px;
-  }
-  
-  #what-we-do .services-list {
+}
+
+#what-we-do .services-list {
     list-style: none;
     padding: 0;
     margin: 0 auto 40px;
@@ -250,114 +281,91 @@ body, html {
     justify-content: center;
     gap: 30px; /* Space between service items */
     max-width: 1200px; /* Limit width of the list */
-  }
-  
-  #what-we-do .service-item {
+}
+
+#what-we-do .service-item {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 200px; /* Adjust as needed */
-  }
-  
-  #what-we-do .service-item img {
+}
+
+#what-we-do .service-item img {
     max-width: 80px; /* Adjust icon size */
     height: auto;
     margin-bottom: 15px;
-  }
-  
-  #what-we-do .service-item h3 {
+}
+
+#what-we-do .service-item h3 {
     font-size: 1.2em;
     font-weight: bold;
     margin-bottom: 10px;
-  }
-  
-  #what-we-do .button-container {
+}
+
+#what-we-do .button-container {
     text-align: center;
-  }
-
-/* Utility class for dark backgrounds */
-.dark-bg {
-    background-color: #333;
-    color: #fff;
-}
-
-/* Utility class for section containers */
-.section {
-    padding: 80px 30px;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
-}
-
-.section-title {
-    text-align: center;
-    color: #333; /* Default title color */
-    margin-bottom: 30px;
 }
 
 /* -------------------- Our Portfolio Section Styles -------------------- */
 .portfolio-section {
     position: relative;
     padding: 80px 30px;
-    background-color: #ffff;
+    background-color: #fff;
     overflow: hidden;
     text-align: center;
-  }
-  
-  .portfolio-title {
+}
+
+.portfolio-title {
     font-size: 2.5rem;
     font-weight: bold;
     margin-bottom: 40px;
     color: black;
-  }
-  
-  .portfolio-carousel {
+}
+
+.portfolio-carousel {
     max-width: 1200px;
-    min-height: 400px; /* Or however tall your content typically is */
+    min-height: 400px; /* Adjust based on your content */
     margin: 0 auto;
     position: relative;
     overflow: hidden;
-  }
-  
-  .portfolio-slide {
+}
+
+.portfolio-slide {
     display: none;
     width: 100%;
-  }
-  
-  .portfolio-slide.active {
+}
+
+.portfolio-slide.active {
     display: block;
-  }
-  
-  .portfolio-content {
+}
+
+.portfolio-content {
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    transform: translateX(-10%); /* nudges both image + text box left */
-    gap: 40px; /* adds space between image and text box */
-  }
-  
-  .portfolio-image {
+    gap: 40px; /* Space between image and text */
+    transform: translateX(-10%); /* Nudge content slightly left to center better visually */
+}
+
+.portfolio-image {
     flex: 0 0 50%;
     position: relative;
     z-index: 1;
-  }
-  
-  .portfolio-image img {
+}
+
+.portfolio-image img {
     width: 100%;
     height: auto;
     display: block;
-  }
-  
-  .portfolio-text {
+}
+
+.portfolio-text {
     flex: 0 0 auto;
     position: absolute;
-    left: 50%; /* Moves it further to the right */
+    left: 50%; /* Position the left edge at the horizontal center */
     top: 50%;
-    margin-left: 40px; /* Adjust this value as needed */
+    margin-left: 40px; /* Adjust for desired spacing from the image */
     transform: translateY(-50%); /* Center vertically */
     background-color: #d5d5d5;
     padding: 40px 30px;
@@ -365,35 +373,36 @@ body, html {
     z-index: 2;
     max-width: 400px;
     text-align: center;
-  }
-  
-  .portfolio-text h3 {
+}
+
+.portfolio-text h3 {
     color: black;
     margin-bottom: 20px;
-  }
-  
-  .portfolio-text p {
+}
+
+.portfolio-text p {
     color: #333;
     margin-bottom: 20px;
     line-height: 1.6;
     font-size: 1rem;
-  }
-  
-  .portfolio-text .btn {
+}
+
+.portfolio-text .btn {
     margin: 0 auto;
-  }
-  
-  .fade-in {
-    animation: fadeIn 0.5s ease-in-out;
-  }
-  
-  @keyframes fadeIn {
+}
+
+/* Fade-in animation for portfolio slides */
+@keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
-  }
-  
-  /* Arrows */
-  .portfolio-arrow {
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Navigation arrows for portfolio */
+.portfolio-arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -405,44 +414,37 @@ body, html {
     padding: 10px;
     z-index: 10;
     transition: background 0.3s ease;
-  }
-  
-  .portfolio-prev {
-    left: 10px;
-  }
-  
-  .portfolio-next {
-    right: 10px;
-  }
-
-  .portfolio-prev:focus,
-.portfolio-next:focus {
-  outline: none;
-  box-shadow: none;
 }
 
-/* For accessibility when using keyboard */
+.portfolio-prev {
+    left: 10px;
+}
+
+.portfolio-next {
+    right: 10px;
+}
+
 .portfolio-arrow:focus {
     outline: none;
-  }
-  
-  .portfolio-arrow:focus-visible {
-    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.15); /* soft glow */
+}
+
+.portfolio-arrow:focus-visible {
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.15);
     border-radius: 8px;
-  }
-  
-  .portfolio-arrow:hover {
+}
+
+.portfolio-arrow:hover {
     background: rgba(255, 255, 255, 1);
-  }
-  
-  /* Dots */
-  .portfolio-dots {
+}
+
+/* Dot indicators for portfolio */
+.portfolio-dots {
     display: flex;
     justify-content: center;
     margin-top: 20px;
-  }
-  
-  .portfolio-dot {
+}
+
+.portfolio-dot {
     width: 10px;
     height: 10px;
     border-radius: 50%;
@@ -450,130 +452,124 @@ body, html {
     margin: 0 5px;
     cursor: pointer;
     transition: background 0.3s;
-  }
-  
-  .portfolio-dot.active {
+}
+
+.portfolio-dot.active {
     background: #333;
-  }
-  
-  /* Mobile Styles */
-  @media (max-width: 768px) {
+}
+
+/* Mobile styles for portfolio section */
+@media (max-width: 768px) {
     .portfolio-content {
-      flex-direction: column;
+        flex-direction: column;
+        align-items: center;
+        transform: translateX(0); /* Reset nudge */
     }
-  
+
     .portfolio-image,
     .portfolio-text {
-      position: static;
-      transform: none;
-      width: 90%;
-      max-width: 100%;
+        position: static;
+        transform: none;
+        width: 90%;
+        max-width: 100%;
     }
-  
-    .portfolio-text {
-      margin-top: 20px;
-      box-shadow: none;
-    }
-  
-    .portfolio-arrow {
-      position: static;
-      transform: none;
-      font-size: 2rem;
-      margin: 20px;
-      font-size: 1.8rem;
-      padding: 8px;
-    }
-  }
 
-/* Why Choose RED Workspace Section */
+    .portfolio-text {
+        margin-top: 20px;
+        box-shadow: none;
+        left: auto; /* Reset absolute positioning */
+        padding: 20px;
+    }
+
+    .portfolio-arrow {
+        position: static;
+        transform: none;
+        font-size: 2rem;
+        margin: 20px auto; /* Center arrows */
+        display: block; /* Stack arrows */
+    }
+}
+
+/* -------------------- Why Choose RED Workspace Section Styles -------------------- */
 .why-red-section {
     background-color: #f1f1f1;
     text-align: center;
-    padding: 60px 20px; /* Reduced from 80px */
+    padding: 60px 20px;
 }
 
 .why-red-title {
-    font-size: 2.3rem; /* Slightly smaller */
+    font-size: 2.3rem;
     font-weight: bold;
     color: #c0392b;
-    margin-bottom: 40px; /* Reduced from 60px */
+    margin-bottom: 40px;
 }
 
 .why-red-features {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 40px; /* Reduced from 60px */
-    margin-bottom: 30px; /* Reduced from 50px */
+    gap: 40px;
+    margin-bottom: 30px;
 }
 
 .feature-box {
-    max-width: 260px; /* Slightly narrower */
+    max-width: 260px;
     text-align: center;
 }
 
 .feature-box img {
-    width: 100px;
+    width: 120px;
     height: auto;
-    margin-bottom: 16px;
-    object-fit: contain;
-    filter: none;
-  }
-  
-.feature-box h3 {
-    font-size: 1.3rem; /* Slightly smaller */
-    font-weight: 800;
-    color: black;
-    margin-bottom: 6px; /* Tighter spacing */
+    margin-bottom: 10px;
+    filter: grayscale(100%) brightness(0) contrast(100%); /* Style for monochrome icons */
 }
 
+feature-box h3 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: black;
+    margin-bottom: 6px;
+} 
+
 .feature-box p {
-    font-size: 0.95rem; /* Slightly smaller text */
+    font-size: 0.95rem;
     color: #333;
 }
 
 .lets-talk-button {
-    padding: 14px 36px; /* Slightly smaller */
-    font-size: 1.1rem; /* Slightly smaller */
+    padding: 14px 36px;
+    font-size: 1.1rem;
     margin-top: 10px;
 }
 
-  /* Alternative if using inline SVGs or SVGs with CSS fill support */
-  .feature-box svg {
-    width: 120px;
-    height: auto;
-    fill: #000;
-    margin-bottom: 20px;
-  }
-  
-  .lets-talk-button:hover {
+.lets-talk-button:hover {
     background-color: #333;
     color: #fff;
-  }
-  
-  /* Mobile Responsive */
-  @media (max-width: 768px) {
-    .why-red-features {
-      flex-direction: column;
-      align-items: center;
-    }
-  }
+}
 
-  /* Testimonials Section */
+/* Mobile Responsive for Why Choose Us Section */
+@media (max-width: 768px) {
+    .why-red-features {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* -------------------- Testimonials Section Styles -------------------- */
 .testimonials-section {
     background-color: #444;
     color: #fff;
     padding: 80px 20px;
     text-align: center;
-  }
-  
-  .testimonials-title {
+}
+
+.testimonials-title {
     font-size: 2.5rem;
     font-weight: bold;
     margin-bottom: 40px;
-  }
-  
-  .testimonials-carousel {
+}
+
+.testimonials-carousel {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -581,34 +577,34 @@ body, html {
     max-width: 900px;
     margin: 0 auto;
     padding: 0 60px;
-  }
-  
-  .testimonial-slide {
+}
+
+.testimonial-slide {
     display: none;
     text-align: center;
     padding: 0 40px;
-  }
-  
-  .testimonial-slide.active {
+}
+
+.testimonial-slide.active {
     display: block;
-  }
-  
-  .testimonial-text {
+}
+
+.testimonial-text {
     font-size: 1.2rem;
     line-height: 1.8;
     margin-bottom: 20px;
-  }
-  
-  .testimonial-author {
+}
+
+.testimonial-author {
     font-style: italic;
     font-size: 1rem;
     color: #ddd;
-  }
-  
-  /* Shared Arrow Styles */
-  .testimonial-arrow,
-  .prev-testimonial,
-  .next-testimonial {
+}
+
+/* Shared Arrow Styles for Testimonials */
+.testimonial-arrow,
+.prev-testimonial,
+.next-testimonial {
     font-size: 3.6rem;
     color: #fff;
     background: none;
@@ -620,39 +616,38 @@ body, html {
     padding: 10px;
     outline: none;
     transition: color 0.3s;
-  }
-  
-  .prev-testimonial {
+}
+
+.prev-testimonial {
     left: 20px;
-  }
-  
-  .next-testimonial {
+}
+
+.next-testimonial {
     right: 20px;
-  }
-  
-  .testimonial-arrow:hover,
-  .prev-testimonial:hover,
-  .next-testimonial:hover {
+}
+
+.testimonial-arrow:hover,
+.prev-testimonial:hover,
+.next-testimonial:hover {
     color: #ccc;
-  }
-  
-  /* Mobile adjustments for testimonials */
-  @media (max-width: 768px) {
+}
+
+/* Mobile adjustments for testimonials */
+@media (max-width: 768px) {
     .testimonials-carousel {
-      padding: 0 30px;
+        padding: 0 30px;
     }
-  
+
     .testimonial-slide {
-      padding: 0 20px;
+        padding: 0 20px;
     }
-  
+
     .testimonial-arrow,
     .prev-testimonial,
     .next-testimonial {
-      font-size: 2.4rem;
-      position: static;
-      transform: none;
-      margin: 0 10px;
+        font-size: 2.4rem;
+        position: static;
+        transform: none;
+        margin: 0 10px;
     }
-  }
-
+}

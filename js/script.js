@@ -1,134 +1,184 @@
+// js/script.js
+
 document.addEventListener("DOMContentLoaded", () => {
-    // Inject nav and footer
+    // Inject navigation and footer content
     injectContent("components/nav.html", "navigation");
     injectContent("components/footer.html", "page-footer");
   
-    // Carousel logic
-    const carouselImage = document.getElementById("carousel-image");
-    const images = [
-      "img/PROJECTS/REV_CAPITAL/HighRes__W9A4780-Edit 1.jpg",
-      "img/PROJECTS/REV_CAPITAL/HighRes__W9A4675 1.jpg",
-      "img/PROJECTS/US_HEDGE_FUND/Magnetar_0084.jpg",
-      "img/PROJECTS/US_HEDGE_FUND/Magnetar_0009.jpg"
-    ];
-    let currentIndex = 0;
+    // --- CAROUSEL LOGIC ---
+const images = [
+    "img/PROJECTS/REV_CAPITAL/HighRes__W9A4780-Edit 1.jpg",
+    "img/PROJECTS/REV_CAPITAL/HighRes__W9A4675 1.jpg",
+    "img/PROJECTS/US_HEDGE_FUND/Magnetar_0084.jpg",
+    "img/PROJECTS/US_HEDGE_FUND/Magnetar_0009.jpg"
+  ];
   
-    function changeImage() {
-      let nextIndex;
-      do {
-        nextIndex = Math.floor(Math.random() * images.length);
-      } while (nextIndex === currentIndex);
+  const carouselImage1 = document.getElementById("carousel-image-1");
+  const carouselImage2 = document.getElementById("carousel-image-2");
+  let currentIndex = 0;
+  let isImage1Active = true;
+  const transitionDuration = 1000; // Fade duration
+  const displayDuration = 7000; // Display time per image
   
-      currentIndex = nextIndex;
-      carouselImage.style.opacity = 0;
+  function changeImage() {
+    const activeImage = isImage1Active ? carouselImage1 : carouselImage2;
+    const nextImage = isImage1Active ? carouselImage2 : carouselImage1;
   
-      setTimeout(() => {
-        carouselImage.src = images[currentIndex];
-        carouselImage.style.opacity = 1;
-      }, 1000);
+    // Set the next image source
+    nextImage.src = images[(currentIndex + 1) % images.length];
+  
+    // Bring next image to front
+    nextImage.classList.add("fade-in");
+    activeImage.classList.remove("fade-in");
+  
+    // After transition, swap active
+    setTimeout(() => {
+      currentIndex = (currentIndex + 1) % images.length;
+      isImage1Active = !isImage1Active;
+    }, transitionDuration);
+  }
+  
+  // Initial zoom animation always running
+  carouselImage1.classList.add("zoom-animation");
+  carouselImage2.classList.add("zoom-animation");
+  
+  // Start carousel loop
+  setInterval(changeImage, displayDuration);
+  
+    // --- Portfolio Carousel Logic ---
+    const portfolioCarousel = document.querySelector(".portfolio-carousel");
+    if (portfolioCarousel) {
+      const portfolioSlides = document.querySelectorAll(".portfolio-slide");
+      const portfolioPrevButton = document.querySelector(".portfolio-prev");
+      const portfolioNextButton = document.querySelector(".portfolio-next");
+      const portfolioDotsContainer = document.querySelector(".portfolio-dots");
+      const projects = [
+        {
+          title: "REVCAP",
+          text: `RED Workspace has delivered a dynamic working environment for REVCAP that blends sophistication with functionality. The space is a testament to our commitment to quality design and strategic execution.`,
+          image: "img/PROJECTS/REV_CAPITAL/HighRes__W9A4741.jpg",
+        },
+        {
+          title: "US HEDGE FUND",
+          text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Sed posuere consectetur est at lobortis. Aenean lacinia bibendum nulla sed consectetur.`,
+          image: "img/PROJECTS/US_HEDGE_FUND/Magnetar_0051-HDR.jpg",
+        },
+      ];
+      let portfolioCurrentIndex = 0;
+      let portfolioDots = [];
+  
+      function updatePortfolioSlide(index) {
+        portfolioSlides.forEach((slide, i) => {
+          slide.classList.remove("active");
+          if (i === index) {
+            slide.classList.add("active");
+          }
+        });
+  
+        const currentProject = projects[index];
+        const imageElement = portfolioCarousel.querySelector(".portfolio-image img");
+        const titleElement = portfolioCarousel.querySelector(".portfolio-text h3");
+        const textElement = portfolioCarousel.querySelector(".portfolio-text p");
+  
+        if (imageElement && titleElement && textElement) {
+          imageElement.src = currentProject.image;
+          titleElement.textContent = currentProject.title;
+          textElement.textContent = currentProject.text;
+        }
+  
+        portfolioDots.forEach((dot, i) => {
+          dot.classList.toggle("active", i === index);
+        });
+      }
+  
+      function nextPortfolioSlide() {
+        portfolioCurrentIndex = (portfolioCurrentIndex + 1) % projects.length;
+        updatePortfolioSlide(portfolioCurrentIndex);
+      }
+  
+      function prevPortfolioSlide() {
+        portfolioCurrentIndex =
+          (portfolioCurrentIndex - 1 + projects.length) % projects.length;
+        updatePortfolioSlide(portfolioCurrentIndex);
+      }
+  
+      if (portfolioNextButton) {
+        portfolioNextButton.addEventListener("click", nextPortfolioSlide);
+      }
+      if (portfolioPrevButton) {
+        portfolioPrevButton.addEventListener("click", prevPortfolioSlide);
+      }
+  
+      if (portfolioDotsContainer) {
+        projects.forEach((_, index) => {
+          const dot = document.createElement("span");
+          dot.classList.add("portfolio-dot");
+          if (index === 0) {
+            dot.classList.add("active");
+          }
+          dot.addEventListener("click", () => {
+            portfolioCurrentIndex = index;
+            updatePortfolioSlide(index);
+          });
+          portfolioDotsContainer.appendChild(dot);
+          portfolioDots.push(dot);
+        });
+      }
+  
+      updatePortfolioSlide(portfolioCurrentIndex);
     }
   
-    setInterval(changeImage, 5000);
+    // --- Testimonials Carousel Logic ---
+    const testimonialsCarousel = document.querySelector(".testimonials-carousel");
+    if (testimonialsCarousel) {
+      const testimonialSlides = document.querySelectorAll(".testimonial-slide");
+      const prevTestimonialButton = document.querySelector(".prev-testimonial");
+      const nextTestimonialButton = document.querySelector(".next-testimonial");
+      let testimonialCurrentIndex = 0;
+  
+      function showTestimonialSlide(index) {
+        testimonialSlides.forEach((slide, i) => {
+          slide.classList.remove("active");
+          if (i === index) {
+            slide.classList.add("active");
+          }
+        });
+      }
+  
+      function nextTestimonialSlide() {
+        testimonialCurrentIndex =
+          (testimonialCurrentIndex + 1) % testimonialSlides.length;
+        showTestimonialSlide(testimonialCurrentIndex);
+      }
+  
+      function prevTestimonialSlide() {
+        testimonialCurrentIndex =
+          (testimonialCurrentIndex - 1 + testimonialSlides.length) %
+          testimonialSlides.length;
+        showTestimonialSlide(testimonialCurrentIndex);
+      }
+  
+      if (prevTestimonialButton) {
+        prevTestimonialButton.addEventListener("click", prevTestimonialSlide);
+      }
+      if (nextTestimonialButton) {
+        nextTestimonialButton.addEventListener("click", nextTestimonialSlide);
+      }
+  
+      showTestimonialSlide(testimonialCurrentIndex); // Show the initial slide
+    }
   });
   
   function injectContent(url, targetId) {
     fetch(url)
       .then((res) => res.text())
       .then((html) => {
-        document.getElementById(targetId).innerHTML = html;
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          targetElement.innerHTML = html;
+        } else {
+          console.error(`Target element with ID "${targetId}" not found.`);
+        }
       })
       .catch((err) => console.error(`Error loading ${url}:`, err));
   }
-
-  // --- Portfolio Carousel Logic ---
-document.addEventListener("DOMContentLoaded", () => {
-    const projects = [
-        {
-            title: "REVCAP",
-            text: `For a longstanding client’s second relocation, Red Workspace provided end-to-end support from initial brief and building selection to budget management and final delivery. The project featured major structural works, including a custom cantilevered staircase, and was completed with bespoke joinery and furniture to create a refined industrial-style London HQ.`,
-            image: "img/PROJECTS/REV_CAPITAL/HighRes__W9A4741.jpg"
-        },
-        {
-            title: "US HEDGE FUND",
-            text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet facilisis urna. Praesent facilisis ante sit amet erat imperdiet, vitae tincidunt justo dictum.`,
-            image: "img/PROJECTS/US_HEDGE_FUND/Magnetar_0051-HDR.jpg"
-        }
-    ];
-
-    let currentIndex = 0;
-
-    const imageElement = document.querySelector(".portfolio-image img");
-    const titleElement = document.querySelector(".portfolio-text h3");
-    const textElement = document.querySelector(".portfolio-text p");
-    const dots = document.querySelectorAll(".portfolio-dot");
-
-    function updateSlide(index) {
-        const project = projects[index];
-
-        imageElement.classList.remove("fade-in");
-        void imageElement.offsetWidth; // trigger reflow for re-animation
-        imageElement.classList.add("fade-in");
-
-        imageElement.src = project.image;
-        titleElement.textContent = project.title;
-        textElement.textContent = project.text;
-
-        dots.forEach((dot, i) => {
-            dot.classList.toggle("active", i === index);
-        });
-    }
-
-    document.querySelector(".portfolio-next").addEventListener("click", () => {
-        currentIndex = (currentIndex + 1) % projects.length;
-        updateSlide(currentIndex);
-    });
-
-    document.querySelector(".portfolio-prev").addEventListener("click", () => {
-        currentIndex = (currentIndex - 1 + projects.length) % projects.length;
-        updateSlide(currentIndex);
-    });
-
-    dots.forEach((dot, i) => {
-        dot.addEventListener("click", () => {
-            currentIndex = i;
-            updateSlide(i);
-        });
-    });
-
-    updateSlide(currentIndex);
-});
-
-// --- Testimonials Carousel Logic ---
-document.addEventListener('DOMContentLoaded', function() {
-    const testimonialsCarousel = document.querySelector('.testimonials-carousel');
-    const testimonialSlides = document.querySelectorAll('.testimonial-slide');
-    const prevButton = document.querySelector('.prev-testimonial');
-    const nextButton = document.querySelector('.next-testimonial');
-    let currentIndex = 0;
-
-    function showSlide(index) {
-      testimonialSlides.forEach((slide, i) => {
-        slide.classList.remove('active');
-        if (i === index) {
-          slide.classList.add('active');
-        }
-      });
-    }
-
-    function nextSlide() {
-      currentIndex = (currentIndex + 1) % testimonialSlides.length;
-      showSlide(currentIndex);
-    }
-
-    function prevSlide() {
-      currentIndex = (currentIndex - 1 + testimonialSlides.length) % testimonialSlides.length;
-      showSlide(currentIndex);
-    }
-
-    if (prevButton && nextButton) {
-      prevButton.addEventListener('click', prevSlide);
-      nextButton.addEventListener('click', nextSlide);
-    }
-
-    showSlide(currentIndex); // Show the initial slide
-  });
