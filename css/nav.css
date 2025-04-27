@@ -1,4 +1,4 @@
-/* NAVIGATION STYLES */
+/* -------------------- Navigation Styles -------------------- */
 
 .nav-container {
     display: flex;
@@ -14,124 +14,145 @@
     margin: 0 auto;
     z-index: 10;
     flex-wrap: wrap;
-}
-
-/* LOGO STYLING */
-.logo {
+  }
+  
+  /* LOGO */
+  .logo {
     display: flex;
     align-items: center;
     margin-left: 30px;
-    flex-shrink: 0; /* Prevent shrinking */
-}
-
-.logo img {
+    flex-shrink: 0;
+  }
+  
+  .logo img {
     height: 90px;
-    max-height: 90px;
     width: auto;
     object-fit: contain;
-    margin-right: 12px;
-}
-
-/* NAVIGATION MENU */
-nav ul {
+  }
+  
+  /* MAIN NAVIGATION MENU */
+  nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
     flex-wrap: wrap;
-}
-
-nav ul li {
+  }
+  
+  nav ul li {
     margin-left: 18px;
-}
-
-nav ul li a {
+  }
+  
+  nav ul li a {
     text-decoration: none;
     color: #fff;
     font-size: 1.2em;
     font-weight: bold;
     transition: color 0.3s ease;
-}
-
-nav ul li a:hover {
-    color: rgba(210, 47, 43, 0.7); /* #D22F2B with opacity */
-}
-
-nav ul li a:active {
-    color: #D22F2B; /* Full red on click */
-}
-
-/* SOCIAL ICONS */
-.social-icons {
+  }
+  
+  nav ul li a:hover {
+    color: rgba(210, 47, 43, 0.7); /* #D22F2B with opacity on hover */
+  }
+  
+  nav ul li a:active {
+    color: #D22F2B; /* Solid Red on click */
+  }
+  
+  /* SOCIAL ICONS */
+  .social-icons {
     display: flex;
     align-items: center;
     gap: 12px;
-    margin-right: 30px;
-    flex-shrink: 0;
-    overflow: visible;
-}
+  }
+  
+  .social-icons a {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: transform 0.3s ease;
+  }
 
-.social-icons a {
-    color: #fff;
-    font-size: 1.152em;
-    text-decoration: none;
-    transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.social-icons a img {
-    height: 1.152em;
-    width: auto;
-}
-
-.social-icons a:hover {
-    color: #ff4d4f;
+  /* Social Hover Animation */
+  .social-icons a:hover {
     transform: translateY(-5px);
-}
-
-/* RESPONSIVE STYLES */
-@media (max-width: 768px) {
+  }
+  
+  /* LinkedIn */
+.social-icons a.linkedin {
+    background-image: url('../img/ICONS/social_media_icons/Linkedin-w.png');
+  }
+  
+  .social-icons a.linkedin:hover {
+    background-image: url('../img/ICONS/social_media_icons/LinkedIn-r.png');
+  }
+  
+  /* Facebook */
+  .social-icons a.facebook {
+    background-image: url('../img/ICONS/social_media_icons/Facebook-w.png');
+  }
+  
+  .social-icons a.facebook:hover {
+    background-image: url('../img/ICONS/social_media_icons/communication.png');
+  }
+  
+  /* Instagram */
+  .social-icons a.instagram {
+    background-image: url('../img/ICONS/social_media_icons/Instagram-w.png');
+  }
+  
+  .social-icons a.instagram:hover {
+    background-image: url('../img/ICONS/social_media_icons/Instagram-r.png');
+  }
+  
+  
+  /* -------------------- Responsive Styles -------------------- */
+  @media (max-width: 768px) {
     .nav-container {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 18px;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 18px;
     }
-
+  
     .logo img {
-        height: 72px;
+      height: 72px;
     }
-
+  
     nav ul {
-        margin-top: 12px;
-        flex-direction: column;
+      margin-top: 12px;
+      flex-direction: column;
     }
-
+  
     nav ul li {
-        margin-left: 0;
-        margin-bottom: 12px;
+      margin-left: 0;
+      margin-bottom: 12px;
     }
-
+  
     .social-icons {
-        margin-top: 12px;
-        justify-content: flex-start;
-        flex-wrap: wrap;
-        margin-right: 0;
+      margin-top: 12px;
+      justify-content: flex-start;
+      margin-right: 0;
+      flex-wrap: wrap;
     }
-}
-
-@media (max-width: 480px) {
+  }
+  
+  @media (max-width: 480px) {
     .nav-container {
-        align-items: center;
+      align-items: center;
     }
-
+  
     .logo img {
-        height: 60px;
+      height: 60px;
     }
-
+  
     nav ul {
-        align-items: center;
+      align-items: center;
     }
-
+  
     .social-icons {
-        justify-content: center;
+      justify-content: center;
     }
-}
+  }
