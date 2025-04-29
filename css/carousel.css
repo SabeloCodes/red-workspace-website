@@ -1,0 +1,161 @@
+/* -------------------- Carousel Styles -------------------- */
+
+/* Ensure container positions images on top of each other */
+#carousel-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  /* Carousel images (base style) */
+  #carousel-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    z-index: 0;
+    transition: opacity 1s ease-in-out;
+    pointer-events: none;
+  
+    /* 🔲 Apply grayscale filter to make images monochrome */
+    filter: grayscale(100%);
+  }
+  
+  /* Only the active image is fully visible and in front */
+  #carousel-container img.active {
+    opacity: 1;
+    z-index: 1;
+  }
+  
+  /* Fade-in effect (optional but can reinforce smoother visuals) */
+  .fade-in {
+    transition: opacity 1s ease-in-out;
+  }
+  
+  /* Zoom animation for added depth */
+  .zoom-animation {
+    animation: zoomIn 7s ease-in-out forwards;
+  }
+  
+  @keyframes zoomIn {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.05);
+    }
+  }
+  
+  /* -------------------- Overlay Styles -------------------- */
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 20px 0;
+    text-align: center;
+    color: #ffffff;
+    z-index: 5;
+    overflow: hidden;
+  }
+  
+  /* 🔲 Updated gradient overlay — darker and more focused to improve text contrast */
+  .overlay::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.6) 40%,
+      rgba(0, 0, 0, 0.4) 100%
+    );
+    z-index: 1;
+  }
+  
+  /* Ensure content stays on top of gradient */
+  .overlay > * {
+    position: relative;
+    z-index: 2;
+  }
+  
+  /* -------------------- Overlay Content -------------------- */
+  
+  .logo-overlay h1 {
+    font-size: 3.6rem;
+    margin-bottom: 10px;
+    text-shadow: 0px 3px 10px rgba(0, 0, 0, 0.7);
+    line-height: 1.2;
+  }
+  
+  .logo-overlay p {
+    font-size: 1.5rem;
+    max-width: 650px;
+    margin: 0 auto 20px;
+    text-shadow: 0px 3px 10px rgba(0, 0, 0, 0.7);
+  }
+  
+  /* Optional logo image if added */
+  .logo-overlay img {
+    width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  
+  /* Buttons styling */
+  .buttons {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  /* -------------------- Text Fade-In Animation -------------------- */
+
+/* Generic fade-in from opacity 0 to 1 and slight upward motion */
+@keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Reusable animation class for elements in overlay */
+  .fade-in-up {
+    animation: fadeInUp 1s ease-out forwards;
+  }
+  
+  /* -------------------- Responsive tweaks -------------------- */
+  
+  @media screen and (max-width: 768px) {
+    .logo-overlay h1 {
+      font-size: 2.4rem;
+    }
+  
+    .logo-overlay p {
+      font-size: 1.1rem;
+    }
+  
+    .buttons {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }

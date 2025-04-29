@@ -1,0 +1,214 @@
+/* css/who-we-are.css */
+
+/* Import any shared styles if needed (optional) */
+/* @import url('style.css'); */
+
+/* -------------------- Who We Are Carousel Styles -------------------- */
+#who-we-are-carousel-container {
+    position: relative;
+    width: 100%;
+    height: 80vh; /* Adjust height as needed */
+    overflow: hidden;
+}
+
+#who-we-are-carousel-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Re-using overlay styles from homepage */
+#who-we-are-carousel-container .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.4); /* Adjust overlay darkness */
+    color: #fff;
+}
+
+#who-we-are-carousel-container .logo-overlay h1 {
+    font-size: 3rem; /* Adjust font size */
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+#who-we-are-carousel-container .logo-overlay p {
+    font-size: 1.5rem; /* Adjust font size */
+    max-width: 800px;
+    margin: 0 auto 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+#who-we-are-carousel-container .buttons {
+    display: flex;
+    gap: 20px;
+}
+
+/* -------------------- Introduction Section Styles -------------------- */
+.introduction-container {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 60px;
+    padding: 30px;
+}
+
+.red-title {
+    color: #c0392b; /* Your red color */
+}
+
+.introduction-text {
+    line-height: 1.7;
+    margin-bottom: 20px;
+    font-size: 1.1em;
+    color: #333; /* Adjust text color */
+}
+
+.full-width-image {
+    width: 100%;
+}
+
+.full-width-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* -------------------- The Team Section Styles -------------------- */
+.team-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.team-member-segment {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 60px;
+    gap: 30px;
+}
+
+.team-member-image {
+    flex: 0 0 250px; /* Adjust image width */
+    border-radius: 50%;
+    overflow: hidden;
+    height: 250px; /* Match height to width for circle */
+}
+
+.team-member-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.team-member-info {
+    flex: 1 1 0;
+}
+
+.team-member-info h3 {
+    color: #fff;
+    margin-bottom: 10px;
+    font-size: 1.8em;
+}
+
+.team-member-info p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #ddd;
+}
+
+.social-links {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.social-links img {
+    width: 24px; /* Adjust icon size */
+    height: auto;
+}
+
+/* Adjust layout for smaller screens in the team section */
+@media (max-width: 768px) {
+    .team-member-segment {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .team-member-image {
+        width: 180px;
+        height: 180px;
+        margin-bottom: 20px;
+    }
+
+    .team-member-info {
+        text-align: center;
+    }
+}
+
+/* -------------------- View Our Case Studies Section Styles -------------------- */
+.case-studies-preview-section {
+    position: relative;
+    width: 100%;
+    height: 500px; /* Adjust height as needed */
+    overflow: hidden;
+}
+
+.case-studies-image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.case-studies-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(70%); /* थोड़ा डिम */
+}
+
+.case-studies-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    padding: 15px 30px;
+    font-size: 1.2em;
+}
+
+/* -------------------- General Section Styles (for consistent padding) -------------------- */
+.section {
+    padding: 80px 20px;
+}
+
+.dark-bg {
+    background-color: #333;
+    color: #fff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 40px;
+}
+
+.light {
+    color: #fff;
+}

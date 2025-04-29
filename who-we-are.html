@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Who We Are - RED Workspace</title>
+    <link rel="stylesheet" href="css/style.css"> <link rel="stylesheet" href="css/nav.css">   <link rel="stylesheet" href="css/footer.css?v=2"> <link rel="stylesheet" href="css/who-we-are.css"> <script src="js/script.js" defer></script> </head>
+    
+    <body
+    data-carousel-heading="Where Innovation Meets Precision in Every Space"
+    data-carousel-paragraph="Designing and building high-performance commercial interiors that inspire and deliver."
+    data-carousel-button1="Explore Our Work"
+    data-carousel-button2="Let's Talk"
+  >
+    <header id="navigation"></header>
+    <div id="carousel-placeholder"></div>
+
+    <section id="who-we-are-carousel-container">
+        <div class="carousel-slide">
+            <img id="who-we-are-carousel-image" src="img/PROJECTS/GENERIC/placeholder-image.jpg" alt="Who We Are Banner" />
+        </div>
+        <div class="overlay">
+            <div class="logo-overlay">
+                <h1>Our Vision, Our Team, <br> Our Expertise</h1>
+                <p>Meet the passionate individuals driving innovation and excellence at RED Workspace.</p>
+            </div>
+            <div class="buttons">
+                <a href="#team-section" class="btn explore-work">Meet The Team</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="introduction" class="section">
+        <div class="container introduction-container">
+            <h2 class="section-title red-title">Introduction</h2>
+            <p class="introduction-text">At RED Workspace, we are more than just a commercial interior design and build company. We are a collective of experienced professionals, united by a shared passion for creating exceptional workspaces that inspire and perform.</p>
+            <p class="introduction-text">Our strength lies in the diverse talents and deep industry knowledge of our team. From visionary designers to meticulous project managers and skilled execution specialists, each member plays a crucial role in delivering projects that exceed expectations.</p>
+            <div class="button-container">
+                <a href="#team-section" class="btn btn-light-outline">Meet The Team</a>
+            </div>
+        </div>
+        <div class="full-width-image">
+            <img src="img/PROJECTS/GENERIC/full-width-placeholder.jpg" alt="Our Team Collaboration">
+        </div>
+    </section>
+
+    <section id="team-section" class="section dark-bg">
+        <div class="container team-container">
+            <h2 class="section-title light">Our Leadership Team</h2>
+            <div class="team-member-segment">
+                <div class="team-member-image">
+                    <img src="img/TEAM/placeholder-team-1.jpg" alt="Team Member 1">
+                    </div>
+                <div class="team-member-info">
+                    <h3>[Team Member 1 Name]</h3>
+                    <p>[Team Member 1 Title]</p>
+                    <p>[Brief description of Team Member 1's role and expertise. Focus on their passion and contribution to RED Workspace's vision of challenging norms and creating future-ready workspaces.]</p>
+                    <div class="social-links">
+                        <a href="#" target="_blank"><img src="img/ICONS/social_media_icons/linkedin-white-small.png" alt="LinkedIn"></a>
+                        <a href="#" target="_blank"><img src="img/ICONS/other_icons/email-white-small.png" alt="Email"></a>
+                    </div>
+                    <div class="button-container">
+                        <a href="#" class="btn btn-dark-outline">Read Bio</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-member-segment">
+                <div class="team-member-image">
+                    <img src="img/TEAM/placeholder-team-2.jpg" alt="Team Member 2">
+                    </div>
+                <div class="team-member-info">
+                    <h3>[Team Member 2 Name]</h3>
+                    <p>[Team Member 2 Title]</p>
+                    <p>[Brief description of Team Member 2's role and expertise. Highlight their focus on design innovation and their commitment to functional yet inspiring commercial interiors.]</p>
+                    <div class="social-links">
+                        <a href="#" target="_blank"><img src="img/ICONS/social_media_icons/linkedin-white-small.png" alt="LinkedIn"></a>
+                        <a href="#" target="_blank"><img src="img/ICONS/other_icons/email-white-small.png" alt="Email"></a>
+                    </div>
+                    <div class="button-container">
+                        <a href="#" class="btn btn-dark-outline">Read Bio</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-member-segment">
+                <div class="team-member-image">
+                    <img src="img/TEAM/placeholder-team-3.jpg" alt="Team Member 3">
+                    </div>
+                <div class="team-member-info">
+                    <h3>[Team Member 3 Name]</h3>
+                    <p>[Team Member 3 Title]</p>
+                    <p>[Brief description of Team Member 3's role and expertise. Emphasize their experience in project management and their dedication to seamless execution and delivering high-performance workspaces.]</p>
+                    <div class="social-links">
+                        <a href="#" target="_blank"><img src="img/ICONS/social_media_icons/linkedin-white-small.png" alt="LinkedIn"></a>
+                        <a href="#" target="_blank"><img src="img/ICONS/other_icons/email-white-small.png" alt="Email"></a>
+                    </div>
+                    <div class="button-container">
+                        <a href="#" class="btn btn-dark-outline">Read Bio</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="case-studies-preview" class="case-studies-preview-section">
+        <div class="case-studies-image">
+            <img src="img/PROJECTS/GENERIC/case-study-placeholder.jpg" alt="Case Study Preview">
+            <a href="/case-studies" class="btn btn-light-outline case-studies-button">View Our Case Studies</a>
+        </div>
+    </section>
+
+    <footer id="page-footer"></footer>
+
+    <script>
+        // Dynamically inject navigation and footer (same as homepage)
+        document.addEventListener("DOMContentLoaded", () => {
+            injectContent("components/nav.html", "navigation");
+            injectContent("components/footer.html", "page-footer");
+
+            // Basic carousel functionality (you can adapt the one from the homepage)
+            const carouselContainer = document.getElementById("who-we-are-carousel-container");
+            const carouselImage = document.getElementById("who-we-are-carousel-image");
+            const images = [
+                "img/PROJECTS/GENERIC/placeholder-image.jpg",
+                "img/PROJECTS/GENERIC/placeholder-image-2.jpg",
+                "img/PROJECTS/GENERIC/placeholder-image-3.jpg"
+                // Add your actual carousel images here
+            ];
+            let currentIndex = 0;
+
+            function changeImage() {
+                if (carouselImage) {
+                    carouselImage.src = images[currentIndex];
+                    currentIndex = (currentIndex + 1) % images.length;
+                }
+            }
+
+            // Basic image change every few seconds (adjust as needed)
+            setInterval(changeImage, 5000);
+        });
+
+        function injectContent(url, targetId) {
+            fetch(url)
+                .then(res => res.text())
+                .then(html => {
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        targetElement.innerHTML = html;
+                    } else {
+                        console.error(`Target element with ID "${targetId}" not found.`);
+                    }
+                })
+                .catch(err => console.error(`Error loading ${url}:`, err));
+        }
+    </script>
+</body>
+</html>
