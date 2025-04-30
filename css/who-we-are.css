@@ -1,24 +1,80 @@
-/* css/who-we-are.css */
+/* -------------------- Who We Are Page Styles -------------------- */
 
-/* Import any shared styles if needed (optional) */
-/* @import url('style.css'); */
-
-/* -------------------- Who We Are Carousel Styles -------------------- */
-#who-we-are-carousel-container {
+/* General Section Styles */
+.section {
+    padding: 80px 20px;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+  }
+  
+  .section-title {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 40px;
+  }
+  
+  .red-title {
+    color: #c0392b;
+  }
+  
+  .light {
+    color: #fff;
+  }
+  
+  .dark-bg {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  /* -------------------- Carousel (Same as Homepage) -------------------- */
+  #carousel-container {
     position: relative;
     width: 100%;
-    height: 80vh; /* Adjust height as needed */
+    height: 100vh;
     overflow: hidden;
-}
-
-#who-we-are-carousel-image {
+  }
+  
+  #carousel-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
-
-/* Re-using overlay styles from homepage */
-#who-we-are-carousel-container .overlay {
+    opacity: 0;
+    z-index: 0;
+    transition: opacity 1s ease-in-out;
+    pointer-events: none;
+    filter: grayscale(100%);
+  }
+  
+  #carousel-container img.active {
+    opacity: 1;
+    z-index: 1;
+  }
+  
+  .fade-in {
+    transition: opacity 1s ease-in-out;
+  }
+  
+  .zoom-animation {
+    animation: zoomIn 7s ease-in-out forwards;
+  }
+  
+  @keyframes zoomIn {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.05);
+    }
+  }
+  
+  .overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -28,62 +84,129 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: 100px 20px 0;
     text-align: center;
+    color: #ffffff;
+    z-index: 5;
+    overflow: hidden;
+  }
+  
+  .overlay::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.6) 40%,
+      rgba(0, 0, 0, 0.4) 100%
+    );
+    z-index: 1;
+  }
+  
+  .overlay > * {
+    position: relative;
     z-index: 2;
-    background: rgba(0, 0, 0, 0.4); /* Adjust overlay darkness */
-    color: #fff;
-}
-
-#who-we-are-carousel-container .logo-overlay h1 {
-    font-size: 3rem; /* Adjust font size */
+  }
+  
+  .logo-overlay h1 {
+    font-size: 3.6rem;
     margin-bottom: 10px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-}
-
-#who-we-are-carousel-container .logo-overlay p {
-    font-size: 1.5rem; /* Adjust font size */
-    max-width: 800px;
+    text-shadow: 0px 3px 10px rgba(0, 0, 0, 0.7);
+    line-height: 1.2;
+  }
+  
+  .logo-overlay p {
+    font-size: 1.5rem;
+    max-width: 650px;
     margin: 0 auto 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-}
-
-#who-we-are-carousel-container .buttons {
+    text-shadow: 0px 3px 10px rgba(0, 0, 0, 0.7);
+  }
+  
+  .buttons {
     display: flex;
     gap: 20px;
-}
-
-/* -------------------- Introduction Section Styles -------------------- */
-.introduction-container {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .logo-overlay h1 {
+      font-size: 2.4rem;
+    }
+  
+    .logo-overlay p {
+      font-size: 1.1rem;
+    }
+  
+    .buttons {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+  
+ /* -------------------- Introduction Section Styles -------------------- */
+#introduction {
+    background-color: #222; /* Inverted: dark background */
+    color: #fff;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  
+  .introduction-container {
     text-align: center;
     max-width: 800px;
-    margin: 0 auto 60px;
-    padding: 30px;
-}
-
-.red-title {
-    color: #c0392b; /* Your red color */
-}
-
-.introduction-text {
+    margin: 0 auto;
+    padding: 60px 30px 40px;
+  }
+  
+  .red-title {
+    color: #c0392b;
+  }
+  
+  .introduction-text {
     line-height: 1.7;
     margin-bottom: 20px;
     font-size: 1.1em;
-    color: #333; /* Adjust text color */
-}
+    color: #f0f0f0;
+  }
+  
+  .button-container {
+    margin-top: 30px;
+  }
 
+  /* Full-width image section immediately following introduction */
 .full-width-image {
-    width: 100%;
-}
-
-.full-width-image img {
+    display: block;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  
+  .full-width-image img {
     display: block;
     width: 100%;
     height: auto;
-    object-fit: cover;
-}
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
 
-/* -------------------- The Team Section Styles -------------------- */
+#team-section {
+    margin-top: 0;          /* Prevent top gap from next section */
+    padding-top: 0;
+  }
+  
+  .button-container {
+    margin-top: 30px;
+  }
+  
+  /* -------------------- The Team Section Styles (based on image) -------------------- */
 .team-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -93,16 +216,31 @@
 .team-member-segment {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: flex-start; /* Align items to the top */
     margin-bottom: 60px;
     gap: 30px;
 }
 
 .team-member-image {
-    flex: 0 0 250px; /* Adjust image width */
+    flex: 0 0 150px; /* Adjust image/placeholder width */
+    height: 150px; /* Adjust image/placeholder height */
     border-radius: 50%;
     overflow: hidden;
-    height: 250px; /* Match height to width for circle */
+    background-color: #555; /* Placeholder color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 1.5em; /* Placeholder text size if needed */
+}
+
+.team-member-image.placeholder::before {
+    content: "";
+    display: block;
+    width: 60%;
+    height: 60%;
+    background-color: #777;
+    border-radius: 50%;
 }
 
 .team-member-image img {
@@ -118,25 +256,44 @@
 
 .team-member-info h3 {
     color: #fff;
-    margin-bottom: 10px;
-    font-size: 1.8em;
+    margin-bottom: 5px;
+    font-size: 1.6em;
+    font-weight: bold;
 }
 
 .team-member-info p {
     line-height: 1.6;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     color: #ddd;
+    font-size: 0.95em;
+}
+
+.team-member-info p:nth-child(2) { /* Style the title */
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    font-weight: normal;
+    color: #eee;
 }
 
 .social-links {
     display: flex;
     gap: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .social-links img {
-    width: 24px; /* Adjust icon size */
+    width: 20px; /* Adjust icon size */
     height: auto;
+}
+
+.contact-number {
+    color: #ddd;
+    font-size: 0.9em;
+    margin-bottom: 20px;
+}
+
+.team-member-info .button-container {
+    text-align: left; /* Align button to the left */
 }
 
 /* Adjust layout for smaller screens in the team section */
@@ -144,41 +301,46 @@
     .team-member-segment {
         flex-direction: column;
         text-align: center;
+        align-items: center;
     }
 
     .team-member-image {
-        width: 180px;
-        height: 180px;
+        width: 120px;
+        height: 120px;
         margin-bottom: 20px;
     }
 
     .team-member-info {
         text-align: center;
     }
-}
 
-/* -------------------- View Our Case Studies Section Styles -------------------- */
-.case-studies-preview-section {
+    .team-member-info .button-container {
+        text-align: center;
+    }
+}
+  
+  /* -------------------- Case Studies Section -------------------- */
+  .case-studies-preview-section {
     position: relative;
     width: 100%;
-    height: 500px; /* Adjust height as needed */
+    height: 500px;
     overflow: hidden;
-}
-
-.case-studies-image {
+  }
+  
+  .case-studies-image {
     position: relative;
     width: 100%;
     height: 100%;
-}
-
-.case-studies-image img {
+  }
+  
+  .case-studies-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(70%); /* थोड़ा डिम */
-}
-
-.case-studies-button {
+    filter: brightness(70%);
+  }
+  
+  .case-studies-button {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -186,29 +348,5 @@
     z-index: 10;
     padding: 15px 30px;
     font-size: 1.2em;
-}
-
-/* -------------------- General Section Styles (for consistent padding) -------------------- */
-.section {
-    padding: 80px 20px;
-}
-
-.dark-bg {
-    background-color: #333;
-    color: #fff;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.section-title {
-    text-align: center;
-    font-size: 2.5em;
-    margin-bottom: 40px;
-}
-
-.light {
-    color: #fff;
-}
+  }
+  
