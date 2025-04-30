@@ -195,138 +195,131 @@ body, html {
     background-color: #fff;
     overflow: hidden;
     text-align: center;
-}
-
-.portfolio-title {
+  }
+  
+  .portfolio-title {
     font-size: 2.5rem;
     font-weight: bold;
     margin-bottom: 40px;
     color: black;
-}
-
-.portfolio-carousel {
+  }
+  
+  .portfolio-carousel {
     max-width: 1200px;
-    min-height: 400px; /* Adjust based on your content */
     margin: 0 auto;
     position: relative;
     overflow: hidden;
-}
-
-.portfolio-slide {
+  }
+  
+  .portfolio-slide {
     display: none;
     width: 100%;
-}
-
-.portfolio-slide.active {
+  }
+  
+  .portfolio-slide.active {
     display: block;
-}
-
-.portfolio-content {
+  }
+  
+  .portfolio-content {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 40px;
     position: relative;
-    gap: 40px; /* Space between image and text */
-    transform: translateX(-10%); /* Nudge content slightly left to center better visually */
-}
+    padding: 0 80px;
+    /* Remove any existing transform here if present */
+  }
 
-.portfolio-image {
-    flex: 0 0 50%;
-    position: relative;
+  .portfolio-slide > .portfolio-content {
+    transform: translateX(-15%); /* ✅ Only shifts image & text left */
+  }
+  
+  .portfolio-image {
+    flex: 0 0 55%;
     z-index: 1;
-}
-
-.portfolio-image img {
+  }
+  
+  .portfolio-image img {
     width: 100%;
     height: auto;
     display: block;
-}
-
-.portfolio-text {
-    flex: 0 0 auto;
+  }
+  
+  .portfolio-text {
+    flex: 0 0 35%;
     position: absolute;
-    left: 50%; /* Position the left edge at the horizontal center */
+    left: 60%; /* ✅ Adjust to maintain moderate overlap and centering */
     top: 50%;
-    margin-left: 40px; /* Adjust for desired spacing from the image */
-    transform: translateY(-50%); /* Center vertically */
+    transform: translateY(-50%);
     background-color: #d5d5d5;
     padding: 40px 30px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
     z-index: 2;
     max-width: 400px;
     text-align: center;
-}
-
-.portfolio-text h3 {
+  }
+  
+  .portfolio-text h3 {
     color: black;
     margin-bottom: 20px;
-}
-
-.portfolio-text p {
+  }
+  
+  .portfolio-text p {
     color: #333;
     margin-bottom: 20px;
     line-height: 1.6;
     font-size: 1rem;
-}
-
-.portfolio-text .btn {
+  }
+  
+  .portfolio-text .btn {
     margin: 0 auto;
-}
-
-/* Fade-in animation for portfolio slides */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-.fade-in {
-    animation: fadeIn 0.5s ease-in-out;
-}
-
-/* Navigation arrows for portfolio */
-.portfolio-arrow {
+  }
+  
+  /* Arrows - clean, centered, larger */
+  .portfolio-prev,
+  .portfolio-next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 2.5rem;
+    font-size: 3rem;
     color: black;
-    background: rgba(255, 255, 255, 0.8);
+    background: none;
     border: none;
     cursor: pointer;
-    padding: 10px;
     z-index: 10;
-    transition: background 0.3s ease;
-}
-
-.portfolio-prev {
-    left: 10px;
-}
-
-.portfolio-next {
-    right: 10px;
-}
-
-.portfolio-arrow:focus {
+    transition: color 0.3s ease, transform 0.2s ease;
+    padding: 0;
     outline: none;
-}
-
-.portfolio-arrow:focus-visible {
-    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.15);
-    border-radius: 8px;
-}
-
-.portfolio-arrow:hover {
-    background: rgba(255, 255, 255, 1);
-}
-
-/* Dot indicators for portfolio */
-.portfolio-dots {
+  }
+  
+  .portfolio-prev:focus,
+  .portfolio-next:focus {
+    outline: none;
+    box-shadow: none;
+  }
+  
+  .portfolio-prev:hover,
+  .portfolio-next:hover {
+    color: #c0392b;
+    transform: translateY(-50%) scale(1.1);
+  }
+  
+  .portfolio-prev {
+    left: 30px;
+  }
+  
+  .portfolio-next {
+    right: 30px;
+  }
+  
+  /* Dot indicators */
+  .portfolio-dots {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
-}
-
-.portfolio-dot {
+    margin-top: 40px;
+  }
+  
+  .portfolio-dot {
     width: 10px;
     height: 10px;
     border-radius: 50%;
@@ -334,43 +327,42 @@ body, html {
     margin: 0 5px;
     cursor: pointer;
     transition: background 0.3s;
-}
-
-.portfolio-dot.active {
+  }
+  
+  .portfolio-dot.active {
     background: #333;
-}
-
-/* Mobile styles for portfolio section */
-@media (max-width: 768px) {
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
     .portfolio-content {
-        flex-direction: column;
-        align-items: center;
-        transform: translateX(0); /* Reset nudge */
+      flex-direction: column;
+      align-items: center;
+      padding: 0;
     }
-
+  
     .portfolio-image,
     .portfolio-text {
-        position: static;
-        transform: none;
-        width: 90%;
-        max-width: 100%;
+      position: static;
+      transform: none;
+      width: 100%;
+      max-width: 100%;
     }
-
+  
     .portfolio-text {
-        margin-top: 20px;
-        box-shadow: none;
-        left: auto; /* Reset absolute positioning */
-        padding: 20px;
+      margin-top: 20px;
+      padding: 20px;
+      box-shadow: none;
     }
-
-    .portfolio-arrow {
-        position: static;
-        transform: none;
-        font-size: 2rem;
-        margin: 20px auto; /* Center arrows */
-        display: block; /* Stack arrows */
+  
+    .portfolio-prev,
+    .portfolio-next {
+      position: static;
+      transform: none;
+      font-size: 2rem;
+      margin: 10px;
     }
-}
+  }
 
 /* -------------------- Why Choose RED Workspace Section Styles -------------------- */
 .why-red-section {
