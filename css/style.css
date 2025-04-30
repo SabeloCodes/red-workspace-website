@@ -443,50 +443,47 @@ feature-box h3 {
     color: #fff;
     padding: 80px 20px;
     text-align: center;
-}
-
-.testimonials-title {
+  }
+  
+  .testimonials-title {
     font-size: 2.5rem;
     font-weight: bold;
     margin-bottom: 40px;
-}
-
-.testimonials-carousel {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  }
+  
+  .testimonials-carousel {
     position: relative;
     max-width: 900px;
     margin: 0 auto;
     padding: 0 60px;
-}
-
-.testimonial-slide {
+  }
+  
+  .testimonial-slide {
     display: none;
     text-align: center;
     padding: 0 40px;
-}
-
-.testimonial-slide.active {
+  }
+  
+  .testimonial-slide.active {
     display: block;
-}
-
-.testimonial-text {
+  }
+  
+  .testimonial-slide blockquote {
     font-size: 1.2rem;
     line-height: 1.8;
+    color: #fff;
     margin-bottom: 20px;
-}
-
-.testimonial-author {
+  }
+  
+  .testimonial-author {
     font-style: italic;
     font-size: 1rem;
-    color: #ddd;
-}
-
-/* Shared Arrow Styles for Testimonials */
-.testimonial-arrow,
-.prev-testimonial,
-.next-testimonial {
+    color: #ccc;
+  }
+  
+  /* Navigation arrows */
+  .prev-testimonial,
+  .next-testimonial {
     font-size: 3.6rem;
     color: #fff;
     background: none;
@@ -496,40 +493,33 @@ feature-box h3 {
     top: 50%;
     transform: translateY(-50%);
     padding: 10px;
-    outline: none;
     transition: color 0.3s;
-}
-
-.prev-testimonial {
-    left: 20px;
-}
-
-.next-testimonial {
-    right: 20px;
-}
-
-.testimonial-arrow:hover,
-.prev-testimonial:hover,
-.next-testimonial:hover {
+  }
+  
+  .prev-testimonial {
+    left: 0;
+  }
+  
+  .next-testimonial {
+    right: 0;
+  }
+  
+  .prev-testimonial:hover,
+  .next-testimonial:hover {
     color: #ccc;
-}
-
-/* Mobile adjustments for testimonials */
-@media (max-width: 768px) {
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
     .testimonials-carousel {
-        padding: 0 30px;
+      padding: 0 20px;
     }
-
-    .testimonial-slide {
-        padding: 0 20px;
-    }
-
-    .testimonial-arrow,
+  
     .prev-testimonial,
     .next-testimonial {
-        font-size: 2.4rem;
-        position: static;
-        transform: none;
-        margin: 0 10px;
+      font-size: 2.4rem;
+      position: static;
+      transform: none;
+      margin: 20px 10px 0;
     }
-}
+  }
