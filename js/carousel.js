@@ -1,6 +1,6 @@
-// js/carousel.js
+// --- js/carousel.js ---
 
-// These variables are scoped globally so other modules can use them
+// Carousel state
 let carouselImage1, carouselImage2;
 let currentImageIndex = 0;
 let showingImage1 = true;
@@ -11,24 +11,16 @@ const heroImages = [
   "img/PROJECTS/REV_CAPITAL/HighRes__W9A4741.jpg"
 ];
 
-// --- Sets up the carousel functionality ---
+// Setup carousel functionality
 function setupCarouselLoop() {
-  // Grab the two image layers
   carouselImage1 = document.getElementById("carousel-image-1");
   carouselImage2 = document.getElementById("carousel-image-2");
-  if (!carouselImage1 || !carouselImage2) {
-    console.warn("Carousel images not found");
-    return;
-  }
+  if (!carouselImage1 || !carouselImage2) return;
 
-  // Start zoom on first image
   carouselImage1.classList.add("zoom-animation", "active", "fade-in");
-
-  // Begin cycling through images
   setInterval(swapImages, 5000);
 }
 
-// --- Handles swapping images smoothly ---
 function swapImages() {
   const nextImageIndex = (currentImageIndex + 1) % heroImages.length;
   const nextSrc = heroImages[nextImageIndex];
@@ -36,19 +28,20 @@ function swapImages() {
   const incoming = showingImage1 ? carouselImage2 : carouselImage1;
   const outgoing = showingImage1 ? carouselImage1 : carouselImage2;
 
-  // Update and fade in incoming image
   incoming.src = nextSrc;
   incoming.classList.add("active", "fade-in", "zoom-animation");
 
-  // Remove active/zoom from outgoing
-  outgoing.classList.remove("active", "zoom-animation");
+  outgoing.classList.remove("zoom-animation");
+  outgoing.classList.add("fading-out");
 
-  // Prepare for next swap
+  setTimeout(() => {
+    outgoing.classList.remove("active", "fading-out");
+  }, 1000); // Matches CSS fade duration
+
   showingImage1 = !showingImage1;
   currentImageIndex = nextImageIndex;
 }
 
-// --- Optionally update overlay text dynamically based on body data attributes ---
 function setupCarouselOverlay() {
   const h1 = document.querySelector("#carousel-container .overlay h1");
   const p = document.querySelector("#carousel-container .overlay p");
@@ -65,6 +58,5 @@ function setupCarouselOverlay() {
   if (buttons[1] && btn2) buttons[1].textContent = btn2;
 }
 
-// ✅ Expose setup functions to global scope for script.js to call
 window.setupCarouselLoop = setupCarouselLoop;
 window.setupCarouselOverlay = setupCarouselOverlay;

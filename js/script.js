@@ -1,20 +1,14 @@
-// js/script.js
+// ✅ script.js - Refined
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Inject nav and footer
     injectContent("components/nav.html", "navigation");
     injectContent("components/footer.html", "page-footer");
-  
-    // Inject carousel and only then run overlay + loop setup
     injectContent("components/carousel.html", "carousel-placeholder", () => {
       setupCarouselOverlay();
       setupCarouselLoop();
     });
   
-    // ... rest of your existing code below ...
-
-  document.addEventListener("DOMContentLoaded", () => {
-    // --- Portfolio Carousel ---
+    // Portfolio Carousel Logic
     const portfolioCarousel = document.querySelector(".portfolio-carousel");
     if (portfolioCarousel) {
       const portfolioSlides = document.querySelectorAll(".portfolio-slide");
@@ -24,15 +18,16 @@ document.addEventListener("DOMContentLoaded", () => {
       const projects = [
         {
           title: "REVCAP",
-          text: `RED Workspace has delivered a dynamic working environment for REVCAP that blends sophistication with functionality. The space is a testament to our commitment to quality design and strategic execution.`,
+          text: `RED Workspace has delivered a dynamic working environment for REVCAP that blends sophistication with functionality.`,
           image: "img/PROJECTS/REV_CAPITAL/HighRes__W9A4741.jpg",
         },
         {
           title: "US HEDGE FUND",
-          text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Sed posuere consectetur est at lobortis. Aenean lacinia bibendum nulla sed consectetur.`,
+          text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit.`,
           image: "img/PROJECTS/US_HEDGE_FUND/Magnetar_0051-HDR.jpg",
         },
       ];
+  
       let portfolioCurrentIndex = 0;
       let portfolioDots = [];
   
@@ -81,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
       updatePortfolioSlide(portfolioCurrentIndex);
     }
   
-    // --- Testimonials Carousel ---
+    // Testimonials Carousel Logic
     const testimonialsCarousel = document.querySelector(".testimonials-carousel");
     if (testimonialsCarousel) {
       const testimonialSlides = document.querySelectorAll(".testimonial-slide");
@@ -111,8 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
       showTestimonialSlide(currentTestimonialIndex);
     }
   });
-
-  // Utility function to inject HTML components into target containers
+  
   function injectContent(url, targetId, callback) {
     fetch(url)
       .then((res) => res.text())
@@ -126,5 +120,4 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       })
       .catch((err) => console.error(`Error loading ${url}:`, err));
-  }
-});
+    }
