@@ -24,17 +24,29 @@ function injectContent(url, targetId, callback) {
     document.head.appendChild(link);
   }
   
-  // Main logic for Who We Are page
-  
-  window.addEventListener("DOMContentLoaded", () => {
+// Main logic for Who We Are page
+document.addEventListener("DOMContentLoaded", () => {
     injectContent("components/nav.html", "navigation");
     injectContent("components/footer.html", "page-footer");
-  
-    // Dynamically load carousel styles and component
+
     injectCSS("css/carousel.css");
     injectContent("components/carousel.html", "carousel-placeholder", () => {
-      setupCarouselOverlay();
-      setupCarouselLoop();
+        setupCarouselOverlay();
+        setupCarouselLoop();
     });
-  });
+
+    // Scroll-triggered animation for team members
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll(".team-member-segment").forEach(el => {
+        observer.observe(el);
+    });
+});
   
