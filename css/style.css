@@ -85,31 +85,49 @@ body, html {
 
 /* -------------------- Who We Are Section Styles -------------------- */
 #who-we-are {
+  display: flex;
+  flex-direction: column;
   padding: 80px 30px;
-  background-color: #e6e6e6;
-  text-align: center;
+  background-color: #e6e6e6; /* Ensure section background is #E6E6E6 */
+  align-items: center;
 }
 
 #who-we-are .container {
-  max-width: 800px;
-  margin: 0 auto; /* ✅ Center the block horizontally */
   text-align: center;
+  margin-bottom: 40px;
+  max-width: 800px;
 }
 
 #who-we-are .section-title {
   font-size: 2.5em;
   color: #333;
   margin-bottom: 20px;
+  text-align: center; /* Ensure the heading is centered */
 }
 
 #who-we-are .section-description {
   color: #555;
   line-height: 1.6;
   margin-bottom: 30px;
+  text-align: center;
 }
 
 #who-we-are .button-container {
   text-align: center;
+}
+
+#who-we-are .btn {
+  background-color: #e6e6e6;
+  color: #333;
+  border: 2px solid #333; /* Thicker border */
+  transition: all 0.3s ease;
+  padding: 10px 20px; /* Optional: increase padding slightly for balance */
+}
+
+#who-we-are .btn:hover {
+  background-color: #333;
+  color: #fff;
+  border-color: #333;
 }
 
 /* Full-width image section */
