@@ -60,11 +60,13 @@
     left: 0;
     width: 100%;
     height: 100%;
-    padding: 100px 20px 0;
+    padding-top: 180px; /* Less vertical space above */
+    padding-left: 20px;
+    padding-right: 20px;
     text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start; /* ✅ Start from top */
     align-items: center;
     z-index: 5;
   }
@@ -107,6 +109,20 @@
     gap: 20px;
     margin-top: 20px;
   }
+
+  /* Target carousel buttons inside .buttons */
+.overlay .btn {
+  background-color: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect */
+.overlay .btn:hover {
+  background-color: #fff;
+  color: #000;
+}
   
   /* -------------------- Text Fade-in Animation -------------------- */
   
