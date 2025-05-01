@@ -31,6 +31,12 @@
   }
   
   /* MAIN NAVIGATION MENU */
+  nav a.active {
+    color: #d22f2b;
+    font-weight: bold;
+    border-bottom: 2px solid #d22f2b;
+  }
+  
   nav ul {
     list-style: none;
     padding: 0;

@@ -1,7 +1,11 @@
 // ✅ script.js - Refined
 
 document.addEventListener("DOMContentLoaded", () => {
-    injectContent("components/nav.html", "navigation");
+    injectContent("components/nav.html", "navigation", () => {
+      const navScript = document.createElement("script");
+      navScript.src = "js/nav.js";
+      document.body.appendChild(navScript);
+    });
     injectContent("components/footer.html", "page-footer");
     injectContent("components/carousel.html", "carousel-placeholder", () => {
       setupCarouselOverlay();
