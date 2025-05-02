@@ -25,18 +25,33 @@
 }
 
 .logo img {
-  height: 130px; /* ⬆️ Increased from 90px */
+  height: 130px;
   width: auto;
   object-fit: contain;
 }
 
-/* MAIN NAVIGATION MENU */
-nav a.active {
-  color: #d22f2b;
-  font-weight: bold;
-  border-bottom: 2px solid #d22f2b;
+.logo a:focus,
+.logo a:active,
+.logo a:focus-visible {
+  outline: none;
+  border: none;
+  box-shadow: none;
 }
 
+.logo a img {
+  border: none;
+  outline: none;
+}
+
+.logo a img:focus,
+.logo a img:active,
+.logo a img:focus-visible {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+/* MAIN NAVIGATION MENU */
 nav ul {
   list-style: none;
   padding: 0;
@@ -54,15 +69,51 @@ nav ul li a {
   color: #fff;
   font-size: 1.2em;
   font-weight: bold;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  outline: none;
+  border: none;
+}
+
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0%;
+  height: 2px;
+  background-color: #d22f2b;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+nav ul li a:active::after {
+  width: 100%;
 }
 
 nav ul li a:hover {
   color: rgba(210, 47, 43, 0.7);
 }
 
-nav ul li a:active {
-  color: #D22F2B;
+nav a.active {
+  color: #d22f2b;
+  font-weight: bold;
+}
+
+nav a.active::after {
+  display: none;
+}
+
+nav ul li a:focus-visible,
+nav ul li a:focus {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+nav ul li a::-moz-focus-inner {
+  border: 0;
 }
 
 /* SOCIAL ICONS */
@@ -86,7 +137,6 @@ nav ul li a:active {
   transform: translateY(-5px);
 }
 
-/* LinkedIn */
 .social-icons a.linkedin {
   background-image: url('../img/ICONS/social_media_icons/Linkedin-w.png');
 }
@@ -95,7 +145,6 @@ nav ul li a:active {
   background-image: url('../img/ICONS/social_media_icons/LinkedIn-r.png');
 }
 
-/* Facebook */
 .social-icons a.facebook {
   background-image: url('../img/ICONS/social_media_icons/Facebook-w.png');
 }
@@ -104,13 +153,18 @@ nav ul li a:active {
   background-image: url('../img/ICONS/social_media_icons/communication.png');
 }
 
-/* Instagram */
 .social-icons a.instagram {
   background-image: url('../img/ICONS/social_media_icons/Instagram-w.png');
 }
 
 .social-icons a.instagram:hover {
   background-image: url('../img/ICONS/social_media_icons/Instagram-r.png');
+}
+
+/* Button Click Feedback */
+.btn:active {
+  transform: scale(0.96);
+  transition: transform 0.1s ease;
 }
 
 /* -------------------- Responsive Styles -------------------- */
@@ -122,17 +176,34 @@ nav ul li a:active {
   }
 
   .logo img {
-    height: 90px; /* ⬆️ previously 72px */
+    height: 72px;
   }
 
-  nav ul {
-    margin-top: 12px;
+  .hamburger {
+    display: flex;
+  }
+
+  .main-nav {
+    display: none;
+    width: 100%;
+    margin-top: 10px;
     flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.95);
+    padding: 20px;
   }
 
-  nav ul li {
-    margin-left: 0;
-    margin-bottom: 12px;
+  .main-nav.show {
+    display: flex;
+    animation: slideDown 0.3s ease forwards;
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .main-nav ul li {
+    margin: 10px 0;
   }
 
   .social-icons {
@@ -149,7 +220,7 @@ nav ul li a:active {
   }
 
   .logo img {
-    height: 75px; /* ⬆️ previously 60px */
+    height: 60px;
   }
 
   nav ul {
@@ -158,5 +229,50 @@ nav ul li a:active {
 
   .social-icons {
     justify-content: center;
+  }
+}
+
+/* -------------------- Hamburger Menu Styles -------------------- */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 20;
+  margin-right: 20px;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  background-color: white;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
