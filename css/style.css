@@ -4,7 +4,7 @@
 body, html {
     margin: 0;
     padding: 0;
-    font-family: sans-serif; /* You can choose a different font */
+    font-family: 'Poppins', sans-serif;
     color: #fff; /* Default text color on the carousel */
     overflow-x: hidden; /* Prevent horizontal scrollbar */
 }
@@ -17,10 +17,14 @@ body, html {
 
 /* -------------------- Shared Button Styles -------------------- */
 .btn {
-    border: 2px solid #fff;
+  font-family: inherit;
+    border: 3px solid #fff;
     padding: 12px 25px;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 700;              /* Bold */
+    text-transform: uppercase;     /* ALL CAPS */
+    font-size: 33px;               /* 25pt = 33px */
+    letter-spacing: 0;             /* Tracking = 0 */
     color: #fff;
     background: rgba(255, 255, 255, 0.15);
     transition: 0.3s;
@@ -36,7 +40,7 @@ body, html {
 .lets-talk {
     background-color: rgba(255, 255, 255, 0.2);
     color: #fff;
-    border: 2px solid #fff;
+    border-color: #fff;
 }
 
 .explore-work:hover,
@@ -73,7 +77,7 @@ body, html {
 .btn-light-section-dark-outline {
     background-color: transparent;
     color: #000;
-    border: 2px solid #000;
+    border-color: #000;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -99,10 +103,14 @@ body, html {
 }
 
 #who-we-are .section-title {
-  font-size: 2.5em;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;         /* Bold */
+  font-size: 70pt;           /* Size */
+  line-height: 84pt;         /* Leading */
+  letter-spacing: 0;         /* Tracking */
   color: #333;
-  margin-bottom: 20px;
-  text-align: center; /* Ensure the heading is centered */
+  margin-bottom: 40px;
+  text-align: center; /* Ensuring text is centered */
 }
 
 #who-we-are .section-description {
@@ -119,7 +127,7 @@ body, html {
 #who-we-are .btn {
   background-color: #e6e6e6;
   color: #333;
-  border: 2px solid #333; /* Thicker border */
+  border: 3px solid #333; /* Thicker border */
   transition: all 0.3s ease;
   padding: 10px 20px; /* Optional: increase padding slightly for balance */
 }
@@ -176,49 +184,62 @@ body, html {
 
 /* -------------------- What We Do Section Styles -------------------- */
 #what-we-do {
-    padding: 80px 30px;
-    background-color: #333; /* Dark background */
-    color: #fff;
-    text-align: center;
+  padding: 80px 30px;
+  background-color: #333; /* Dark background */
+  color: #fff;
+  text-align: center;
 }
 
 #what-we-do .section-title {
-    font-size: 2.5em;
-    margin-bottom: 40px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 70pt;           /* Size */
+  line-height: 84pt;         /* Leading */
+  letter-spacing: 0;         /* Tracking */
+  text-align: center;
+  color: #fff;
+  margin-bottom: 40px;
 }
 
 #what-we-do .services-list {
-    list-style: none;
-    padding: 0;
-    margin: 0 auto 40px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px; /* Space between service items */
-    max-width: 1200px; /* Limit width of the list */
+  list-style: none;
+  padding: 0;
+  margin: 0 auto 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  max-width: 1200px;
 }
 
 #what-we-do .service-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 200px; /* Adjust as needed */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+  text-align: center;
 }
 
 #what-we-do .service-item img {
-    max-width: 80px; /* Adjust icon size */
-    height: auto;
-    margin-bottom: 15px;
+  max-width: 80px;
+  height: auto;
+  margin-bottom: 15px;
 }
 
+/* ✅ Unified and corrected h3 styles */
 #what-we-do .service-item h3 {
-    font-size: 1.2em;
-    font-weight: bold;
-    margin-bottom: 10px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 40pt;
+  line-height: 25pt;
+  letter-spacing: 0;
+  color: #fff;  /* Keep white for contrast on dark bg */
+  margin-bottom: 10px;
+  text-align: center;
 }
 
 #what-we-do .button-container {
-    text-align: center;
+  text-align: center;
 }
 
 /* -------------------- Our Portfolio Section Styles -------------------- */
