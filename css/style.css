@@ -258,10 +258,14 @@ body, html {
   }
   
   .portfolio-title {
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin-bottom: 40px;
-    color: black;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 70px;
+  line-height: 84px;
+  letter-spacing: 0;
+  text-align: center;
+  color: #333;
+  margin-bottom: 40px;
   }
   
   .portfolio-carousel {
@@ -291,11 +295,11 @@ body, html {
   }
 
   .portfolio-slide > .portfolio-content {
-    transform: translateX(-15%); /* ✅ Only shifts image & text left */
+    transform: translateX(-13%); /* ✅ Only shifts image & text left */
   }
   
   .portfolio-image {
-    flex: 0 0 55%;
+    flex: 0 0 70%;
     z-index: 1;
   }
   
@@ -306,29 +310,39 @@ body, html {
   }
   
   .portfolio-text {
-    flex: 0 0 35%;
+    flex: 0 0 auto;              /* Don't constrain width based on flex */
     position: absolute;
-    left: 60%; /* ✅ Adjust to maintain moderate overlap and centering */
+    left: 60%;                   /* Keeps left side in place */
     top: 50%;
     transform: translateY(-50%);
+    width: 500px;                /* ⬅️ Adjust as needed to stretch rightward */
     background-color: #d5d5d5;
     padding: 40px 30px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
     z-index: 2;
-    max-width: 400px;
     text-align: center;
   }
   
   .portfolio-text h3 {
     color: black;
     margin-bottom: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 35px;
+  line-height: 25pt;
+  letter-spacing: 0;
+  color: black;  
+  margin-bottom: 10px;
+  text-align: center;
   }
-  
+
   .portfolio-text p {
+    font-size: 25px;
+    line-height: 45px;
+    font-weight: 300;
+    font-family: 'Poppins', sans-serif;
     color: #333;
     margin-bottom: 20px;
-    line-height: 1.6;
-    font-size: 1rem;
   }
   
   .portfolio-text .btn {
