@@ -114,8 +114,13 @@ body, html {
 }
 
 #who-we-are .section-description {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;     /* SemiBold */
+  font-size: 25px;       /* Same as overlay */
+  line-height: 40px;     /* Leading */
+  letter-spacing: 0;     /* Tracking */
   color: #555;
-  line-height: 1.6;
+  padding-bottom: 50px;
   margin-bottom: 30px;
   text-align: center;
 }
