@@ -440,67 +440,77 @@ body, html {
 
 /* -------------------- Why Choose RED Workspace Section Styles -------------------- */
 .why-red-section {
-    background-color: #f1f1f1;
-    text-align: center;
-    padding: 60px 20px;
+  background-color: #f1f1f1;
+  text-align: center;
+  padding: 60px 20px;
 }
 
-.why-red-title {
-    font-size: 2.3rem;
-    font-weight: bold;
-    color: #c0392b;
-    margin-bottom: 40px;
+.why-red-section .section-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 70px;
+  line-height: 84px;
+  letter-spacing: 0;
+  text-align: center;
+  margin-bottom: 40px;
+  color: #c0392b;
 }
 
 .why-red-features {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 40px;
-    margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-bottom: 30px;
 }
 
 .feature-box {
-    max-width: 260px;
-    text-align: center;
+  max-width: 260px;
+  text-align: center;
+}
+
+/* ✅ Reusing the standard h3 styling */
+.why-red-section h3,
+.why-red-section .service-heading {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 35px;        /* 25pt */
+  line-height: 33px;      /* 25pt */
+  letter-spacing: 0;
+  margin-bottom: 10px;
+  color: #333;
+  text-align: center;
 }
 
 .feature-box img {
-    width: 120px;
-    height: auto;
-    margin-bottom: 10px;
-    filter: grayscale(100%) brightness(0) contrast(100%); /* Style for monochrome icons */
+  width: 250px;
+  height: auto;
+  max-width: 100%;
+  margin-bottom: 20px;
 }
 
-feature-box h3 {
-    font-size: 1.3rem;
-    font-weight: 800;
-    color: black;
-    margin-bottom: 6px;
-} 
-
 .feature-box p {
-    font-size: 0.95rem;
-    color: #333;
+  font-size: 0.95rem;
+  color: #333;
 }
 
 .lets-talk-button {
-    padding: 14px 36px;
-    font-size: 1.1rem;
-    margin-top: 10px;
+  padding: 14px 36px;
+  font-size: 1.1rem;
+  margin-top: 10px;
 }
 
 .lets-talk-button:hover {
-    background-color: #333;
-    color: #fff;
+  background-color: #333;
+  color: #fff;
 }
 
-/* Mobile Responsive for Why Choose Us Section */
+/* Mobile Responsive */
 @media (max-width: 768px) {
-    .why-red-features {
-        flex-direction: column;
-        align-items: center;
-    }
+  .why-red-features {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 /* -------------------- Testimonials Section Styles -------------------- */
