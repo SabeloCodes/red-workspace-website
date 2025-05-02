@@ -226,16 +226,17 @@ body, html {
 }
 
 #what-we-do .service-item img {
-  max-width: 80px;
+  max-width: 250px;
   height: auto;
-  margin-bottom: 15px;
+  margin-top: 10px ; /* Reduced top and bottom margin */
+  margin-bottom: 0px;
 }
 
 /* ✅ Unified and corrected h3 styles */
 #what-we-do .service-item h3 {
   font-family: 'Poppins', sans-serif;
-  font-weight: 700;
-  font-size: 40pt;
+  font-weight: 500;
+  font-size: 35px;
   line-height: 25pt;
   letter-spacing: 0;
   color: #fff;  /* Keep white for contrast on dark bg */
