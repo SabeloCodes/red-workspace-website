@@ -16,7 +16,21 @@
   }
   
   .footer-logo img {
-    height: 60px;
+    height: 125px; /* Increased from 60px to 90px */
+  }
+
+  .footer-logo a {
+    outline: none;
+    border: none;
+    box-shadow: none;
+  }
+  
+  .footer-logo a:focus,
+  .footer-logo a:active,
+  .footer-logo a:focus-visible {
+    outline: none;
+    border: none;
+    box-shadow: none;
   }
   
   .footer-contact {
