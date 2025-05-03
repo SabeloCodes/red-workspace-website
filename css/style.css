@@ -351,39 +351,41 @@ body, html {
   
   /* Arrows - clean, centered, larger */
   .portfolio-prev,
-  .portfolio-next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 3rem;
-    color: black;
-    background: none;
-    border: none;
-    cursor: pointer;
-    z-index: 10;
-    transition: color 0.3s ease, transform 0.2s ease;
-    padding: 0;
-    outline: none;
-  }
-  
-  .portfolio-prev:focus,
-  .portfolio-next:focus {
-    outline: none;
-    box-shadow: none;
-  }
-  
-  .portfolio-prev:hover,
-  .portfolio-next:hover {
-    color: #c0392b;
-    transform: translateY(-50%) scale(1.1);
-  }
+.portfolio-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 5.4rem; /* 50% larger */
+  color: black;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  transition: color 0.3s ease, transform 0.2s ease;
+  padding: 10px;
+  outline: none;
+}
+
+.portfolio-prev:hover,
+.portfolio-next:hover {
+  color: #d22f2b;
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* 🔒 Prevent red outlines or borders on click/focus */
+.portfolio-prev:focus,
+.portfolio-next:focus {
+  outline: none;
+  box-shadow: none;
+  border: none;
+}
   
   .portfolio-prev {
-    left: 30px;
+    left: 10px;
   }
   
   .portfolio-next {
-    right: 30px;
+    right: 10px;
   }
   
   /* Dot indicators */
@@ -588,7 +590,14 @@ body, html {
   line-height: 1;
   font-family: Arial, sans-serif; /* Ensures consistent rendering */
 }
-  
+
+.prev-testimonial:focus,
+.next-testimonial:focus {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
   .prev-testimonial {
     left: 0;
   }
