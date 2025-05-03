@@ -5,6 +5,7 @@
     width: 100%;
     height: 100vh;
     overflow: hidden;
+    z-index: 1;
   }
   
   /* Carousel image base styles */
@@ -101,14 +102,15 @@
   
   .logo-overlay p {
     font-family: 'Poppins', sans-serif;
-    font-weight: 600;         /* Semibold */
-    font-size: 20pt;
-    line-height: 35pt;
+    font-weight: 600;              /* Semi-bold */
+    font-size: 33px;               /* ≈ 25pt */
+    line-height: 35px;             /* ≈ 33pt leading */
     letter-spacing: 0;
-    max-width: 650px;
-    margin: 0 auto 20px;
-    text-shadow: 0 3px 10px rgba(0, 0, 0, 0.7);
+    max-width: 850px;              /* Wider text box for shorter height */
+    margin: 0 auto 30px;
+    color: #fff;
     text-align: center;
+    text-shadow: 0 3px 10px rgba(0, 0, 0, 0.7);
   }
   
   .buttons {
