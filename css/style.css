@@ -522,9 +522,14 @@ body, html {
   }
   
   .testimonials-title {
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin-bottom: 40px;
+    font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 70px;
+  line-height: 84px;
+  letter-spacing: 0;
+  text-align: center;
+  margin-bottom: 40px;
+  color: #fff
   }
   
   .testimonials-carousel {
@@ -545,32 +550,44 @@ body, html {
   }
   
   .testimonial-slide blockquote {
-    font-size: 1.2rem;
-    line-height: 1.8;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;               /* Semi-bold */
+    font-size: 33px;                /* 25pt = 33px */
+    line-height: 45px;              /* Leading */
+    letter-spacing: 0;              /* Tracking */
+    font-style: italic;             /* Italic for emphasis */
     color: #fff;
     margin-bottom: 20px;
+    text-align: center;
   }
   
   .testimonial-author {
-    font-style: italic;
-    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;             /* Semibold */
+    font-size: 25px;  
+    font-style: italic;            /* 25pt = 33px */
+    line-height: 45px;            /* Leading */
+    letter-spacing: 0;            /* Tracking */
     color: #ccc;
+    font-style: italic;
   }
   
   /* Navigation arrows */
   .prev-testimonial,
-  .next-testimonial {
-    font-size: 3.6rem;
-    color: #fff;
-    background: none;
-    border: none;
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    padding: 10px;
-    transition: color 0.3s;
-  }
+.next-testimonial {
+  font-size: 5.4rem; /* 150% of original size */
+  color: #fff;
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 10px;
+  transition: color 0.3s;
+  line-height: 1;
+  font-family: Arial, sans-serif; /* Ensures consistent rendering */
+}
   
   .prev-testimonial {
     left: 0;
@@ -581,9 +598,9 @@ body, html {
   }
   
   .prev-testimonial:hover,
-  .next-testimonial:hover {
-    color: #ccc;
-  }
+.next-testimonial:hover {
+  color: #d22f2b; /* Red hover color */
+}
   
   /* Responsive adjustments */
   @media (max-width: 768px) {
