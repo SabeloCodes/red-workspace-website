@@ -30,24 +30,10 @@
   object-fit: contain;
 }
 
-.logo a:focus,
-.logo a:active,
-.logo a:focus-visible {
-  outline: none;
-  border: none;
-  box-shadow: none;
-}
-
+.logo a,
 .logo a img {
-  border: none;
   outline: none;
-}
-
-.logo a img:focus,
-.logo a img:active,
-.logo a img:focus-visible {
   border: none;
-  outline: none;
   box-shadow: none;
 }
 
@@ -105,7 +91,6 @@ nav a.active::after {
   display: none;
 }
 
-nav ul li a:focus-visible,
 nav ul li a:focus {
   outline: none;
   border: none;

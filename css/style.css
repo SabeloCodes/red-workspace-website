@@ -1,3 +1,5 @@
+
+
 /* css/style.css */
 
 /* Reset body and html margins and padding, set default font and prevent horizontal scroll */
@@ -9,83 +11,12 @@ body, html {
     overflow-x: hidden; /* Prevent horizontal scrollbar */
 }
 
+
 /* Global Focus Styles for Accessibility */
 :focus {
     outline: 2px solid #c0392b;
     outline-offset: 4px;
 }
-
-/* -------------------- Shared Button Styles -------------------- */
-.btn {
-  font-family: inherit;
-    border: 3px solid #fff;
-    padding: 12px 25px;
-    text-decoration: none;
-    font-weight: 700;              /* Bold */
-    text-transform: uppercase;     /* ALL CAPS */
-    font-size: 33px;               /* 25pt = 33px */
-    letter-spacing: 0;             /* Tracking = 0 */
-    color: #fff;
-    background: rgba(255, 255, 255, 0.15);
-    transition: 0.3s;
-}
-
-.btn:hover {
-    background: #fff;
-    color: #000;
-}
-
-/* Explore Our Work and Let's Talk Buttons (specific styles for carousel) */
-.explore-work,
-.lets-talk {
-    background-color: rgba(255, 255, 255, 0.2);
-    color: #fff;
-    border-color: #fff;
-}
-
-.explore-work:hover,
-.lets-talk:hover {
-    background-color: rgba(255, 255, 255, 0.4);
-    color: #000;
-}
-
-/* Button Variant: Meet the Team (light background section) */
-.btn-light-outline {
-    background-color: #d5d5d5;
-    color: #000;
-    border-color: #000;
-}
-
-.btn-light-outline:hover {
-    background-color: #000;
-    color: #d5d5d5;
-}
-
-/* Button Variant: View All Services (light text, dark background section) */
-.btn-dark-outline {
-    background-color: transparent;
-    color: #fff;
-    border-color: #fff;
-}
-
-.btn-dark-outline:hover {
-    background-color: #fff;
-    color: #000;
-}
-
-/* Button Variant: Let's Talk (Dark text, dark border - for light sections) */
-.btn-light-section-dark-outline {
-    background-color: transparent;
-    color: #000;
-    border-color: #000;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.btn-light-section-dark-outline:hover {
-    background-color: #000;
-    color: #fff;
-}
-
 
 /* -------------------- Who We Are Section Styles -------------------- */
 #who-we-are {
@@ -129,19 +60,6 @@ body, html {
   text-align: center;
 }
 
-#who-we-are .btn {
-  background-color: #e6e6e6;
-  color: #333;
-  border: 3px solid #333; /* Thicker border */
-  transition: all 0.3s ease;
-  padding: 10px 20px; /* Optional: increase padding slightly for balance */
-}
-
-#who-we-are .btn:hover {
-  background-color: #333;
-  color: #fff;
-  border-color: #333;
-}
 
 /* Full-width image section */
 .who-we-are-image {
@@ -170,22 +88,6 @@ body, html {
     padding-right: 0; /* No right padding needed now */
   }
 }
-
-/* Full-width image outside section */
-.who-we-are-image-fullwidth {
-  width: 100vw;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-
-.who-we-are-image-fullwidth img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  display: block;
-}
-
 
 /* -------------------- What We Do Section Styles -------------------- */
 #what-we-do {
@@ -625,3 +527,5 @@ body, html {
       margin: 20px 10px 0;
     }
   }
+
+  

@@ -151,8 +151,8 @@
   
  /* -------------------- Introduction Section Styles -------------------- */
 #introduction.section {
-    background-color: #222; /* Final dark background */
-    color: #fff;
+    background-color: #333333; /* Final dark background */
+    /*color: #fff; */
     padding-top: 50px;
     padding-bottom: 60px;
     margin-bottom: 0;
@@ -176,7 +176,7 @@
     line-height: 1.7;
     margin-bottom: 20px;
     font-size: 1.1em;
-    color: #f0f0f0;
+    color: #e6e6e6;
   }
   
   /* Button spacing */
@@ -185,32 +185,6 @@
     margin-bottom: 50px; /* ✅ Ensure space between button and image */
   }
   
-  /* NEW: Inverted white button style */
-  .btn.btn-light-outline.btn-white-invert {
-    border: 1px solid white;
-    color: white;
-    background-color: transparent;
-    transition: all 0.3s ease;
-  }
-  
-  .btn.btn-light-outline.btn-white-invert:hover {
-    background-color: white;
-    color: black;
-    border: 1px solid white;
-  }
-  
-  /* Existing: Inverted grey button style (optional if unused now) */
-  .btn.btn-light-outline.btn-invert-grey {
-    border: 1px solid grey;
-    color: grey;
-    background-color: transparent;
-    transition: all 0.3s ease;
-  }
-  
-  .btn.btn-light-outline.btn-invert-grey:hover {
-    background-color: grey;
-    color: white;
-  }
   
   /* Full-width image section */
   .full-width-image {
