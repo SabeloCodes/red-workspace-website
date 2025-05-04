@@ -42,6 +42,16 @@ body, html {
   .text-italic {
     font-style: italic;
   }
+
+  .text-bold {
+    font-weight: 700;
+  }
+  .text-semibold {
+    font-weight: 600;
+  }
+  .text-normal {
+    font-weight: 400;
+  }
   
 
   /*--------------------- Text Colours ---------------------*/
