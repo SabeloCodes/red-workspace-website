@@ -1,29 +1,26 @@
-
-
 /* css/style.css */
 
 /* Reset body and html margins and padding, set default font and prevent horizontal scroll */
 body, html {
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-    color: #fff; /* Default text color on the carousel */
-    overflow-x: hidden; /* Prevent horizontal scrollbar */
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  color: #fff; /* Default text color on the carousel */
+  overflow-x: hidden;
 }
-
 
 /* Global Focus Styles for Accessibility */
 :focus {
-    outline: 2px solid #c0392b;
-    outline-offset: 4px;
+  outline: 2px solid #c0392b;
+  outline-offset: 4px;
 }
 
-/* -------------------- Who We Are Section Styles -------------------- */
+/* -------------------- Who We Are Section -------------------- */
 #who-we-are {
   display: flex;
   flex-direction: column;
   padding: 80px 30px;
-  background-color: #e6e6e6; /* Ensure section background is #E6E6E6 */
+  background-color: #e6e6e6;
   align-items: center;
 }
 
@@ -33,33 +30,9 @@ body, html {
   max-width: 800px;
 }
 
-#who-we-are .section-title {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700;         /* Bold */
-  font-size: 70pt;           /* Size */
-  line-height: 84pt;         /* Leading */
-  letter-spacing: 0;         /* Tracking */
-  color: #333;
-  margin-bottom: 40px;
-  text-align: center; /* Ensuring text is centered */
-}
-
-#who-we-are .section-description {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 300;     /* SemiBold */
-  font-size: 25px;       /* Same as overlay */
-  line-height: 40px;     /* Leading */
-  letter-spacing: 0;     /* Tracking */
-  color: #555;
-  padding-bottom: 50px;
-  margin-bottom: 30px;
-  text-align: center;
-}
-
 #who-we-are .button-container {
   text-align: center;
 }
-
 
 /* Full-width image section */
 .who-we-are-image {
@@ -77,7 +50,6 @@ body, html {
   display: block;
 }
 
-/* Responsive layout for Who We Are section */
 @media (min-width: 900px) {
   #who-we-are {
     flex-direction: column;
@@ -85,27 +57,16 @@ body, html {
   }
 
   #who-we-are .container {
-    padding-right: 0; /* No right padding needed now */
+    padding-right: 0;
   }
 }
 
-/* -------------------- What We Do Section Styles -------------------- */
+/* -------------------- What We Do Section -------------------- */
 #what-we-do {
   padding: 80px 30px;
-  background-color: #333; /* Dark background */
+  background-color: #333;
   color: #fff;
   text-align: center;
-}
-
-#what-we-do .section-title {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700;
-  font-size: 70pt;           /* Size */
-  line-height: 84pt;         /* Leading */
-  letter-spacing: 0;         /* Tracking */
-  text-align: center;
-  color: #fff;
-  margin-bottom: 40px;
 }
 
 #what-we-do .services-list {
@@ -130,134 +91,87 @@ body, html {
 #what-we-do .service-item img {
   max-width: 250px;
   height: auto;
-  margin-top: 10px ; /* Reduced top and bottom margin */
-  margin-bottom: 0px;
-}
-
-/* ✅ Unified and corrected h3 styles */
-#what-we-do .service-item h3 {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 500;
-  font-size: 35px;
-  line-height: 25pt;
-  letter-spacing: 0;
-  color: #fff;  /* Keep white for contrast on dark bg */
-  margin-bottom: 10px;
-  text-align: center;
+  margin-top: 5px; /* ↓ Decrease this (was 20px or 15px?) */
+  margin-bottom: 0px; /* ↓ Remove or reduce space above */
 }
 
 #what-we-do .button-container {
   text-align: center;
 }
 
-/* -------------------- Our Portfolio Section Styles -------------------- */
+/* -------------------- Our Portfolio Section -------------------- */
 .portfolio-section {
-    position: relative;
-    padding: 80px 30px;
-    background-color: #fff;
-    overflow: hidden;
-    text-align: center;
-  }
-  
-  .portfolio-title {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700;
-  font-size: 70px;
-  line-height: 84px;
-  letter-spacing: 0;
+  position: relative;
+  padding: 80px 30px;
+  background-color: #fff;
+  overflow: hidden;
   text-align: center;
-  color: #333;
-  margin-bottom: 40px;
-  }
-  
-  .portfolio-carousel {
-    max-width: 1200px;
-    margin: 0 auto;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .portfolio-slide {
-    display: none;
-    width: 100%;
-  }
-  
-  .portfolio-slide.active {
-    display: block;
-  }
-  
-  .portfolio-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 40px;
-    position: relative;
-    padding: 0 80px;
-    /* Remove any existing transform here if present */
-  }
+}
 
-  .portfolio-slide > .portfolio-content {
-    transform: translateX(-13%); /* ✅ Only shifts image & text left */
-  }
-  
-  .portfolio-image {
-    flex: 0 0 70%;
-    z-index: 1;
-  }
-  
-  .portfolio-image img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-  
-  .portfolio-text {
-    flex: 0 0 auto;              /* Don't constrain width based on flex */
-    position: absolute;
-    left: 60%;                   /* Keeps left side in place */
-    top: 50%;
-    transform: translateY(-50%);
-    width: 500px;                /* ⬅️ Adjust as needed to stretch rightward */
-    background-color: #d5d5d5;
-    padding: 40px 30px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
-    z-index: 2;
-    text-align: center;
-  }
-  
-  .portfolio-text h3 {
-    color: black;
-    margin-bottom: 20px;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 500;
-  font-size: 35px;
-  line-height: 25pt;
-  letter-spacing: 0;
-  color: black;  
-  margin-bottom: 10px;
+.portfolio-carousel {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-slide {
+  display: none;
+  width: 100%;
+}
+
+.portfolio-slide.active {
+  display: block;
+}
+
+.portfolio-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  position: relative;
+  padding: 0 80px;
+}
+
+.portfolio-slide > .portfolio-content {
+  transform: translateX(-13%);
+}
+
+.portfolio-image {
+  flex: 0 0 70%;
+  z-index: 1;
+}
+
+.portfolio-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.portfolio-text {
+  flex: 0 0 auto;
+  position: absolute;
+  left: 60%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 500px;
+  background-color: #d5d5d5;
+  padding: 40px 30px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+  z-index: 2;
   text-align: center;
-  }
+}
 
-  .portfolio-text p {
-    font-size: 25px;
-    line-height: 45px;
-    font-weight: 300;
-    font-family: 'Poppins', sans-serif;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  
-  .portfolio-text .btn {
-    margin: 0 auto;
-  }
-  
-  /* Arrows - clean, centered, larger */
-  .portfolio-prev,
+.portfolio-text .btn {
+  margin: 0 auto;
+}
+
+.portfolio-prev,
 .portfolio-next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 5.4rem; /* 50% larger */
+  font-size: 5.4rem;
   color: black;
   background: none;
   border: none;
@@ -274,90 +188,76 @@ body, html {
   transform: translateY(-50%) scale(1.1);
 }
 
-/* 🔒 Prevent red outlines or borders on click/focus */
 .portfolio-prev:focus,
 .portfolio-next:focus {
   outline: none;
   box-shadow: none;
   border: none;
 }
-  
-  .portfolio-prev {
-    left: 10px;
-  }
-  
-  .portfolio-next {
-    right: 10px;
-  }
-  
-  /* Dot indicators */
-  .portfolio-dots {
-    display: flex;
-    justify-content: center;
-    margin-top: 40px;
-  }
-  
-  .portfolio-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: #ccc;
-    margin: 0 5px;
-    cursor: pointer;
-    transition: background 0.3s;
-  }
-  
-  .portfolio-dot.active {
-    background: #333;
-  }
-  
-  /* Responsive */
-  @media (max-width: 768px) {
-    .portfolio-content {
-      flex-direction: column;
-      align-items: center;
-      padding: 0;
-    }
-  
-    .portfolio-image,
-    .portfolio-text {
-      position: static;
-      transform: none;
-      width: 100%;
-      max-width: 100%;
-    }
-  
-    .portfolio-text {
-      margin-top: 20px;
-      padding: 20px;
-      box-shadow: none;
-    }
-  
-    .portfolio-prev,
-    .portfolio-next {
-      position: static;
-      transform: none;
-      font-size: 2rem;
-      margin: 10px;
-    }
+
+.portfolio-prev {
+  left: 10px;
+}
+
+.portfolio-next {
+  right: 10px;
+}
+
+.portfolio-dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.portfolio-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ccc;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.portfolio-dot.active {
+  background: #333;
+}
+
+@media (max-width: 768px) {
+  .portfolio-content {
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
   }
 
-/* -------------------- Why Choose RED Workspace Section Styles -------------------- */
+  .portfolio-image,
+  .portfolio-text {
+    position: static;
+    transform: none;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .portfolio-text {
+    margin-top: 20px;
+    padding: 20px;
+    box-shadow: none;
+  }
+
+  .portfolio-prev,
+  .portfolio-next {
+    position: static;
+    transform: none;
+    font-size: 2rem;
+    margin: 10px;
+  }
+}
+
+/* -------------------- Why Choose RED Workspace Section -------------------- */
 .why-red-section {
   background-color: #f1f1f1;
   text-align: center;
   padding: 60px 20px;
-}
-
-.why-red-section .section-title {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700;
-  font-size: 70px;
-  line-height: 84px;
-  letter-spacing: 0;
-  text-align: center;
-  margin-bottom: 40px;
-  color: #c0392b;
 }
 
 .why-red-features {
@@ -370,19 +270,6 @@ body, html {
 
 .feature-box {
   max-width: 260px;
-  text-align: center;
-}
-
-/* ✅ Reusing the standard h3 styling */
-.why-red-section h3,
-.why-red-section .service-heading {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 500;
-  font-size: 35px;        /* 25pt */
-  line-height: 33px;      /* 25pt */
-  letter-spacing: 0;
-  margin-bottom: 10px;
-  color: #333;
   text-align: center;
 }
 
@@ -409,7 +296,6 @@ body, html {
   color: #fff;
 }
 
-/* Mobile Responsive */
 @media (max-width: 768px) {
   .why-red-features {
     flex-direction: column;
@@ -417,69 +303,34 @@ body, html {
   }
 }
 
-/* -------------------- Testimonials Section Styles -------------------- */
+/* -------------------- Testimonials Section -------------------- */
 .testimonials-section {
-    background-color: #444;
-    color: #fff;
-    padding: 80px 20px;
-    text-align: center;
-  }
-  
-  .testimonials-title {
-    font-family: 'Poppins', sans-serif;
-  font-weight: 700;
-  font-size: 70px;
-  line-height: 84px;
-  letter-spacing: 0;
+  background-color: #444;
+  color: #fff;
+  padding: 80px 20px;
   text-align: center;
-  margin-bottom: 40px;
-  color: #fff
-  }
-  
-  .testimonials-carousel {
-    position: relative;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 0 60px;
-  }
-  
-  .testimonial-slide {
-    display: none;
-    text-align: center;
-    padding: 0 40px;
-  }
-  
-  .testimonial-slide.active {
-    display: block;
-  }
-  
-  .testimonial-slide blockquote {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;               /* Semi-bold */
-    font-size: 33px;                /* 25pt = 33px */
-    line-height: 45px;              /* Leading */
-    letter-spacing: 0;              /* Tracking */
-    font-style: italic;             /* Italic for emphasis */
-    color: #fff;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  .testimonial-author {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 300;             /* Semibold */
-    font-size: 25px;  
-    font-style: italic;            /* 25pt = 33px */
-    line-height: 45px;            /* Leading */
-    letter-spacing: 0;            /* Tracking */
-    color: #ccc;
-    font-style: italic;
-  }
-  
-  /* Navigation arrows */
-  .prev-testimonial,
+}
+
+.testimonials-carousel {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 60px;
+}
+
+.testimonial-slide {
+  display: none;
+  text-align: center;
+  padding: 0 40px;
+}
+
+.testimonial-slide.active {
+  display: block;
+}
+
+.prev-testimonial,
 .next-testimonial {
-  font-size: 5.4rem; /* 150% of original size */
+  font-size: 5.4rem;
   color: #fff;
   background: none;
   border: none;
@@ -490,7 +341,7 @@ body, html {
   padding: 10px;
   transition: color 0.3s;
   line-height: 1;
-  font-family: Arial, sans-serif; /* Ensures consistent rendering */
+  font-family: Arial, sans-serif;
 }
 
 .prev-testimonial:focus,
@@ -500,32 +351,29 @@ body, html {
   box-shadow: none;
 }
 
-  .prev-testimonial {
-    left: 0;
-  }
-  
-  .next-testimonial {
-    right: 0;
-  }
-  
-  .prev-testimonial:hover,
-.next-testimonial:hover {
-  color: #d22f2b; /* Red hover color */
+.prev-testimonial {
+  left: 0;
 }
-  
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .testimonials-carousel {
-      padding: 0 20px;
-    }
-  
-    .prev-testimonial,
-    .next-testimonial {
-      font-size: 2.4rem;
-      position: static;
-      transform: none;
-      margin: 20px 10px 0;
-    }
+
+.next-testimonial {
+  right: 0;
+}
+
+.prev-testimonial:hover,
+.next-testimonial:hover {
+  color: #d22f2b;
+}
+
+@media (max-width: 768px) {
+  .testimonials-carousel {
+    padding: 0 20px;
   }
 
-  
+  .prev-testimonial,
+  .next-testimonial {
+    font-size: 2.4rem;
+    position: static;
+    transform: none;
+    margin: 20px 10px 0;
+  }
+}

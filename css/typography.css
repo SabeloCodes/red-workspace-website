@@ -1,0 +1,67 @@
+/* -------------------- Typography Styles (typography.css) -------------------- */
+
+/* Base font setup */
+body, html {
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  /* -------------------- Headings -------------------- */
+  
+  /* XL Headings - used for section titles like "Who We Are", "What We Do" */
+  .heading-xl {
+    font-weight: 700;
+    font-size: 70px;
+    line-height: 84px;
+    letter-spacing: 0;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  
+  /* Red section titles override */
+  .text-red {
+    color: #d22f2b;
+  }
+  
+  /* Light and dark text color utilities */
+  .text-light {
+    color: #fff;
+  }
+  
+  .text-dark {
+    color: #333;
+  }
+  
+  /*----------- Medium heading used for h3's -------------*/
+  .heading-md {
+    font-weight: 500;
+    font-size: 35px;
+    line-height: 33px;
+    letter-spacing: 0;
+    margin-top: 10px;
+    margin-bottom: 0;
+    text-align: center;
+  }
+  
+  /* -------------------- Paragraphs -------------------- */
+  
+  /* Large paragraph style - for intro text, carousel overlay, etc */
+  .text-lg {
+    font-weight: 300;
+    font-size: 25px;
+    line-height: 40px;
+    letter-spacing: 0;
+    color: #555;
+    text-align: center;
+  }
+  
+  .text-lg-light {
+    color: #e6e6e6;
+  }
+  
+  /* -------------------- Utility Classes -------------------- */
+  
+  /* Apply to h2 if you want tighter bottom spacing */
+  .tight-bottom {
+    margin-bottom: 20px;
+  }
+  
