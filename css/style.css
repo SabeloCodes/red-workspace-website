@@ -159,7 +159,8 @@ body, html {
   padding: 40px 30px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
   z-index: 2;
-  text-align: center;
+  text-align: left; /* ← Aligns all text to the left */
+  align-items: flex-start; /* ← If you're using flex in children */
 }
 
 .portfolio-text .btn {
@@ -336,7 +337,7 @@ body, html {
   border: none;
   cursor: pointer;
   position: absolute;
-  top: 50%;
+  top: 35%;
   transform: translateY(-50%);
   padding: 10px;
   transition: color 0.3s;

@@ -16,22 +16,8 @@ body, html {
     margin-bottom: 40px;
     text-align: center;
   }
-  
-  /* Red section titles override */
-  .text-red {
-    color: #d22f2b;
-  }
-  
-  /* Light and dark text color utilities */
-  .text-light {
-    color: #fff;
-  }
-  
-  .text-dark {
-    color: #333;
-  }
-  
-  /*----------- Medium heading used for h3's -------------*/
+
+  /* Medium heading used for h3's */
   .heading-md {
     font-weight: 500;
     font-size: 35px;
@@ -39,7 +25,42 @@ body, html {
     letter-spacing: 0;
     margin-top: 10px;
     margin-bottom: 0;
+  }
+
+  /* ---------- Text alignment ----------- */
+  .text-left {
+    text-align: left;
+  }
+  .text-center {
     text-align: center;
+  }
+  .text-right {
+    text-align: right;
+  }
+
+    /* -------------------- Text Style -------------------- */
+  .text-italic {
+    font-style: italic;
+  }
+  
+
+  /*--------------------- Text Colours ---------------------*/
+
+  .text-light-grey {
+    color: #e6e6e6;
+  }
+  /* Red section titles override */
+  .text-red {
+    color: #d22f2b;
+  }
+  
+  /* Light and dark text color utilities */
+  .text-light {
+    color: #FFFFFF;
+  }
+  
+  .text-dark {
+    color: #333;
   }
   
   /* -------------------- Paragraphs -------------------- */
@@ -50,13 +71,17 @@ body, html {
     font-size: 25px;
     line-height: 40px;
     letter-spacing: 0;
-    color: #555;
     text-align: center;
   }
-  
-  .text-lg-light {
-    color: #e6e6e6;
+
+   /* Medium paragraph style - for Portfolio text box */
+   .text-md {
+    font-weight: 300;
+    font-size: 18.75px;     /* 25% smaller than 25px */
+    line-height: 30px;       /* 25% smaller than 40px */
+    letter-spacing: 0;
   }
+  
   
   /* -------------------- Utility Classes -------------------- */
   
