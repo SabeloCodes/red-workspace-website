@@ -350,6 +350,7 @@
     width: 100%;
     height: 500px;
     overflow: hidden;
+    text-align: center; /* Optional fallback */
   }
   
   .case-studies-image {
@@ -371,15 +372,44 @@
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 10;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    text-align: center;
+    white-space: nowrap;
   }
   
-  .btn {
-    transition: transform 0.3s ease;
+  /* -------------------- Unique Button: Case Study Preview -------------------- */
+  .btn-case-study-preview {
+    background-color: rgba(230, 230, 230, 0.85);
+    color: #000;
+    border: 2px solid #e6e6e6;
+    height: 65px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 33px;
+    letter-spacing: 0;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    box-sizing: border-box;
+    min-width: 320px; /* Setting width to match non hover size */
+    text-align: center;
+    /* Add scale transition */
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
   }
   
-  .btn:hover {
-    transform: translateY(-3px);
+  .btn-case-study-preview:hover {
+    background-color: #000;
+    color: #fff;
+    border-color: #000;
+  
+    /* Apply scale instead of jump */
+    transform: scale(1.04);
+  }
+  
+  @media (max-width: 768px) {
+    .btn-case-study-preview {
+      font-size: 24px;
+      padding: 10px 20px;
+    }
   }
 
   
