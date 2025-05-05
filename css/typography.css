@@ -16,7 +16,7 @@ body, html {
     margin-bottom: 40px;
     text-align: center;
   }
-
+  
   /* Medium heading used for h3's */
   .heading-md {
     font-weight: 500;
@@ -25,52 +25,6 @@ body, html {
     letter-spacing: 0;
     margin-top: 10px;
     margin-bottom: 0;
-  }
-
-  /* ---------- Text alignment ----------- */
-  .text-left {
-    text-align: left;
-  }
-  .text-center {
-    text-align: center;
-  }
-  .text-right {
-    text-align: right;
-  }
-
-    /* -------------------- Text Style -------------------- */
-  .text-italic {
-    font-style: italic;
-  }
-
-  .text-bold {
-    font-weight: 700;
-  }
-  .text-semibold {
-    font-weight: 600;
-  }
-  .text-normal {
-    font-weight: 400;
-  }
-  
-
-  /*--------------------- Text Colours ---------------------*/
-
-  .text-light-grey {
-    color: #e6e6e6;
-  }
-  /* Red section titles override */
-  .text-red {
-    color: #d22f2b;
-  }
-  
-  /* Light and dark text color utilities */
-  .text-light {
-    color: #FFFFFF;
-  }
-  
-  .text-dark {
-    color: #333;
   }
   
   /* -------------------- Paragraphs -------------------- */
@@ -83,15 +37,65 @@ body, html {
     letter-spacing: 0;
     text-align: center;
   }
-
-   /* Medium paragraph style - for Portfolio text box */
-   .text-md {
+  
+  /* Medium paragraph style - for Portfolio text box */
+  .text-md {
     font-weight: 300;
-    font-size: 18.75px;     /* 25% smaller than 25px */
-    line-height: 30px;       /* 25% smaller than 40px */
+    font-size: 18.75px;
+    line-height: 30px;
     letter-spacing: 0;
   }
   
+  /* -------------------- Text Alignment Utilities -------------------- */
+  
+  .text-left {
+    text-align: left;
+  }
+  .text-center {
+    text-align: center;
+  }
+  .text-right {
+    text-align: right;
+  }
+  
+  /* -------------------- Font Style Utilities -------------------- */
+  
+  .text-italic {
+    font-style: italic;
+  }
+  
+  /* -------------------- Font Weight Utilities -------------------- */
+  
+  .text-bold {
+    font-weight: 700;
+  }
+  .text-semibold {
+    font-weight: 600;
+  }
+  .text-normal {
+    font-weight: 400;
+  }
+  
+  /* -------------------- Text Color Utilities -------------------- */
+  
+  .text-white {
+    color: #ffffff;
+  }
+  .text-black {
+    color: #000000;
+  }
+  .text-light-grey {
+    color: #e6e6e6;
+  }
+  .text-light {
+    color: #ffffff;
+  }
+  .text-dark {
+    color: #333333;
+  }
+  .text-red {
+    color: #d22f2b;
+  }
   
   /* -------------------- Utility Classes -------------------- */
   
@@ -99,4 +103,3 @@ body, html {
   .tight-bottom {
     margin-bottom: 20px;
   }
-  
