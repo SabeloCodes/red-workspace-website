@@ -106,3 +106,25 @@
     border-color: #000;
   }
   
+  /* -------------------- Team LinkedIn Icon Button -------------------- */
+/* Restrict the size and appearance of icon-only buttons */
+.btn-icon-only {
+    padding: 12px; /* or less if needed */
+    width: 65px;
+    height: 65px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .btn-icon-only img.icon-only-img {
+    width: 32px;
+    height: 32px;
+    transition: filter 0.3s ease, transform 0.3s ease;
+  }
+  
+  /* Hover styling for the icon button */
+  .btn-icon-only:hover img.icon-only-img {
+    filter: brightness(0) invert(1); /* turn white */
+    transform: scale(1.1);
+  }

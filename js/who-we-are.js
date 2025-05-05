@@ -14,16 +14,16 @@ function injectContent(url, targetId, callback) {
         }
       })
       .catch((err) => console.error(`Error loading ${url}:`, err));
-  }
-  
-  // Utility function to dynamically inject CSS file
-  function injectCSS(href) {
-    const link = document.createElement("link");
-    link.rel = "stylesheet";
-    link.href = href;
-    document.head.appendChild(link);
-  }
-  
+}
+
+// Utility function to dynamically inject CSS file
+function injectCSS(href) {
+  const link = document.createElement("link");
+  link.rel = "stylesheet";
+  link.href = href;
+  document.head.appendChild(link);
+}
+
 // Main logic for Who We Are page
 document.addEventListener("DOMContentLoaded", () => {
     injectContent("components/nav.html", "navigation");
@@ -35,18 +35,19 @@ document.addEventListener("DOMContentLoaded", () => {
         setupCarouselLoop();
     });
 
-    // Scroll-triggered animation for team members
+    // Scroll-triggered animation with stagger effect
+    const teamMembers = document.querySelectorAll(".team-member-segment");
     const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
+        entries.forEach((entry, index) => {
             if (entry.isIntersecting) {
+                entry.target.style.transitionDelay = `${index * 150}ms`;
                 entry.target.classList.add("visible");
                 observer.unobserve(entry.target);
             }
         });
     }, { threshold: 0.2 });
 
-    document.querySelectorAll(".team-member-segment").forEach(el => {
+    teamMembers.forEach((el) => {
         observer.observe(el);
     });
 });
-  
