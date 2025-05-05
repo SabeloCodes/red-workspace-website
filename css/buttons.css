@@ -2,94 +2,107 @@
 
 .btn {
     font-family: 'Poppins', sans-serif;
-    font-weight: 700;              /* Bold */
-    text-transform: uppercase;     /* ALL CAPS */
-    font-size: 33px;               /* 25pt = 33px */
-    letter-spacing: 0;             /* Tracking = 0 */
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 33px;
+    letter-spacing: 0;
     padding: 12px 25px;
     text-decoration: none;
-    color: #fff;
-    background: rgba(255, 255, 255, 0.15);
-    border: 3px solid #fff;
-    transition: all 0.3s ease;
     display: inline-block;
     cursor: pointer;
-  }
-  
-  .btn:hover {
-    background: #fff;
-    color: #000;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
   }
   
   .btn:active {
     transform: scale(0.96);
     transition: transform 0.1s ease;
   }
+
+  /* Hover animation */
+.btn:hover {
+    transform: translateY(-3px);
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+  }
   
   /* -------------------- Button Variants -------------------- */
-  
-  /* Light Outline Button - Matches light section background like #e6e6e6 */
-.btn-light-outline {
-    background-color: #e6e6e6;  /* ✅ Match section background */
-    color: #000;
-    border: 2px solid #000;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-  
-  .btn-light-outline:hover {
-    background-color: #000;     /* On hover: dark background */
-    color: #e6e6e6;             /* and light text */
-  }
   
   /* Dark Outline for Dark Backgrounds */
   .btn-dark-outline {
     background-color: transparent;
     color: #fff;
-    border-color: #fff;
+    border: 2px solid #fff;
   }
   
   .btn-dark-outline:hover {
     background-color: #fff;
     color: #000;
+    border-color: #fff;
   }
-
-    /* Inverted Button for Dark Sections with Light Text */
-    .btn-dark-section-light-outline {
-        background-color: #333333;
-        color: #e6e6e6;
-        border: 2px solid #e6e6e6;
-        transition: background-color 0.3s ease, color 0.3s ease;
-      }
-      
-      .btn-dark-section-light-outline:hover {
-        background-color: #e6e6e6;
-        color: #333333;
-      }
   
-  /* Inverted Button for Light Sections with Dark Text */
-  .btn-light-section-dark-outline {
-    background-color: transparent;
+  /* Inverted for Dark Sections with Light Text */
+  .btn-dark-section-light-outline {
+    background-color: #333333;
+    color: #e6e6e6;
+    border: 2px solid #e6e6e6;
+  }
+  
+  .btn-dark-section-light-outline:hover {
+    background-color: #e6e6e6;
+    color: #333333;
+    border-color: #e6e6e6;
+  }
+  
+  /* ----------------------------------------
+   Button: Light Grey Background with Black Outline
+   For buttons like: MEET THE TEAM, VIEW OUR CASE STUDIES, LET'S TALK
+---------------------------------------- */
+ 
+  .btn-light-grey-outline {
+    background-color: #e6e6e6;
     color: #000;
     border: 2px solid #000;
-    transition: background-color 0.3s ease, color 0.3s ease;
   }
   
-  .btn-light-section-dark-outline:hover {
+  .btn-light-grey-outline:hover {
     background-color: #000;
-    color: #fff;
+    color: #e6e6e6;
+    border-color: #000;
   }
   
   /* Carousel-Specific Buttons */
   .explore-work,
-.lets-talk {
-  background-color: transparent;
-  color: #fff;
-  border: 2px solid #fff;
-}
-
-.explore-work:hover,
-.lets-talk:hover {
-  background-color: #fff;
-  color: #000;
-}
-
+  .lets-talk {
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+  }
+  
+  .explore-work:hover,
+  .lets-talk:hover {
+    background-color: #fff;
+    color: #000;
+  }
+  
+  /* Unique Button — Case Study Preview */
+  .btn-case-study-preview {
+    background-color: rgba(230, 230, 230, 0.85);
+    color: #000;
+    border: 2px solid #e6e6e6;
+    height: 65px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 33px;
+    letter-spacing: 0;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    box-sizing: border-box;
+  }
+  
+  .btn-case-study-preview:hover {
+    background-color: #000;
+    color: #fff;
+    border-color: #000;
+  }
+  
