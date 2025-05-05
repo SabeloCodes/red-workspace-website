@@ -1,5 +1,4 @@
-/* -------------------- General Section Styling -------------------- */
-/* Remove default spacing from the page */
+/* -------------------- General Layout Reset -------------------- */
 html, body {
     margin: 0;
     padding: 0;
@@ -7,9 +6,8 @@ html, body {
     height: 100%;
     box-sizing: border-box;
   }
-
-
-.section {
+  
+  .section {
     padding: 80px 20px;
   }
   
@@ -24,14 +22,6 @@ html, body {
   
   .why-red-section {
     background-color: #f2f2f2;
-    padding: 80px 20px;
-  }
-  
-  .why-red-title {
-    font-size: 36px;
-    color: #d22f2b;
-    margin-bottom: 50px;
-    text-align: center;
   }
   
   .why-red-grid {
@@ -44,7 +34,6 @@ html, body {
   
   .why-red-item {
     flex: 1 1 30%;
-    background-color: transparent;
   }
   
   .why-red-item img {
@@ -53,25 +42,11 @@ html, body {
     margin-bottom: 20px;
   }
   
-  .why-red-item h3 {
-    font-size: 20px;
-    font-weight: 600;
-    color: #000;
-    margin-bottom: 15px;
-  }
-  
-  .why-red-item p {
-    font-size: 16px;
-    color: #333;
-    line-height: 1.6;
-  }
-  
   .why-red-section .button-container {
     margin-top: 50px;
   }
   
   /* -------------------- Full Width Image Section -------------------- */
-  
   .full-width-image {
     width: 100%;
     overflow: hidden;
@@ -88,66 +63,24 @@ html, body {
   .the-process-section {
     background-color: #2f2f2f;
     color: #fff;
-    padding: 80px 20px;
   }
   
-  .the-process-title {
-    font-size: 32px;
-    color: #fff;
-    text-align: center;
-    margin-bottom: 50px;
-  }
-  
-  .process-step {
+  .the-process-section .process-step {
     max-width: 700px;
     margin: 0 auto 60px;
   }
   
-  .process-step img {
+  .the-process-section .process-step img {
     width: 50px;
     height: auto;
     margin-bottom: 20px;
-  }
-  
-  .process-step h3 {
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 10px;
-  }
-  
-  .process-step p {
-    font-size: 16px;
-    line-height: 1.6;
-    color: #ccc;
   }
   
   .the-process-section .button-container {
     margin-top: 40px;
   }
   
-  /* -------------------- Button Styling (uses shared styles) -------------------- */
-  
-  .btn {
-    background-color: #e6e6e6;
-    color: #000;
-    border: 2px solid #000;
-    padding: 12px 25px;
-    text-transform: uppercase;
-    font-weight: 700;
-    font-size: 16px;
-    text-decoration: none;
-    display: inline-block;
-    transition: all 0.3s ease;
-  }
-  
-  .btn:hover {
-    background-color: #000;
-    color: #e6e6e6;
-    border-color: #000;
-  }
-  
   /* -------------------- Responsive -------------------- */
-  
   @media (max-width: 768px) {
     .why-red-grid {
       flex-direction: column;
@@ -159,7 +92,8 @@ html, body {
       max-width: 100%;
     }
   
-    .process-step {
+    .the-process-section .process-step {
       margin-bottom: 50px;
     }
   }
+  
