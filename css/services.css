@@ -17,6 +17,27 @@ html, body {
     padding: 0 15px;
     text-align: center;
   }
+
+  /* Services Page Specific Overlay Styling */
+  body.services-page .overlay .logo-overlay h1 {
+    color: #ffffff !important;
+  }
+  
+  body.services-page .overlay .logo-overlay p {
+    color: #e6e6e6 !important;
+  }
+  
+  .overlay.overlay-services .btn {
+    background-color: rgba(230, 230, 230, 0.85);
+    color: #000;
+    border: 2px solid #e6e6e6;
+  }
+  
+  .overlay.overlay-services .btn:hover {
+    background-color: #000;
+    color: #e6e6e6;
+    border-color: #000;
+  }
   
   /* -------------------- Why Red Workspace Section -------------------- */
   
