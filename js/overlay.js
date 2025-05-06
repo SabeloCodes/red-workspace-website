@@ -38,6 +38,9 @@ function setupCarouselOverlay() {
     if (paragraph && carouselParagraph) paragraph.textContent = carouselParagraph;
     if (buttons[0] && carouselButton1) buttons[0].textContent = carouselButton1;
     if (buttons[1] && carouselButton2) buttons[1].textContent = carouselButton2;
+
+    // ✅ Add animation class to all carousel buttons
+    buttons.forEach(btn => btn.classList.add("btn-animate"));
   });
 
   observer.observe(carousel, { childList: true, subtree: true });

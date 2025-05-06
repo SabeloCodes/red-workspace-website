@@ -30,7 +30,22 @@ function injectContent(url, targetId, callback) {
     // Inject carousel and setup
     injectCSS("css/carousel.css");
     injectContent("components/carousel.html", "carousel-placeholder", () => {
-      setupCarouselOverlay(); // assume this already exists
-      setupCarouselLoop();    // standard for your site
+      setupCarouselOverlay();
+      setupCarouselLoop();
     });
+  
+    // Scroll-triggered staggered animation
+    const animatedItems = document.querySelectorAll(".why-red-item, .process-step");
+  
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          entry.target.style.animationDelay = `${index * 150}ms`; // 150ms stagger
+          entry.target.classList.add("fade-in-up");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+  
+    animatedItems.forEach((el) => observer.observe(el));
   });
