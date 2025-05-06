@@ -70,18 +70,28 @@ html, body {
   
   .why-red-section .button-container {
     margin-top: 50px;
+    margin-bottom: 0;
   }
   
   /* -------------------- Full Width Image Section -------------------- */
+  /* Fix overlap: ensure full-width image and following section have spacing */
   .full-width-image {
     width: 100%;
     overflow: hidden;
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+    background: #000; /* Optional: fallback color to avoid flash of white */
   }
   
   .full-width-image img {
+    display: block;
     width: 100%;
     height: auto;
-    display: block;
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+    border: none;
   }
   
   /* -------------------- The Process Section -------------------- */
@@ -89,6 +99,18 @@ html, body {
   .the-process-section {
     background-color: #2f2f2f;
     color: #fff;
+    padding-top: 60px;   /* Or 0 if you want them touching */
+    padding-bottom: 80px;
+    margin: 0;
+    margin-top: 0;
+  }
+
+  .the-process-section h2 {
+    margin-top: 0;
+  }
+
+  .the-process-section .container {
+    padding-top: 0;
   }
   
   .the-process-section .process-step {
