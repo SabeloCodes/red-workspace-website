@@ -1,0 +1,120 @@
+/* -------------------- General Layout -------------------- */
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .case-studies-page section {
+    padding: 80px 20px;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+  
+  /* -------------------- Hero Section -------------------- */
+  .case-hero-text {
+    text-align: center;
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 60px 0;
+  }
+  
+  .case-hero-text p {
+    margin-bottom: 40px;
+    font-size: 18px;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  .case-study-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 60px;
+  }
+  
+  /* -------------------- Case Study Entry -------------------- */
+  .case-entry {
+    background-color: #1e1e1e;
+    color: #fff;
+    padding: 60px 20px;
+  }
+  
+  .case-entry .container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .case-entry-title {
+    font-size: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    color: #fff;
+  }
+  
+  .case-entry-content {
+    display: flex;
+    flex-direction: row;
+    gap: 60px;
+    flex-wrap: wrap;
+  }
+  
+  .case-entry-content .left {
+    flex: 1 1 40%;
+    color: #fff;
+  }
+  
+  .case-entry-content .right {
+    flex: 1 1 60%;
+    color: #ccc;
+    line-height: 1.6;
+  }
+  
+  .case-entry .btn {
+    margin-top: 20px;
+  }
+  
+  /* -------------------- Image Row -------------------- */
+  .image-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .image-row img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  .image-row.three img {
+    width: calc(100% / 3);
+  }
+  
+  /* -------------------- Responsive -------------------- */
+  @media screen and (max-width: 768px) {
+    .case-entry-content {
+      flex-direction: column;
+    }
+  
+    .image-row.three img {
+      width: 100%;
+    }
+  
+    .case-study-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  
