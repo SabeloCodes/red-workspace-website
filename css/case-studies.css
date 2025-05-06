@@ -16,6 +16,12 @@ html, body {
     margin: 0 auto;
     padding: 0 15px;
   }
+
+  /* -------------------- Hero Section -------------------- */
+
+  #rev-cap .button-container {
+    text-align: left;
+  }
   
   /* -------------------- Hero Section -------------------- */
   .case-hero-text {
@@ -41,74 +47,59 @@ html, body {
   }
   
   /* -------------------- Case Study Entry -------------------- */
-  .case-entry {
-    background-color: #1e1e1e;
-    color: #fff;
-    padding: 60px 20px;
+  .case-study-section {
+    background-color: #333333 ;
+    padding: 80px 20px;
   }
   
-  .case-entry .container {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-  }
-  
-  .case-entry-title {
-    font-size: 30px;
-    font-weight: 700;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    color: #fff;
-  }
-  
-  .case-entry-content {
+  .case-study-row {
     display: flex;
     flex-direction: row;
-    gap: 60px;
+    gap: 40px;
     flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
   }
   
-  .case-entry-content .left {
-    flex: 1 1 40%;
-    color: #fff;
+  .case-study-text,
+  .case-study-description {
+    flex: 1 1 48%;
   }
   
-  .case-entry-content .right {
-    flex: 1 1 60%;
-    color: #ccc;
-    line-height: 1.6;
-  }
-  
-  .case-entry .btn {
+  .case-study-text .btn {
     margin-top: 20px;
   }
   
-  /* -------------------- Image Row -------------------- */
-  .image-row {
+  /* -------------------- Gallery -------------------- */
+  .case-gallery {
     display: flex;
-    flex-wrap: wrap;
     gap: 0;
-    padding: 0;
-    margin: 0;
+    margin-top: 60px;
   }
   
-  .image-row img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-  }
-  
-  .image-row.three img {
+  .case-gallery img {
     width: calc(100% / 3);
+    height: auto;
+    display: block;
+    object-fit: cover;
   }
   
   /* -------------------- Responsive -------------------- */
   @media screen and (max-width: 768px) {
-    .case-entry-content {
+    .case-study-row {
       flex-direction: column;
     }
   
-    .image-row.three img {
+    .case-study-text,
+    .case-study-description {
+      flex: 1 1 100%;
+    }
+  
+    .case-gallery {
+      flex-direction: column;
+    }
+  
+    .case-gallery img {
       width: 100%;
     }
   
@@ -117,4 +108,3 @@ html, body {
       align-items: center;
     }
   }
-  

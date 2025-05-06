@@ -45,6 +45,14 @@ body, html {
     line-height: 30px;
     letter-spacing: 0;
   }
+
+    /* Medium paragraph style */
+    .text-sm {
+        font-weight: 150;
+        font-size: 9.35px;
+        line-height: 15px;
+        letter-spacing: 0;
+      }
   
   /* -------------------- Text Alignment Utilities -------------------- */
   
