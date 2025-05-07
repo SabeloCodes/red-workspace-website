@@ -93,3 +93,36 @@ function setupPortfolioCarousel() {
 }
 
 document.addEventListener("DOMContentLoaded", setupPortfolioCarousel);
+
+ 
+// -------------------- Testimonials Carousel Logic --------------------
+function setupTestimonialsCarousel() {
+  const testimonialsCarousel = document.querySelector(".testimonials-carousel");
+  if (!testimonialsCarousel) return;
+
+  const testimonialSlides = testimonialsCarousel.querySelectorAll(".testimonial-slide");
+  const prevBtn = testimonialsCarousel.querySelector(".prev-testimonial");
+  const nextBtn = testimonialsCarousel.querySelector(".next-testimonial");
+  let currentIndex = 0;
+
+  function showTestimonialSlide(index) {
+    testimonialSlides.forEach((slide, i) => {
+      slide.classList.toggle("active", i === index);
+    });
+  }
+
+  prevBtn?.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + testimonialSlides.length) % testimonialSlides.length;
+    showTestimonialSlide(currentIndex);
+  });
+
+  nextBtn?.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % testimonialSlides.length;
+    showTestimonialSlide(currentIndex);
+  });
+
+  showTestimonialSlide(currentIndex);
+}
+
+// Call it after DOM loads
+document.addEventListener("DOMContentLoaded", setupTestimonialsCarousel);
