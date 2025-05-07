@@ -1,22 +1,22 @@
-// js/who-we-are.js
+// case-studies.js
 
-// Utility function to inject HTML content dynamically
+// Utility function to inject external content
 function injectContent(url, targetId, callback) {
-    fetch(url)
-      .then((res) => res.text())
-      .then((html) => {
-        const targetElement = document.getElementById(targetId);
-        if (targetElement) {
-          targetElement.innerHTML = html;
-          if (typeof callback === "function") callback();
-        } else {
-          console.error(`Target element with ID "${targetId}" not found.`);
-        }
-      })
-      .catch((err) => console.error(`Error loading ${url}:`, err));
+  fetch(url)
+    .then((res) => res.text())
+    .then((html) => {
+      const target = document.getElementById(targetId);
+      if (target) {
+        target.innerHTML = html;
+        if (typeof callback === "function") callback();
+      } else {
+        console.error(`Element with ID "${targetId}" not found.`);
+      }
+    })
+    .catch((err) => console.error(`Error loading ${url}:`, err));
 }
 
-// Utility function to dynamically inject CSS file
+// Utility to inject external CSS
 function injectCSS(href) {
   const link = document.createElement("link");
   link.rel = "stylesheet";
@@ -24,30 +24,58 @@ function injectCSS(href) {
   document.head.appendChild(link);
 }
 
-// Main logic for Who We Are page
+// -------------------- Mini Carousel Logic --------------------
+function setupMiniCarousel() {
+  const track = document.querySelector(".mini-carousel-track");
+  const items = document.querySelectorAll(".mini-carousel-track img");
+  const prevBtn = document.querySelector(".mini-carousel-prev");
+  const nextBtn = document.querySelector(".mini-carousel-next");
+
+  if (!track || items.length < 3) return;
+
+  let currentIndex = 1;
+
+  function updateCarousel() {
+    const itemWidth = items[0].offsetWidth;
+    const shift = itemWidth * (currentIndex - 1);
+    track.style.transform = `translateX(-${shift}px)`;
+
+    // Update "center" styling
+    items.forEach((item, i) => {
+      item.classList.toggle("center", i === currentIndex);
+    });
+  }
+
+  function moveLeft() {
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateCarousel();
+    }
+  }
+
+  function moveRight() {
+    if (currentIndex < items.length - 2) {
+      currentIndex++;
+      updateCarousel();
+    }
+  }
+
+  prevBtn?.addEventListener("click", moveLeft);
+  nextBtn?.addEventListener("click", moveRight);
+
+  updateCarousel(); // Initial call
+}
+
+// -------------------- Page Initialization --------------------
 document.addEventListener("DOMContentLoaded", () => {
-    injectContent("components/nav.html", "navigation");
-    injectContent("components/footer.html", "page-footer");
+  injectContent("components/nav.html", "navigation");
+  injectContent("components/footer.html", "page-footer");
 
-    injectCSS("css/carousel.css");
-    injectContent("components/carousel.html", "carousel-placeholder", () => {
-        setupCarouselOverlay();
-        setupCarouselLoop();
-    });
+  injectCSS("css/carousel.css");
+  injectContent("components/carousel.html", "carousel-placeholder", () => {
+    setupCarouselOverlay();
+    setupCarouselLoop();
+  });
 
-    // Scroll-triggered animation with stagger effect
-    const teamMembers = document.querySelectorAll(".team-member-segment");
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
-            if (entry.isIntersecting) {
-                entry.target.style.transitionDelay = `${index * 150}ms`;
-                entry.target.classList.add("visible");
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.2 });
-
-    teamMembers.forEach((el) => {
-        observer.observe(el);
-    });
+  setupMiniCarousel(); // Custom mini carousel logic
 });

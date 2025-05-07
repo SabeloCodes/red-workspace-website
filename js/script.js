@@ -1,130 +1,95 @@
-// ✅ script.js - Refined
-
 document.addEventListener("DOMContentLoaded", () => {
-    injectContent("components/nav.html", "navigation", () => {
-      const navScript = document.createElement("script");
-      navScript.src = "js/nav.js";
-      document.body.appendChild(navScript);
-    });
-    injectContent("components/footer.html", "page-footer");
-    injectContent("components/carousel.html", "carousel-placeholder", () => {
-      setupCarouselOverlay();
+  // Inject Navigation
+  injectContent("components/nav.html", "navigation", () => {
+    const navScript = document.createElement("script");
+    navScript.src = "js/nav.js";
+    navScript.onload = () => console.log("✅ nav.js loaded");
+    document.body.appendChild(navScript);
+  });
+
+  // Inject Footer
+  injectContent("components/footer.html", "page-footer");
+
+  // Inject Carousel and run setup
+  injectContent("components/carousel.html", "carousel-placeholder", () => {
+    if (typeof setupCarouselLoop === "function") {
       setupCarouselLoop();
-    });
-  
-    // Portfolio Carousel Logic
-const portfolioCarousel = document.querySelector(".portfolio-carousel");
+    }
 
-if (portfolioCarousel) {
-  const portfolioSlides = document.querySelectorAll(".portfolio-slide");
-  const portfolioPrevButton = document.querySelector(".portfolio-prev");
-  const portfolioNextButton = document.querySelector(".portfolio-next");
-  const portfolioDotsContainer = document.querySelector(".portfolio-dots");
+    setTimeout(() => {
+      if (typeof setupCarouselOverlay === "function") {
+        setupCarouselOverlay();
+      }
 
-  // ✅ Updated content
-  const projects = [
-    {
-      title: "REVCAP",
-      text: `For a longstanding client’s second relocation, Red Workspace provided end-to-end support from initial brief and building selection to budget management and final delivery. The project featured major structural works, including a custom cantilevered staircase, and was completed with bespoke joinery and furniture to create a refined industrial-style London HQ.`,
-      image: "img/PROJECTS/REV_CAPITAL/HighRes__W9A4780-Edit 1.jpg",
-    },
-    {
-      title: "US HEDGE FUND",
-      text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Sed posuere consectetur est at lobortis.`,
-      image: "img/PROJECTS/US_HEDGE_FUND/Magnetar_0051-HDR.jpg",
-    },
-  ];
+      setupPortfolioCarousel(); // ✅ Runs only after DOM is ready
+    }, 100);
+  });
+});
 
-  let portfolioCurrentIndex = 0;
-  let portfolioDots = [];
+// Reusable content injector
+function injectContent(url, targetId, callback) {
+  fetch(url)
+    .then((res) => {
+      if (!res.ok) throw new Error(`Failed to fetch ${url}: ${res.statusText}`);
+      return res.text();
+    })
+    .then((html) => {
+      const target = document.getElementById(targetId);
+      if (!target) {
+        console.error(`❌ Element with ID "${targetId}" not found.`);
+        return;
+      }
+      target.innerHTML = html;
+      if (typeof callback === "function") callback();
+    })
+    .catch((err) => console.error(`❌ Error loading ${url}:`, err));
+}
 
-  function updatePortfolioSlide(index) {
-    portfolioSlides.forEach((slide, i) => {
-      slide.classList.toggle("active", i === index);
-    });
+function setupPortfolioCarousel() {
+  const slides = document.querySelectorAll(".portfolio-slide");
+  const prevBtn = document.querySelector(".portfolio-prev");
+  const nextBtn = document.querySelector(".portfolio-next");
+  const dotsContainer = document.querySelector(".portfolio-dots");
 
-    const { image, title, text } = projects[index];
-    portfolioCarousel.querySelector(".portfolio-image img").src = image;
-    portfolioCarousel.querySelector(".portfolio-text h3").textContent = title;
-    portfolioCarousel.querySelector(".portfolio-text p").textContent = text;
+  if (!slides.length || !dotsContainer) return;
 
-    portfolioDots.forEach((dot, i) => {
-      dot.classList.toggle("active", i === index);
-    });
+  let currentIndex = 0;
+
+  function showSlide(index) {
+    slides.forEach((slide, i) =>
+      slide.classList.toggle("active", i === index)
+    );
+    const dots = dotsContainer.querySelectorAll(".portfolio-dot");
+    dots.forEach((dot, i) =>
+      dot.classList.toggle("active", i === index)
+    );
   }
 
-  function nextPortfolioSlide() {
-    portfolioCurrentIndex = (portfolioCurrentIndex + 1) % projects.length;
-    updatePortfolioSlide(portfolioCurrentIndex);
-  }
-
-  function prevPortfolioSlide() {
-    portfolioCurrentIndex = (portfolioCurrentIndex - 1 + projects.length) % projects.length;
-    updatePortfolioSlide(portfolioCurrentIndex);
-  }
-
-  portfolioNextButton?.addEventListener("click", nextPortfolioSlide);
-  portfolioPrevButton?.addEventListener("click", prevPortfolioSlide);
-
-  if (portfolioDotsContainer) {
-    projects.forEach((_, index) => {
+  function createDots() {
+    slides.forEach((_, i) => {
       const dot = document.createElement("span");
       dot.classList.add("portfolio-dot");
-      if (index === 0) dot.classList.add("active");
+      if (i === 0) dot.classList.add("active");
       dot.addEventListener("click", () => {
-        portfolioCurrentIndex = index;
-        updatePortfolioSlide(index);
+        currentIndex = i;
+        showSlide(currentIndex);
       });
-      portfolioDotsContainer.appendChild(dot);
-      portfolioDots.push(dot);
+      dotsContainer.appendChild(dot);
     });
   }
 
-  updatePortfolioSlide(portfolioCurrentIndex);
-}
-  
-    // Testimonials Carousel Logic
-    const testimonialsCarousel = document.querySelector(".testimonials-carousel");
-    if (testimonialsCarousel) {
-      const testimonialSlides = document.querySelectorAll(".testimonial-slide");
-      const prevBtn = document.querySelector(".prev-testimonial");
-      const nextBtn = document.querySelector(".next-testimonial");
-      let currentTestimonialIndex = 0;
-  
-      function showTestimonialSlide(index) {
-        testimonialSlides.forEach((slide, i) => {
-          slide.classList.toggle("active", i === index);
-        });
-      }
-  
-      function nextTestimonialSlide() {
-        currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonialSlides.length;
-        showTestimonialSlide(currentTestimonialIndex);
-      }
-  
-      function prevTestimonialSlide() {
-        currentTestimonialIndex = (currentTestimonialIndex - 1 + testimonialSlides.length) % testimonialSlides.length;
-        showTestimonialSlide(currentTestimonialIndex);
-      }
-  
-      prevBtn?.addEventListener("click", prevTestimonialSlide);
-      nextBtn?.addEventListener("click", nextTestimonialSlide);
-  
-      showTestimonialSlide(currentTestimonialIndex);
-    }
+  prevBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    showSlide(currentIndex);
   });
-  
-  function injectContent(url, targetId, callback) {
-    fetch(url)
-      .then((res) => res.text())
-      .then((html) => {
-        const targetElement = document.getElementById(targetId);
-        if (targetElement) {
-          targetElement.innerHTML = html;
-          if (typeof callback === "function") callback();
-        } else {
-          console.error(`Target element with ID "${targetId}" not found.`);
-        }
-      })
-      .catch((err) => console.error(`Error loading ${url}:`, err));
-    }
+
+  nextBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % slides.length;
+    showSlide(currentIndex);
+  });
+
+  createDots();
+  showSlide(currentIndex);
+}
+
+document.addEventListener("DOMContentLoaded", setupPortfolioCarousel);

@@ -16,15 +16,14 @@ function setupCarouselOverlay() {
     if (path.includes("who-we-are")) {
       overlay.classList.add("overlay-who-we-are");
     } else if (path.includes("services")) {
-      console.log("Overlay element classes:", overlay.classList.value);
       overlay.classList.add("overlay-services");
     } else {
       overlay.classList.add("overlay-home");
     }
 
     // Inject overlay content from body dataset
-    const heading = overlay.querySelector("h1");
-    const paragraph = overlay.querySelector("p");
+    const heading = document.getElementById("carousel-heading");
+    const paragraph = document.getElementById("carousel-paragraph");
     const buttons = overlay.querySelectorAll(".btn");
 
     const {
@@ -39,7 +38,6 @@ function setupCarouselOverlay() {
     if (buttons[0] && carouselButton1) buttons[0].textContent = carouselButton1;
     if (buttons[1] && carouselButton2) buttons[1].textContent = carouselButton2;
 
-    // ✅ Add animation class to all carousel buttons
     buttons.forEach(btn => btn.classList.add("btn-animate"));
   });
 
