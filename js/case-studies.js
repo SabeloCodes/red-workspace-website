@@ -1,36 +1,18 @@
-// case-studies.js
+// ---------------- Component Injection ----------------
 
-// Utility function to inject external content
-function injectContent(url, targetId, callback) {
-    fetch(url)
-      .then((res) => res.text())
-      .then((html) => {
-        const target = document.getElementById(targetId);
-        if (target) {
-          target.innerHTML = html;
-          if (typeof callback === 'function') callback();
-        } else {
-          console.error(`Element with ID "${targetId}" not found.`);
-        }
-      })
-      .catch((err) => console.error(`Error loading ${url}:`, err));
-  }
-  
-  // Utility to inject external CSS
-  function injectCSS(href) {
-    const link = document.createElement("link");
-    link.rel = "stylesheet";
-    link.href = href;
-    document.head.appendChild(link);
-  }
-  
-  document.addEventListener("DOMContentLoaded", () => {
-    injectContent("components/nav.html", "navigation");
-    injectContent("components/footer.html", "page-footer");
-    injectCSS("css/carousel.css");
-    injectContent("components/carousel.html", "carousel-placeholder", () => {
-      setupCarouselOverlay();
-      setupCarouselLoop();
+function injectComponent(id, file, callback) {
+  fetch(file)
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById(id).innerHTML = data;
+      if (typeof callback === 'function') callback();
     });
-  });
-  
+}
+
+injectComponent('navigation', 'components/nav.html');
+injectComponent('page-footer', 'components/footer.html');
+injectComponent('carousel-placeholder', 'components/carousel.html', () => {
+  if (typeof initializeCarousel === 'function') {
+    initializeCarousel();
+  }
+});
