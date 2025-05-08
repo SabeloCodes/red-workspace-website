@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | RED Workspace</title>
+
+  <!-- Fonts & Shared Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/typography.css" />
+  <link rel="stylesheet" href="css/buttons.css" />
+
+  <!-- Components -->
+  <link rel="stylesheet" href="css/nav.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <link rel="stylesheet" href="css/carousel.css" />
+  <link rel="stylesheet" href="css/contact.css" />
+
+  <!-- Scripts -->
+  <script src="js/carousel.js" defer></script>
+  <script src="js/contact.js" defer></script>
+</head>
+<body class="contact-page"
+  data-carousel-heading="Contact Us"
+  data-carousel-paragraph="Whether you're at the early stages of planning or ready to get started, our team is here to support you every step of the way.">
+  
+  <!-- Navigation -->
+  <header id="navigation"></header>
+
+  <!-- Carousel -->
+  <div id="carousel-placeholder"></div>
+
+  <!-- Contact Form Section -->
+  <section class="contact-section">
+    <div class="container">
+      <h2 class="heading-xl text-light text-center">We want to hear from you,<br>lets talk.</h2>
+
+      <form class="contact-form" action="#" method="POST">
+        <label>
+          <span class="heading-md text-light text-center">NAME</span>
+          <input type="text" name="name" required class="input-wide" />
+        </label>
+
+        <label>
+          <span class="heading-md text-light text-center">NUMBER</span>
+          <input type="text" name="phone" required class="input-wide" />
+        </label>
+
+        <label>
+          <span class="heading-md text-light text-center">EMAIL</span>
+          <input type="email" name="email" required class="input-wide" />
+        </label>
+
+        <label>
+          <span class="heading-md text-light text-center">MESSAGE</span>
+          <textarea name="message" rows="5" required class="textarea-box"></textarea>
+        </label>
+
+        <div class="button-wrapper text-center">
+          <button type="submit" class="btn btn-dark-outline btn-animate">SUBMIT</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="page-footer"></footer>
+</body>
+</html>
