@@ -1,75 +1,94 @@
-/* -------------------- Mini Carousel 3D Style -------------------- */
 .case-study-carousel {
   position: relative;
-  max-width: 960px;
+  width: 100%;
+  max-width: 1000px;
   margin: 60px auto;
-  perspective: 1200px;
-  height: 280px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 40px 0 80px; /* More bottom padding to hold the dots */
+  overflow: hidden;
+  height: 500px; /* doubled height for larger image display */
 }
 
+/* Centered layout */
 .carousel-track {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: transform 0.5s ease;
   position: relative;
   height: 100%;
 }
 
+/* Carousel items */
 .carousel-item {
+  flex: 0 0 auto;
   position: absolute;
-  opacity: 0;
-  transform: scale(0.8);
-  transition: transform 0.5s ease, opacity 0.5s ease, z-index 0.5s ease;
-  z-index: 1;
+  left: 50%;
+  opacity: 0.4;
+  transform: scale(0.6);
+  transform-origin: center;
+  transition: transform 0.5s ease, opacity 0.5s ease;
   pointer-events: none;
+  z-index: 1;
 }
 
 .carousel-item img {
-  width: 200px;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  max-width: 100%;
+  max-height: 100%;
+  height: auto;
+  object-fit: contain;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
+/* Center image */
 .carousel-item.center {
-  transform: scale(1);
+  transform: translateX(-50%) scale(1);
   opacity: 1;
   z-index: 3;
   pointer-events: auto;
 }
 
+/* Items to left/right (closer together) */
 .carousel-item.left {
-  transform: translateX(-180px) scale(0.85) rotateY(15deg);
-  opacity: 0.5;
+  transform: translateX(-120%) scale(0.85);
   z-index: 2;
 }
 
 .carousel-item.right {
-  transform: translateX(180px) scale(0.85) rotateY(-15deg);
-  opacity: 0.5;
+  transform: translateX(20%) scale(0.85);
   z-index: 2;
 }
 
+/* Items further out (still visible but smaller and faint) */
+.carousel-item.left-far {
+  transform: translateX(-160%) scale(0.7);
+  z-index: 1;
+  opacity: 0.2;
+}
+
+.carousel-item.right-far {
+  transform: translateX(80%) scale(0.7);
+  z-index: 1;
+  opacity: 0.2;
+}
+
+/* Arrows */
 .carousel-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.9);
+  font-size: 5.4rem;
+  background: none;
   border: none;
-  font-size: 30px;
-  padding: 10px 15px;
-  border-radius: 50%;
+  color: black;
   cursor: pointer;
   z-index: 10;
-  transition: background 0.3s ease;
+  transition: color 0.3s, transform 0.3s;
+  padding: 0 20px;
 }
 
 .carousel-arrow:hover {
-  background: rgba(255, 255, 255, 1);
+  color: #d22f2b;
+  transform: translateY(-50%) scale(1.1);
 }
 
 .carousel-arrow.prev {
@@ -80,25 +99,97 @@
   right: 0;
 }
 
-@media screen and (max-width: 768px) {
+/*------------ Dots ------------*/
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px; /* Default for desktops */
+  position: relative;
+  z-index: 5;
+}
+
+.carousel-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: none;
+  border: 2px solid #e6e6e6; /* Light grey ring */
+  position: relative;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.carousel-dot::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  background-color: #d22f2b; /* Red inner dot */
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0.5);
+  opacity: 0;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.carousel-dot.active::after {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/*------------ Responsive: mobile-friendly version ------------*/
+@media (max-width: 768px) {
   .case-study-carousel {
-    height: 240px;
+    padding: 30px 0;
+    max-width: 100%;
+  }
+
+  .carousel-track {
+    height: auto;
+  }
+
+  .carousel-item {
+    transform: translateX(-50%) scale(0.5) !important;
+    max-width: 160px;
   }
 
   .carousel-item img {
-    width: 160px;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .carousel-item.center {
+    transform: translateX(-50%) scale(0.9) !important;
+    opacity: 1;
+    z-index: 3;
   }
 
   .carousel-item.left {
-    transform: translateX(-140px) scale(0.8) rotateY(10deg);
+    transform: translateX(-140%) scale(0.65) !important;
+    opacity: 0.5;
+    z-index: 2;
   }
 
   .carousel-item.right {
-    transform: translateX(140px) scale(0.8) rotateY(-10deg);
+    transform: translateX(40%) scale(0.65) !important;
+    opacity: 0.5;
+    z-index: 2;
+  }
+
+  .carousel-item.left-far,
+  .carousel-item.right-far {
+    display: none;
   }
 
   .carousel-arrow {
-    font-size: 26px;
-    padding: 8px 12px;
+    font-size: 3.6rem;
+    padding: 0 10px;
+  }
+
+  /* 🎯 Extra spacing below carousel dots on mobile */
+  .carousel-dots {
+    margin-top: 50px;
   }
 }

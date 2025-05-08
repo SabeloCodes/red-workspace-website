@@ -1,6 +1,6 @@
-// case-studies.js
+// who-we-are.js
 
-// Utility function to inject external content
+// -------------------- Utility: Inject External Content --------------------
 function injectContent(url, targetId, callback) {
   fetch(url)
     .then((res) => res.text())
@@ -16,7 +16,7 @@ function injectContent(url, targetId, callback) {
     .catch((err) => console.error(`Error loading ${url}:`, err));
 }
 
-// Utility to inject external CSS
+// -------------------- Utility: Inject External CSS --------------------
 function injectCSS(href) {
   const link = document.createElement("link");
   link.rel = "stylesheet";
@@ -40,7 +40,6 @@ function setupMiniCarousel() {
     const shift = itemWidth * (currentIndex - 1);
     track.style.transform = `translateX(-${shift}px)`;
 
-    // Update "center" styling
     items.forEach((item, i) => {
       item.classList.toggle("center", i === currentIndex);
     });
@@ -63,7 +62,46 @@ function setupMiniCarousel() {
   prevBtn?.addEventListener("click", moveLeft);
   nextBtn?.addEventListener("click", moveRight);
 
-  updateCarousel(); // Initial call
+  updateCarousel();
+}
+
+// -------------------- Team Animation Logic --------------------
+function setupTeamAnimations() {
+  const teamMembers = document.querySelectorAll(".team-member-segment");
+
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          entry.target.style.transitionDelay = `${index * 0.2}s`;
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    teamMembers.forEach(member => observer.observe(member));
+  } else {
+    teamMembers.forEach(member => member.classList.add("visible")); // Fallback
+  }
+}
+
+// -------------------- Animate Buttons in #who-we-are --------------------
+function setupWhoWeAreButtonAnimations() {
+  const section = document.getElementById("who-we-are");
+  if (!section) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const buttons = entry.target.querySelectorAll(".btn:not(.btn-animate)");
+        buttons.forEach(btn => btn.classList.add("btn-animate"));
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  observer.observe(section);
 }
 
 // -------------------- Page Initialization --------------------
@@ -77,5 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setupCarouselLoop();
   });
 
-  setupMiniCarousel(); // Custom mini carousel logic
+  setupMiniCarousel();
+  setupTeamAnimations();
+  setupWhoWeAreButtonAnimations(); // ✅ Animate buttons inside #who-we-are
 });

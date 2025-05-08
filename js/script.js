@@ -96,14 +96,12 @@ document.addEventListener("DOMContentLoaded", setupPortfolioCarousel);
 
  
 // -------------------- Testimonials Carousel Logic --------------------
-function setupTestimonialsCarousel() {
-  const testimonialsCarousel = document.querySelector(".testimonials-carousel");
-  if (!testimonialsCarousel) return;
-
-  const testimonialSlides = testimonialsCarousel.querySelectorAll(".testimonial-slide");
-  const prevBtn = testimonialsCarousel.querySelector(".prev-testimonial");
-  const nextBtn = testimonialsCarousel.querySelector(".next-testimonial");
-  let currentIndex = 0;
+const testimonialsCarousel = document.querySelector(".testimonials-carousel");
+if (testimonialsCarousel) {
+  const testimonialSlides = document.querySelectorAll(".testimonial-slide");
+  const prevBtn = document.querySelector(".prev-testimonial");
+  const nextBtn = document.querySelector(".next-testimonial");
+  let currentTestimonialIndex = 0;
 
   function showTestimonialSlide(index) {
     testimonialSlides.forEach((slide, i) => {
@@ -111,18 +109,18 @@ function setupTestimonialsCarousel() {
     });
   }
 
-  prevBtn?.addEventListener("click", () => {
-    currentIndex = (currentIndex - 1 + testimonialSlides.length) % testimonialSlides.length;
-    showTestimonialSlide(currentIndex);
-  });
+  function nextTestimonialSlide() {
+    currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonialSlides.length;
+    showTestimonialSlide(currentTestimonialIndex);
+  }
 
-  nextBtn?.addEventListener("click", () => {
-    currentIndex = (currentIndex + 1) % testimonialSlides.length;
-    showTestimonialSlide(currentIndex);
-  });
+  function prevTestimonialSlide() {
+    currentTestimonialIndex = (currentTestimonialIndex - 1 + testimonialSlides.length) % testimonialSlides.length;
+    showTestimonialSlide(currentTestimonialIndex);
+  }
 
-  showTestimonialSlide(currentIndex);
+  prevBtn?.addEventListener("click", prevTestimonialSlide);
+  nextBtn?.addEventListener("click", nextTestimonialSlide);
+
+  showTestimonialSlide(currentTestimonialIndex);
 }
-
-// Call it after DOM loads
-document.addEventListener("DOMContentLoaded", setupTestimonialsCarousel);

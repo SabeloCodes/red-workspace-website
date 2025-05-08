@@ -24,6 +24,14 @@
   margin-top: 20px;
 }
 
+.case-study-section.tighter-top {
+    margin-top: -50px; /* Adjust value as needed */
+  }
+
+  .case-study-carousel.tighter-top {
+    margin-top: -20px; /* Adjust value as needed */
+  }
+
 @media screen and (max-width: 768px) {
   .case-study-row {
     flex-direction: column;
