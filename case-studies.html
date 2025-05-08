@@ -62,11 +62,11 @@
     <!-- Mini Carousel: REVCAP -->
     <div class="case-study-carousel js-carousel tighter-top">
       <div class="carousel-track">
-        <div class="carousel-item"><img src="img/PROJECTS/REV_CAPITAL/HighRes__W9A4675 1.jpg" alt="Image 1" /></div>
-        <div class="carousel-item"><img src="img/PROJECTS/REV_CAPITAL/HighRes__W9A4689.jpg" alt="Image 2" /></div>
-        <div class="carousel-item"><img src="img/PROJECTS/REV_CAPITAL/HighRes__W9A4741.jpg" alt="Image 3" /></div>
-        <div class="carousel-item"><img src="img/PROJECTS/REV_CAPITAL/HighRes__W9A4780-Edit 1.jpg" alt="Image 4" /></div>
-        <div class="carousel-item"><img src="img/PROJECTS/REV_CAPITAL/HighRes__W9A4802 1.jpg" alt="Image 5" /></div>
+        <div class="carousel-item"><img src="img/PROJECTS/REV_CAPITAL/HighRes__W9A4675 1.jpg" alt="Image 1" data-caption="REVCAP" /></div>
+        <div class="carousel-item"><img src="img/PROJECTS/REV_CAPITAL/HighRes__W9A4689.jpg" alt="Image 2" data-caption="REVCAP"/></div>
+        <div class="carousel-item"><img src="img/PROJECTS/REV_CAPITAL/HighRes__W9A4741.jpg" alt="Image 3" data-caption="REVCAP"/></div>
+        <div class="carousel-item"><img src="img/PROJECTS/REV_CAPITAL/HighRes__W9A4780-Edit 1.jpg" alt="Image 4" data-caption="REVCAP" /></div>
+        <div class="carousel-item"><img src="img/PROJECTS/REV_CAPITAL/HighRes__W9A4802 1.jpg" alt="Image 5" data-caption="REVCAP"/></div>
       </div>
       <button class="carousel-arrow prev">&#10094;</button>
       <button class="carousel-arrow next">&#10095;</button>
@@ -102,34 +102,31 @@
     <!-- Mini Carousel: US HEDGE FUND -->
     <div class="case-study-carousel js-carousel tighter-top">
       <div class="carousel-track">
-        <div class="carousel-item"><img src="img/PROJECTS/US_HEDGE_FUND/Magnetar_0004.jpg" alt="Image 1" /></div>
-        <div class="carousel-item"><img src="img/PROJECTS//US_HEDGE_FUND/Magnetar_0009.jpg" alt="Image 2" /></div>
-        <div class="carousel-item"><img src="img/PROJECTS/US_HEDGE_FUND/Magnetar_0030.jpg" alt="Image 3" /></div>
-        <div class="carousel-item"><img src="img/PROJECTS/US_HEDGE_FUND/Magnetar_0041.jpg" alt="Image 4" /></div>
-        <div class="carousel-item"><img src="img/PROJECTS/US_HEDGE_FUND/Magnetar_0051-HDR.jpg" alt="Image 5" /></div>
+        <div class="carousel-item"><img src="img/PROJECTS/US_HEDGE_FUND/Magnetar_0004.jpg" alt="Image 1" data-caption="US HEDGE FUND"/></div>
+        <div class="carousel-item"><img src="img/PROJECTS//US_HEDGE_FUND/Magnetar_0009.jpg" alt="Image 2" data-caption="US HEDGE FUND"/></div>
+        <div class="carousel-item"><img src="img/PROJECTS/US_HEDGE_FUND/Magnetar_0030.jpg" alt="Image 3" data-caption="US HEDGE FUND"/></div>
+        <div class="carousel-item"><img src="img/PROJECTS/US_HEDGE_FUND/Magnetar_0041.jpg" alt="Image 4" data-caption="US HEDGE FUND"/></div>
+        <div class="carousel-item"><img src="img/PROJECTS/US_HEDGE_FUND/Magnetar_0051-HDR.jpg" alt="Image 5" data-caption="US HEDGE FUND"/></div>
       </div>
       <button class="carousel-arrow prev">&#10094;</button>
       <button class="carousel-arrow next">&#10095;</button>
 
        <!-- Dot Container -->
   <div class="carousel-dots"></div>
-
     </div>
   </section>
 
-  <!-- Modal -->
-
-  <div class="image-modal" id="image-modal">
-  <div class="image-modal-content">
-    <span class="close-modal">&times;</span>
-    <img id="modal-image" src="" alt="Large preview">
-    <div class="modal-nav">
-      <button id="modal-prev">&#10094;</button>
-      <button id="modal-next">&#10095;</button>
+<!-- Modal Viewer for Mini Carousel -->
+<div id="carousel-image-modal" class="carousel-modal">
+    <div class="carousel-modal-overlay"></div>
+    <div class="carousel-modal-content">
+      <img class="carousel-modal-image" src="" alt="Full Preview" />
+      <p class="carousel-modal-caption">Project Name</p>
+      <button class="carousel-arrow modal-prev">&#10094;</button>
+      <button class="carousel-arrow modal-next">&#10095;</button>
+      <span class="carousel-modal-close">&times;</span>
     </div>
   </div>
-</div>
-
 
 <!-- Footer -->
   <footer id="page-footer"></footer>

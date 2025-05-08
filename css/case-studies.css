@@ -1,4 +1,12 @@
 /* -------------------- Case Studies Page Specific Layout -------------------- */
+html, body {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-shadow: none;
+  }
+
 .case-studies-page section {
   padding: 80px 20px;
 }
