@@ -4,7 +4,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 24px 0;
+  padding: 24px 40px;
   color: #fff;
   position: absolute;
   top: 0;
@@ -13,14 +13,25 @@
   max-width: 1400px;
   margin: 0 auto;
   z-index: 10;
-  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.nav-left,
+.nav-center,
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.nav-center {
+  flex: 1;
+  justify-content: center;
 }
 
 /* LOGO */
 .logo {
   display: flex;
   align-items: center;
-  margin-left: 30px;
   flex-shrink: 0;
 }
 
@@ -44,10 +55,8 @@ nav ul {
   margin: 0;
   display: flex;
   flex-wrap: wrap;
-}
-
-nav ul li {
-  margin-left: 18px;
+  align-items: center;
+  gap: 18px;
 }
 
 nav ul li a {
@@ -150,6 +159,19 @@ nav ul li a::-moz-focus-inner {
 .btn:active {
   transform: scale(0.96);
   transition: transform 0.1s ease;
+}
+
+/* -------------------- Carousel Page Specific Styles -------------------- */
+body.carousel-page .overlay {
+  padding-top: 320px;
+}
+
+body.index-page .overlay {
+  padding-top: 240px; /* Adjust this number to control vertical position */
+}
+
+body.carousel-page .nav-center {
+  transform: translateX(-4%);
 }
 
 /* -------------------- Responsive Styles -------------------- */

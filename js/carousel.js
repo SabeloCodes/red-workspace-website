@@ -18,7 +18,7 @@ function setupCarouselLoop() {
   if (!carouselImage1 || !carouselImage2) return;
 
   carouselImage1.classList.add("zoom-animation", "active", "fade-in");
-  setInterval(swapImages, 5000);
+  setInterval(swapImages, 8000);
 }
 
 function swapImages() {

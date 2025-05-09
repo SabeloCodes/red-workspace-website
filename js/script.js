@@ -1,126 +1,35 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // Inject Navigation
-  injectContent("components/nav.html", "navigation", () => {
-    const navScript = document.createElement("script");
-    navScript.src = "js/nav.js";
-    navScript.onload = () => console.log("✅ nav.js loaded");
-    document.body.appendChild(navScript);
-  });
+// js/script.js (for index.html)
 
-  // Inject Footer
-  injectContent("components/footer.html", "page-footer");
-
-  // Inject Carousel and run setup
-  injectContent("components/carousel.html", "carousel-placeholder", () => {
-    if (typeof setupCarouselLoop === "function") {
-      setupCarouselLoop();
-    }
-
-    setTimeout(() => {
-      if (typeof setupCarouselOverlay === "function") {
-        setupCarouselOverlay();
-      }
-
-      setupPortfolioCarousel(); // ✅ Runs only after DOM is ready
-    }, 100);
-  });
-});
-
-// Reusable content injector
+// Inject reusable components dynamically
 function injectContent(url, targetId, callback) {
   fetch(url)
-    .then((res) => {
-      if (!res.ok) throw new Error(`Failed to fetch ${url}: ${res.statusText}`);
-      return res.text();
-    })
-    .then((html) => {
+    .then(res => res.text())
+    .then(html => {
       const target = document.getElementById(targetId);
-      if (!target) {
-        console.error(`❌ Element with ID "${targetId}" not found.`);
-        return;
+      if (target) {
+        target.innerHTML = html;
+        if (typeof callback === 'function') callback();
       }
-      target.innerHTML = html;
-      if (typeof callback === "function") callback();
     })
-    .catch((err) => console.error(`❌ Error loading ${url}:`, err));
+    .catch(err => console.error(`Error loading ${url}:`, err));
 }
 
-function setupPortfolioCarousel() {
-  const slides = document.querySelectorAll(".portfolio-slide");
-  const prevBtn = document.querySelector(".portfolio-prev");
-  const nextBtn = document.querySelector(".portfolio-next");
-  const dotsContainer = document.querySelector(".portfolio-dots");
+// Inject external stylesheet if needed
+function injectCSS(href) {
+  const link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = href;
+  document.head.appendChild(link);
+}
 
-  if (!slides.length || !dotsContainer) return;
+// Initialize homepage
+document.addEventListener('DOMContentLoaded', () => {
+  injectContent('components/nav.html', 'navigation');
+  injectContent('components/footer.html', 'page-footer');
 
-  let currentIndex = 0;
-
-  function showSlide(index) {
-    slides.forEach((slide, i) =>
-      slide.classList.toggle("active", i === index)
-    );
-    const dots = dotsContainer.querySelectorAll(".portfolio-dot");
-    dots.forEach((dot, i) =>
-      dot.classList.toggle("active", i === index)
-    );
-  }
-
-  function createDots() {
-    slides.forEach((_, i) => {
-      const dot = document.createElement("span");
-      dot.classList.add("portfolio-dot");
-      if (i === 0) dot.classList.add("active");
-      dot.addEventListener("click", () => {
-        currentIndex = i;
-        showSlide(currentIndex);
-      });
-      dotsContainer.appendChild(dot);
-    });
-  }
-
-  prevBtn.addEventListener("click", () => {
-    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-    showSlide(currentIndex);
+  injectCSS('css/carousel.css');
+  injectContent('components/carousel.html', 'carousel-placeholder', () => {
+    setupCarouselOverlay();
+    setupCarouselLoop();
   });
-
-  nextBtn.addEventListener("click", () => {
-    currentIndex = (currentIndex + 1) % slides.length;
-    showSlide(currentIndex);
-  });
-
-  createDots();
-  showSlide(currentIndex);
-}
-
-document.addEventListener("DOMContentLoaded", setupPortfolioCarousel);
-
- 
-// -------------------- Testimonials Carousel Logic --------------------
-const testimonialsCarousel = document.querySelector(".testimonials-carousel");
-if (testimonialsCarousel) {
-  const testimonialSlides = document.querySelectorAll(".testimonial-slide");
-  const prevBtn = document.querySelector(".prev-testimonial");
-  const nextBtn = document.querySelector(".next-testimonial");
-  let currentTestimonialIndex = 0;
-
-  function showTestimonialSlide(index) {
-    testimonialSlides.forEach((slide, i) => {
-      slide.classList.toggle("active", i === index);
-    });
-  }
-
-  function nextTestimonialSlide() {
-    currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonialSlides.length;
-    showTestimonialSlide(currentTestimonialIndex);
-  }
-
-  function prevTestimonialSlide() {
-    currentTestimonialIndex = (currentTestimonialIndex - 1 + testimonialSlides.length) % testimonialSlides.length;
-    showTestimonialSlide(currentTestimonialIndex);
-  }
-
-  prevBtn?.addEventListener("click", prevTestimonialSlide);
-  nextBtn?.addEventListener("click", nextTestimonialSlide);
-
-  showTestimonialSlide(currentTestimonialIndex);
-}
+});

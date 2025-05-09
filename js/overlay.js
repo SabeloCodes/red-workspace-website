@@ -17,7 +17,11 @@ function setupCarouselOverlay() {
       overlay.classList.add("overlay-who-we-are");
     } else if (path.includes("services")) {
       overlay.classList.add("overlay-services");
-    } else {
+    } else if (path.includes("case-studies")) {
+      overlay.classList.add("overlay-case-studies");
+    } else if (path.includes("contact")) {
+      overlay.classList.add("overlay-contact");
+    } else if (path.endsWith("/") || path.endsWith("/index.html") || path === "") {
       overlay.classList.add("overlay-home");
     }
 
