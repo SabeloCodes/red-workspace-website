@@ -19,6 +19,17 @@
     transition: transform 0.1s ease;
   }
 
+  
+  .btn:focus {
+    outline: none;
+    box-shadow: none;
+    border: none;
+  }
+  
+  .btn:focus-visible {
+    outline: 2px solid #d22f2b; /* or use a color that fits your design */
+  }
+
     /* -------------------- Animate Buttons -------------------- */
 
     .btn-animate {
