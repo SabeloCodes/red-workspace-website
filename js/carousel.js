@@ -1,9 +1,12 @@
-// --- js/carousel.js ---
+// js/carousel.js
 
 // Carousel state
 let carouselImage1, carouselImage2;
 let currentImageIndex = 0;
 let showingImage1 = true;
+const displayTime = 7000; // Time image is fully visible (7 seconds)
+const fadeOutTime = 4000; // Time for fade out (4 seconds)
+const zoomDuration = 8000; // Total zoom duration
 
 const heroImages = [
   "img/PROJECTS/REV_CAPITAL/HighRes__W9A4780-Edit 1.jpg",
@@ -17,8 +20,13 @@ function setupCarouselLoop() {
   carouselImage2 = document.getElementById("carousel-image-2");
   if (!carouselImage1 || !carouselImage2) return;
 
-  carouselImage1.classList.add("zoom-animation", "active", "fade-in");
-  setInterval(swapImages, 8000);
+  // Initial state for the first image: visible and zooming
+  carouselImage1.classList.add("active");
+  carouselImage1.style.zIndex = 2;
+  carouselImage2.style.zIndex = 1;
+
+  // Start the image cycling
+  setTimeout(swapImages, displayTime);
 }
 
 function swapImages() {
@@ -28,18 +36,29 @@ function swapImages() {
   const incoming = showingImage1 ? carouselImage2 : carouselImage1;
   const outgoing = showingImage1 ? carouselImage1 : carouselImage2;
 
+  // Prepare incoming image
   incoming.src = nextSrc;
-  incoming.classList.add("active", "fade-in", "zoom-animation");
+  incoming.classList.remove("fading-out", "active");
+  void incoming.offsetWidth; // Force reflow
+  incoming.classList.add("active");
+  incoming.style.zIndex = 2;
 
-  outgoing.classList.remove("zoom-animation");
-  outgoing.classList.add("fading-out");
-
+  // Fade out the outgoing image after the display time
   setTimeout(() => {
-    outgoing.classList.remove("active", "fading-out");
-  }, 1000); // Matches CSS fade duration
+    outgoing.classList.add("fading-out");
+    outgoing.style.zIndex = 1;
+  }, 0); // Start fade-out immediately
+
+  // Reset outgoing image after fade out
+  setTimeout(() => {
+    outgoing.classList.remove("active", "fading-out", "zoom-animation");
+  }, fadeOutTime);
 
   showingImage1 = !showingImage1;
   currentImageIndex = nextImageIndex;
+
+  // Schedule the next swap after the total cycle (display + fade)
+  setTimeout(swapImages, displayTime + fadeOutTime);
 }
 
 function setupCarouselOverlay() {
