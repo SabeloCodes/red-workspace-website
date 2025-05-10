@@ -69,12 +69,22 @@ function setupCarouselOverlay() {
   const heading = document.body.dataset.carouselHeading;
   const paragraph = document.body.dataset.carouselParagraph;
   const btn1 = document.body.dataset.carouselButton1;
+  const btn1Link = document.body.dataset.carouselButton1Link;
   const btn2 = document.body.dataset.carouselButton2;
+  const btn2Link = document.body.dataset.carouselButton2Link;
 
   if (h1 && heading) h1.textContent = heading;
   if (p && paragraph) p.textContent = paragraph;
-  if (buttons[0] && btn1) buttons[0].textContent = btn1;
-  if (buttons[1] && btn2) buttons[1].textContent = btn2;
+
+  if (buttons[0] && btn1) {
+    buttons[0].textContent = btn1;
+    if (btn1Link) buttons[0].setAttribute("href", btn1Link);
+  }
+
+  if (buttons[1] && btn2) {
+    buttons[1].textContent = btn2;
+    if (btn2Link) buttons[1].setAttribute("href", btn2Link);
+  }
 }
 
 window.setupCarouselLoop = setupCarouselLoop;

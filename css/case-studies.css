@@ -5,6 +5,7 @@ html, body {
     border: none;
     outline: none;
     box-shadow: none;
+    scroll-behavior: smooth;
   }
 
 .case-studies-page section {
