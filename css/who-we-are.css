@@ -1,4 +1,7 @@
 /* -------------------- Who We Are Page Styles -------------------- */
+html {
+  scroll-behavior: smooth;
+}
 
 /* General Section Styles */
 .section {
