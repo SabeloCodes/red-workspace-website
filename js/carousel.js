@@ -11,7 +11,10 @@ const zoomDuration = 8000; // Total zoom duration
 const heroImages = [
   "img/PROJECTS/REV_CAPITAL/HighRes__W9A4780-Edit 1.jpg",
   "img/PROJECTS/US_HEDGE_FUND/Magnetar_0051-HDR.jpg",
-  "img/PROJECTS/REV_CAPITAL/HighRes__W9A4741.jpg"
+  "img/PROJECTS/REV_CAPITAL/HighRes__W9A4741.jpg",
+  "img/PROJECTS/US_HEDGE_FUND/Magnetar 0011.jpg",
+  "img/PROJECTS/US_HEDGE_FUND/Magnetar_0051-HDR.jpg",
+  "img/PROJECTS/REV_CAPITAL/HighRes__W9A4822 1.jpg"
 ];
 
 // Setup carousel functionality

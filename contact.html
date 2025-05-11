@@ -44,33 +44,44 @@
     <div class="container">
       <h2 class="heading-xl text-light text-center">We want to hear from you,<br>lets talk.</h2>
 
-      <form class="contact-form" action="#" method="POST">
+      <form class="contact-form" action="https://formspree.io/f/mldbwbgl" method="POST" id="contactForm">
         <label>
           <span class="heading-md text-light text-center">NAME</span>
           <input type="text" name="name" required class="input-wide" />
         </label>
-
+      
         <label>
           <span class="heading-md text-light text-center">NUMBER</span>
-          <input type="text" name="phone" required class="input-wide" />
+          <input type="tel" name="phone" required class="input-wide" pattern="[0-9\s]+" title="Please enter numbers only" />
         </label>
-
+      
         <label>
           <span class="heading-md text-light text-center">EMAIL</span>
           <input type="email" name="email" required class="input-wide" />
         </label>
-
+      
         <label>
           <span class="heading-md text-light text-center">MESSAGE</span>
           <textarea name="message" rows="5" required class="textarea-box"></textarea>
         </label>
-
+      
         <div class="button-wrapper text-center">
           <button type="submit" class="btn btn-dark-outline btn-animate">SUBMIT</button>
         </div>
       </form>
     </div>
   </section>
+
+  <!-- Thank You Modal -->
+  <div id="thankYouModal" class="thank-you-modal">
+    <div class="modal-content">
+      <button class="close-modal" aria-label="Close Thank You Modal">&times;</button>
+      <p class="text-md text-bold">
+        Thank you for contacting <span style="color: #D22F2B;">Red Workspace</span>.<br>
+        We will be in touch soon.
+      </p>
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer id="page-footer"></footer>
