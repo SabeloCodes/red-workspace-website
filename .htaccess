@@ -1,0 +1,2 @@
+# Force index.html as default page
+DirectoryIndex index.html
