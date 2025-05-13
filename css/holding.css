@@ -39,19 +39,49 @@
   
   /* -------------------- Logo & Text -------------------- */
   .logo {
-    width: 100px;
+    width: 40vw; /* 40% of the viewport width */
+    max-width: 200px;
+    min-width: 120px;
     margin-bottom: 20px;
   }
+
   .title {
     font-size: 2.5rem;
     color: #D22F2B;
     margin-bottom: 10px;
     font-weight: 600;
   }
+
   .message {
     font-size: 1.1rem;
     color: #555;
     margin-bottom: 30px;
+  }
+
+  /* -------------------- Logo Wrapper -------------------- */
+.logo-link {
+    display: inline-block;
+    text-align: center;
+  }
+  
+  /* -------------------- Logo Style -------------------- */
+  .logo {
+    width: 200px;
+    margin-bottom: 20px;
+  }
+  
+  /* -------------------- Logo Load Animation -------------------- */
+  .animated-logo {
+    opacity: 0;
+    transform: scale(0.9);
+    animation: logoFadeIn 1s ease-out forwards;
+  }
+  
+  @keyframes logoFadeIn {
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
   }
   
   /* -------------------- Button -------------------- */
