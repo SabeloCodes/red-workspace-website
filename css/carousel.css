@@ -29,6 +29,12 @@
   transform: scale(1.05); /* Initial zoom state */
 }
 
+#carousel-heading {
+  text-align: center;
+  line-height: 1.2;
+  white-space: normal; /* ensure <br> works */
+}
+
 #carousel-container img.active {
   z-index: 2;
   opacity: 1; /* Immediately visible */
